@@ -7,42 +7,44 @@
   --navy-dark: #1a2a4a;
 }
 
-@layer base {
-  body {
-    @apply font-sans text-gray-800 antialiased;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
-  }
+/* Base styles - converted from @apply */
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer components {
-  .bg-turquoise {
-    background-color: var(--turquoise);
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-bold);
+}
 
-  .text-turquoise {
-    color: var(--turquoise);
-  }
+/* Custom colors using Tailwind's new variables system */
+.bg-turquoise {
+  background-color: var(--turquoise);
+}
 
-  .bg-navy-dark {
-    background-color: var(--navy-dark);
-  }
+.text-turquoise {
+  color: var(--turquoise);
+}
 
-  .text-wrap-balance {
-    text-wrap: balance;
-  }
+.bg-navy-dark {
+  background-color: var(--navy-dark);
+}
+
+.text-wrap-balance {
+  text-wrap: balance;
 }
 
 /* News Ticker Animation */
 .news-ticker-container {
-  @apply overflow-hidden whitespace-nowrap;
+  overflow: hidden;
+  white-space: nowrap;
   width: 300px;
 }
 
 .news-ticker {
-  @apply inline-block;
+  display: inline-block;
   animation: tickerScroll 20s linear infinite;
 }
 
