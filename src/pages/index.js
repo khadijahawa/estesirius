@@ -1,22 +1,10 @@
-import { useState, useEffect, useRef } from "react";
 import Head from 'next/head';
-import Image from 'next/image';
+import HeroSlider from '../components/HeroSlider';
+import WelcomeSection from '../components/WelcomeSection';
+import ProductsSection from '../components/ProductsSection';
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const intervalRef = useRef(null);
-  const timeoutRef = useRef(null);
-  
-  // Define constants for timing to ensure consistency
-  const SLIDE_DURATION = 6000; // 6 seconds per slide
-  const ANIMATION_INTERVAL = 100; // Update progress every 100ms
-  const PROGRESS_INCREMENT = (100 * ANIMATION_INTERVAL) / SLIDE_DURATION; // Calculate exact increment
-  const FADE_DURATION = 500; // Duration of fade transition between slides
-  const PRIMARY_BUTTON_DELAY = 300; // Delay for primary button animation
-  const SECONDARY_BUTTON_DELAY = 600; // Delay for secondary button animation
-  
+  // Hero slider data
   const slides = [
     {
       id: 1,
@@ -47,58 +35,51 @@ export default function Home() {
     }
   ];
 
-  const startTimer = () => {
-    // Clear any existing intervals
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    
-    // Reset progress
-    setProgress(0);
-    
-    // Start progress animation
-    const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
-        return prev + PROGRESS_INCREMENT; // Use calculated increment for precision
-      });
-    }, ANIMATION_INTERVAL);
-    
-    // Set slide transition
-    intervalRef.current = setInterval(() => {
-      setIsAnimating(true);
-      timeoutRef.current = setTimeout(() => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-        setIsAnimating(false);
-        setProgress(0);
-      }, FADE_DURATION); // Use constant for fade duration
-    }, SLIDE_DURATION); // Use constant for consistent timing
-    
-    return progressInterval;
-  };
-
-  useEffect(() => {
-    const progressInterval = startTimer();
-    
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      clearInterval(progressInterval);
-    };
-  }, [slides.length]);
-
-  const handleSlideChange = (index) => {
-    if (index === currentSlide) return;
-    
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentSlide(index);
-      setIsAnimating(false);
-      startTimer();
-    }, FADE_DURATION / 2); // Half the fade duration for manual transitions
-  };
+  // Product data
+  const featuredProducts = [
+    {
+      id: 1,
+      name: "Revitalizing Serum",
+      description: "A powerful serum that rejuvenates and hydrates your skin for a youthful glow.",
+      price: "199.99",
+      isNew: true
+    },
+    {
+      id: 2,
+      name: "Anti-Aging Cream",
+      description: "Premium formula that reduces fine lines and restores elasticity for smoother skin.",
+      price: "149.99",
+      isNew: false
+    },
+    {
+      id: 3,
+      name: "Collagen Booster",
+      description: "Enhances natural collagen production for plumper, more radiant skin.",
+      price: "229.99",
+      isNew: true
+    },
+    {
+      id: 4,
+      name: "Recovery Mask",
+      description: "Intensive treatment mask that accelerates skin recovery after procedures.",
+      price: "79.99",
+      isNew: false
+    },
+    {
+      id: 5,
+      name: "Pore Minimizer",
+      description: "Refining solution that tightens pores and improves skin texture.",
+      price: "89.99",
+      isNew: true
+    },
+    {
+      id: 6,
+      name: "Gentle Cleanser",
+      description: "pH-balanced formula that cleanses thoroughly without drying sensitive skin.",
+      price: "49.99",
+      isNew: false
+    }
+  ];
 
   return (
     <>
@@ -107,165 +88,9 @@ export default function Home() {
         <meta name="description" content="Premium plastic surgery clinic focused on providing the highest quality care and results" />
       </Head>
       
-      <div className="home-hero relative h-[600px] flex items-center overflow-hidden">
-        {slides.map((slide, index) => (
-          <div 
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-${FADE_DURATION} ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{ transitionDuration: `${FADE_DURATION}ms` }}
-          >
-            <div className="absolute inset-0 z-0">
-              <div className="relative w-full h-full">
-                <Image
-                  src={slide.image}
-                  alt={`ESTE SIRIUS - ${slide.title}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className={`filter brightness-90 transition-transform duration-6000 ${
-                    index === currentSlide ? 'scale-105 origin-center' : 'scale-100'
-                  }`}
-                  style={{ transitionDuration: `${SLIDE_DURATION}ms` }} // Match slide duration
-                />
-              </div>
-            </div>
-            
-            <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
-              <div 
-                className={`max-w-2xl transition-all ${
-                  index === currentSlide && !isAnimating 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
-                }`}
-                style={{ transitionDuration: `${FADE_DURATION * 2}ms` }}
-              >
-                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                  {slide.title} <span className="text-turquoise">{slide.titleHighlight}</span>
-                </h1>
-                <p className="text-white text-lg mb-8 text-wrap-balance">
-                  {slide.description}
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <button 
-                    className={`bg-turquoise hover:bg-turquoise/80 text-white font-bold py-3 px-8 rounded transition ${
-                      index === currentSlide && !isAnimating 
-                        ? 'animate-fadeIn' 
-                        : 'opacity-0'
-                    }`}
-                    style={{ animationDelay: `${PRIMARY_BUTTON_DELAY}ms` }} // Use constant
-                  >
-                    {slide.primaryButton}
-                  </button>
-                  <button 
-                    className={`bg-white hover:bg-gray-100 text-turquoise font-bold py-3 px-8 rounded transition ${
-                      index === currentSlide && !isAnimating 
-                        ? 'animate-fadeIn' 
-                        : 'opacity-0'
-                    }`}
-                    style={{ animationDelay: `${SECONDARY_BUTTON_DELAY}ms` }} // Use constant
-                  >
-                    {slide.secondaryButton}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-        
-        {/* Slide indicators and timer */}
-        <div className="absolute bottom-8 right-8 flex items-center gap-4 z-20">
-          {/* Circular countdown */}
-          <div className="relative h-8 w-8">
-            <svg className="h-8 w-8 transform -rotate-90" viewBox="0 0 36 36">
-              <circle 
-                cx="18" 
-                cy="18" 
-                r="16" 
-                fill="none" 
-                stroke="rgba(255, 255, 255, 0.2)" 
-                strokeWidth="3"
-              />
-              <circle 
-                cx="18" 
-                cy="18" 
-                r="16" 
-                fill="none" 
-                stroke="var(--turquoise)" 
-                strokeWidth="3" 
-                strokeDasharray="100"
-                strokeDashoffset={100 - progress}
-                className="transition-all duration-100 ease-linear"
-                style={{ transitionDuration: `${ANIMATION_INTERVAL}ms` }}
-              />
-            </svg>
-          </div>
-          
-          {/* Slide indicators */}
-          <div className="flex gap-2">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.id}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-turquoise w-6' : 'bg-white/50'
-                }`}
-                style={{ transitionDuration: `${FADE_DURATION / 2}ms` }}
-                onClick={() => handleSlideChange(index)}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Welcome to <span className="text-turquoise">ESTE SIRIUS</span></h2>
-          {/* Additional homepage content would go here */}
-        </div>
-      </div>
-
-      {/* Shop Products Section */}
-      <div className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Featured Products</h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-            Discover our exclusive selection of premium products designed to enhance your natural beauty and support your transformation journey.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Product cards */}
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="bg-white shadow-md rounded-lg overflow-hidden">
-                <div className="h-64 bg-gray-200 relative">
-                  {/* Placeholder for product image */}
-                  <div className="absolute top-4 right-4 bg-turquoise text-white text-xs font-bold px-2 py-1 rounded">
-                    NEW
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">Product Name {item}</h3>
-                  <p className="text-gray-600 line-clamp-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Nullam in vestibulum tortor, at tempor lectus.
-                  </p>
-                  <div className="mt-4 flex justify-between items-center">
-                    <span className="text-xl font-bold text-turquoise">$199.99</span>
-                    <button className="bg-navy-dark text-white px-4 py-2 rounded hover:bg-navy-dark/80 transition">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <a href="/shop" className="inline-block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-3 px-8 rounded transition">
-              VIEW ALL PRODUCTS
-            </a>
-          </div>
-        </div>
-      </div>
+      <HeroSlider slides={slides} />
+      <WelcomeSection />
+      <ProductsSection products={featuredProducts} />
     </>
   );
 }
