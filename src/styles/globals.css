@@ -2,10 +2,6 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --turquoise: #40e0d0;
   --navy-dark: #1a2a4a;
