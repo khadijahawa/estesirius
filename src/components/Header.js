@@ -53,8 +53,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/">
             <div className="flex">
-              <span className="bg-turquoise text-white px-3 py-2 font-bold">CLINICA</span>
-              <span className="bg-navy-dark text-white px-3 py-2 font-bold">WP</span>
+              <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
+              <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
             </div>
           </Link>
 

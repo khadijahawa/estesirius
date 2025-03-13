@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CLINICA WP - Premium Plastic Surgery Clinic</title>
+        <title>ESTE SIRIUS - Premium Plastic Surgery Clinic</title>
         <meta name="description" content="Premium plastic surgery clinic focused on providing the highest quality care and results" />
       </Head>
       
@@ -15,7 +15,7 @@ export default function Home() {
           <div className="relative w-full h-full">
             <Image
               src="/images/pr-10.jpg"
-              alt="CLINICA WP Hero"
+              alt="ESTE SIRIUS Hero"
               layout="fill"
               objectFit="cover"
               className="filter brightness-90"
@@ -43,7 +43,7 @@ export default function Home() {
       
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Welcome to <span className="text-turquoise">CLINICA WP</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Welcome to <span className="text-turquoise">ESTE SIRIUS</span></h2>
           {/* Additional homepage content would go here */}
         </div>
       </div>

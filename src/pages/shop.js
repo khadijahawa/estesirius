@@ -5,7 +5,7 @@ export default function Shop() {
   return (
     <>
       <Head>
-        <title>Our Shop - CLINICA WP</title>
+        <title>Our Shop - ESTE SIRIUS</title>
         <meta name="description" content="Browse our shop for premium plastic surgery products and services" />
       </Head>
       
@@ -13,7 +13,7 @@ export default function Shop() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
-              src="/images/pr-10.jpg"
+              src="/images/pr-29.jpg"
               alt="Clinic Background"
               layout="fill"
               objectFit="cover"
