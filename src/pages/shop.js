@@ -13,7 +13,7 @@ export default function Shop() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
-              src="/images/clinic-background.jpg"
+              src="/images/pr-10.jpg"
               alt="Clinic Background"
               layout="fill"
               objectFit="cover"
