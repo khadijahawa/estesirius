@@ -123,3 +123,12 @@ button:hover {
 .animate-fadeIn {
   animation: fadeIn 1000ms forwards; /* Matches FADE_DURATION * 2 in JS */
 }
+
+/* Mobile Menu Animation */
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
