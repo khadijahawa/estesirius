@@ -1,3 +1,106 @@
 /* styles.css */
 @import "tailwindcss";
 @import "tailwindcss/utilities";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --turquoise: #40e0d0;
+  --navy-dark: #1a2a4a;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-gray-800 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .bg-turquoise {
+    background-color: var(--turquoise);
+  }
+
+  .text-turquoise {
+    color: var(--turquoise);
+  }
+
+  .bg-navy-dark {
+    background-color: var(--navy-dark);
+  }
+
+  .text-wrap-balance {
+    text-wrap: balance;
+  }
+}
+
+/* News Ticker Animation */
+.news-ticker-container {
+  @apply overflow-hidden whitespace-nowrap;
+  width: 300px;
+}
+
+.news-ticker {
+  @apply inline-block;
+  animation: tickerScroll 20s linear infinite;
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Dropdown Menu Animation */
+.dropdown-menu {
+  animation: fadeInDown 0.3s ease-out;
+  transform-origin: top center;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Notification Badge Animation */
+.notification-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(64, 224, 208, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(64, 224, 208, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(64, 224, 208, 0);
+  }
+}
+
+/* Button Hover Effects */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
