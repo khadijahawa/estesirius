@@ -119,6 +119,7 @@ button:hover {
   }
 }
 
+/* Synchronize animation duration with JS constants */
 .animate-fadeIn {
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 1000ms forwards; /* Matches FADE_DURATION * 2 in JS */
 }
