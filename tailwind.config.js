@@ -18,6 +18,12 @@ module.exports = {
           xl: '5rem',
         },
       },
+      transitionDuration: {
+        '6000': '6000ms',
+      },
+      animation: {
+        'fadeIn': 'fadeIn 1s forwards',
+      },
     },
   },
   plugins: [],
