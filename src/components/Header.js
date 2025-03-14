@@ -36,15 +36,15 @@ export default function Header() {
 
   return (
     <header className="w-full">
-      {/* Top Navigation Bar */}
-      <div className="bg-navy-dark text-white py-3">
+      {/* Top Navigation Bar - Hidden on mobile */}
+      <div className="hidden md:block bg-navy-dark text-white py-3">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center">
             <FaPhone className="mr-2 text-turquoise" />
-            <span className="hidden sm:inline">ST. LAMBOR, NEW YORK (US)</span>
+            <span>ST. LAMBOR, NEW YORK (US)</span>
           </div>
           
-          <div className="hidden md:flex items-center overflow-hidden">
+          <div className="flex items-center overflow-hidden">
             <span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>
             <div className="news-ticker-container">
               <span className="news-ticker">THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
@@ -53,7 +53,7 @@ export default function Header() {
           
           <div className="flex items-center">
             <FaEnvelope className="mr-2 text-turquoise" />
-            <span className="hidden sm:inline">CLINIC: +31 2349334972</span>
+            <span>CLINIC: +31 2349334972</span>
           </div>
         </div>
       </div>
