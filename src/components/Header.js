@@ -81,8 +81,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="flex items-center">
-              <span className="text-turquoise font-bold text-2xl">CLINICA</span>
-              <span className="text-navy-dark font-bold text-2xl ml-1">WP</span>
+              <span className="text-turquoise font-bold text-2xl">ESTE</span>
+              <span className="text-navy-dark font-bold text-2xl ml-1">SIRIUS</span>
             </div>
           </Link>
 
@@ -139,8 +139,8 @@ export default function Header() {
       >
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center">
-            <span className="text-turquoise font-bold">CLINICA</span>
-            <span className="text-navy-dark font-bold ml-1">WP</span>
+            <span className="text-turquoise font-bold">ESTE</span>
+            <span className="text-navy-dark font-bold ml-1">SIRIUS</span>
           </div>
           <button 
             onClick={toggleMobileMenu} 
@@ -188,7 +188,7 @@ export default function Header() {
             </div>
             <div className="flex items-center text-gray-600">
               <FaEnvelope className="mr-2 text-turquoise" />
-              <span>info@clinicawp.com</span>
+              <span>info@cestesirius.com</span>
             </div>
           </div>
         </div>
