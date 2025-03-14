@@ -45,9 +45,8 @@ export default function Header() {
           </div>
           
           <div className="flex items-center overflow-hidden">
-            <span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>
             <div className="news-ticker-container">
-              <span className="news-ticker">THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
+              <span className="news-ticker"><span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
             </div>
           </div>
           

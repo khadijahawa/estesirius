@@ -70,7 +70,7 @@ export default function HeroSlider({ slides }) {
   };
 
   return (
-    <div className="home-hero relative h-[600px] flex items-center overflow-hidden">
+    <div className="home-hero relative h-[100vh] w-full flex items-center overflow-hidden">
       {slides.map((slide, index) => (
         <div 
           key={slide.id}
@@ -86,27 +86,31 @@ export default function HeroSlider({ slides }) {
                 alt={`ESTE SIRIUS - ${slide.title}`}
                 layout="fill"
                 objectFit="cover"
+                priority={index === 0}
                 className={`filter brightness-90 transition-transform ${
                   index === currentSlide ? 'scale-105 origin-center' : 'scale-100'
                 }`}
                 style={{ transitionDuration: `${SLIDE_DURATION}ms` }}
               />
+              
+              {/* Add a slight overlay for better text readability */}
+              <div className="absolute inset-0 bg-black/30 z-1"></div>
             </div>
           </div>
           
           <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
             <div 
-              className={`max-w-2xl transition-all ${
+              className={`max-w-2xl transition-all pt-16 md:pt-24 ${
                 index === currentSlide && !isAnimating 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDuration: `${FADE_DURATION * 2}ms` }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
                 {slide.title} <span className="text-turquoise">{slide.titleHighlight}</span>
               </h1>
-              <p className="text-white text-lg mb-8 text-wrap-balance">
+              <p className="text-white text-lg md:text-xl mb-8 text-wrap-balance">
                 {slide.description}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -136,8 +140,8 @@ export default function HeroSlider({ slides }) {
         </div>
       ))}
       
-      {/* Slide indicators and timer */}
-      <div className="absolute bottom-8 right-8 flex items-center gap-4 z-20">
+      {/* Slide indicators and timer - positioned higher from bottom for better visibility */}
+      <div className="absolute bottom-16 right-8 flex items-center gap-4 z-20">
         {/* Circular countdown */}
         <div className="relative h-8 w-8">
           <svg className="h-8 w-8 transform -rotate-90" viewBox="0 0 36 36">
