@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FaPhone, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaBars, FaTimes, FaMapMarkerAlt } from 'react-icons/fa';
 import DropdownMenu from './DropdownMenu';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const menuItems = {
     HOME: ["HOME 01", "HOME 02", "HOME 03", "HOME 04", "HOME 05"],
@@ -15,6 +16,22 @@ export default function Header() {
     BLOG: ["BLOG GRID", "BLOG LIST", "BLOG SINGLE", "CATEGORIES"],
     CONTACT: ["CONTACT 01", "CONTACT 02", "CONTACT 03"]
   };
+
+  // Handle scroll event to change header styling when scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleMouseEnter = (menuName) => {
     setActiveDropdown(menuName);
@@ -35,43 +52,43 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full">
-      {/* Top Navigation Bar - Hidden on mobile */}
-      <div className="hidden md:block bg-navy-dark text-white py-3">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <FaPhone className="mr-2 text-turquoise" />
+    <header className="w-full fixed top-0 left-0 right-0 z-40">
+      {/* Top Information Bar */}
+      <div className="hidden md:block bg-white/90 backdrop-blur-sm py-3 border-b border-gray-100">
+        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
+          <div className="flex items-center text-gray-600">
+            <FaMapMarkerAlt className="mr-2 text-turquoise" />
             <span>ST. LAMBOR, NEW YORK (US)</span>
           </div>
           
           <div className="flex items-center overflow-hidden">
-            <span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>
+            <span className="bg-turquoise px-2 py-1 text-white font-bold mr-2 text-xs">NEWS</span>
             <div className="news-ticker-container">
-              <span className="news-ticker">THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
+              <span className="news-ticker text-gray-600">THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
             </div>
           </div>
           
-          <div className="flex items-center">
-            <FaEnvelope className="mr-2 text-turquoise" />
-            <span>CLINIC: +31 2349334972</span>
+          <div className="flex items-center text-gray-600">
+            <FaPhone className="mr-2 text-turquoise" />
+            <span>+31 2349334972</span>
           </div>
         </div>
       </div>
 
-      {/* Logo and Main Menu */}
-      <div className="bg-white py-4 shadow-md">
-        <div className="container mx-auto px-4 flex justify-between items-center">
+      {/* Main Navigation Bar */}
+      <div className={`${scrolled ? 'bg-white shadow-md' : 'bg-white/80 backdrop-blur-sm'} transition-all duration-300`}>
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/">
-            <div className="flex">
-              <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
-              <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
+          <Link href="/" className="flex items-center">
+            <div className="flex items-center">
+              <span className="text-turquoise font-bold text-2xl">CLINICA</span>
+              <span className="text-navy-dark font-bold text-2xl ml-1">WP</span>
             </div>
           </Link>
 
-          {/* Desktop Menu (Hidden on mobile) */}
+          {/* Desktop Menu */}
           <nav className="hidden md:flex">
-            <ul className="flex space-x-6">
+            <ul className="flex space-x-8">
               {Object.keys(menuItems).map((menuName) => (
                 <li 
                   key={menuName} 
@@ -79,7 +96,9 @@ export default function Header() {
                   onMouseEnter={() => handleMouseEnter(menuName)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <span className="font-medium hover:text-turquoise transition">{menuName}</span>
+                  <span className="font-medium text-gray-700 hover:text-turquoise transition-colors">
+                    {menuName}
+                  </span>
                   {activeDropdown === menuName && (
                     <DropdownMenu items={menuItems[menuName]} />
                   )}
@@ -88,25 +107,19 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button 
-              className="bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-4 rounded transition mr-2"
-            >
-              BOOK
+          {/* Book Now & Mobile Menu Buttons */}
+          <div className="flex items-center">
+            <button className="bg-turquoise hover:bg-turquoise/90 text-white font-bold py-2 px-6 rounded transition-all hover:shadow-lg">
+              BOOK NOW
             </button>
+            
             <button
               onClick={toggleMobileMenu}
-              className="text-navy-dark p-2 focus:outline-none"
+              className="md:hidden text-gray-700 ml-4 p-2 focus:outline-none"
             >
               <FaBars className="text-2xl" />
             </button>
           </div>
-
-          {/* Book Now Button (Hidden on mobile) */}
-          <button className="hidden md:block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-6 rounded transition">
-            BOOK NOW
-          </button>
         </div>
       </div>
 
@@ -125,13 +138,13 @@ export default function Header() {
         }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
-          <div className="flex">
-            <span className="bg-turquoise text-white px-2 py-1 text-sm font-bold">ESTE</span>
-            <span className="bg-navy-dark text-white px-2 py-1 text-sm font-bold">SIRIUS</span>
+          <div className="flex items-center">
+            <span className="text-turquoise font-bold">CLINICA</span>
+            <span className="text-navy-dark font-bold ml-1">WP</span>
           </div>
           <button 
             onClick={toggleMobileMenu} 
-            className="text-navy-dark focus:outline-none"
+            className="text-gray-500 hover:text-gray-700 focus:outline-none"
           >
             <FaTimes className="text-2xl" />
           </button>
@@ -139,16 +152,16 @@ export default function Header() {
 
         <div className="py-4 px-6 overflow-y-auto h-[calc(100%-60px)]">
           <nav>
-            <ul className="space-y-6">
+            <ul className="space-y-5">
               {Object.keys(menuItems).map((menuName) => (
                 <li key={menuName} className="border-b border-gray-100 pb-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-medium text-navy-dark">{menuName}</span>
+                    <span className="font-medium text-gray-700">{menuName}</span>
                     <span className="text-xs text-gray-400">+</span>
                   </div>
                   <ul className="mt-2 pl-4 space-y-2">
                     {menuItems[menuName].map((subItem) => (
-                      <li key={subItem} className="text-gray-600 text-sm hover:text-turquoise transition">
+                      <li key={subItem} className="text-gray-600 text-sm hover:text-turquoise transition-colors">
                         <a href="#">{subItem}</a>
                       </li>
                     ))}
@@ -159,32 +172,25 @@ export default function Header() {
           </nav>
 
           <div className="mt-8">
-            <button className="w-full bg-turquoise hover:bg-turquoise/80 text-white font-bold py-3 rounded transition">
+            <button className="w-full bg-turquoise hover:bg-turquoise/90 text-white font-bold py-3 rounded transition-all">
               BOOK CONSULTATION
             </button>
           </div>
           
-          <div className="mt-6 space-y-4 text-sm">
-            <div className="flex items-center">
+          <div className="mt-8 space-y-4 text-sm">
+            <div className="flex items-center text-gray-600">
+              <FaMapMarkerAlt className="mr-2 text-turquoise" />
+              <span>ST. LAMBOR, NEW YORK (US)</span>
+            </div>
+            <div className="flex items-center text-gray-600">
               <FaPhone className="mr-2 text-turquoise" />
               <span>+31 2349334972</span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center text-gray-600">
               <FaEnvelope className="mr-2 text-turquoise" />
-              <span>info@estesirius.com</span>
+              <span>info@clinicawp.com</span>
             </div>
-            <p className="text-gray-600">
-              ST. LAMBOR, NEW YORK (US)
-            </p>
           </div>
-        </div>
-      </div>
-
-      {/* Notification Badge */}
-      <div className="fixed bottom-8 right-8 z-40">
-        <div className="notification-badge bg-turquoise text-white rounded-full w-14 h-14 flex flex-col items-center justify-center">
-          <span className="text-xs">NEW</span>
-          <span className="font-bold">'54</span>
         </div>
       </div>
     </header>
