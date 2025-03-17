@@ -73,93 +73,93 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Navigation Bar - Completely separate from header */}
-      <div className="hidden md:block fixed top-0 left-0 right-0 w-full z-50 bg-transparent py-3 px-6 mt-2">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center text-white">
-            <FaPhone className="mr-2 text-turquoise" />
-            <span>ST. LAMBOR, NEW YORK (US)</span>
-          </div>
-          
-          <div className="flex items-center overflow-hidden">
-            <div className="news-ticker-container">
-              <span className="news-ticker text-white"><span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
+      {/* Wrapper div that contains both nav elements with shared animation */}
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isHidden ? '-translate-y-full' : 'translate-y-0'
+      }`}>
+        {/* Top Navigation Bar - Now shares animation with header */}
+        <div className="hidden md:block w-full bg-transparent py-3 px-6 mt-2">
+          <div className="container mx-auto flex justify-between items-center">
+            <div className="flex items-center text-white">
+              <FaPhone className="mr-2 text-turquoise" />
+              <span>ST. LAMBOR, NEW YORK (US)</span>
+            </div>
+            
+            <div className="flex items-center overflow-hidden">
+              <div className="news-ticker-container">
+                <span className="news-ticker text-white"><span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center text-white">
+              <FaEnvelope className="mr-2 text-turquoise" />
+              <span>CLINIC: +31 2349334972</span>
             </div>
           </div>
-          
-          <div className="flex items-center text-white">
-            <FaEnvelope className="mr-2 text-turquoise" />
-            <span>CLINIC: +31 2349334972</span>
-          </div>
         </div>
-      </div>
 
-      {/* Main Header - Now separate from top navigation */}
-      <header 
-        ref={headerRef}
-        className={`fixed top-0 md:top-12 left-0 right-0 w-full z-40 transition-all duration-300 ${
-          isHidden ? '-translate-y-full' : 'translate-y-0'
-        }`}
-      >
-        <div className={`mx-auto max-w-[95%] md:max-w-[90%] mt-4 rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}>
-          {/* Logo and Main Menu */}
-          <div className="bg-transparent py-4 px-6">
-            <div className="container mx-auto flex justify-between items-center">
-              {/* Logo */}
-              <Link href="/">
-                <div className="flex shrink-0">
-                  <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
-                  <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
+        {/* Main Header */}
+        <header ref={headerRef} className="w-full">
+          <div className={`mx-auto max-w-[95%] md:max-w-[90%] mt-4 rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}>
+            {/* Logo and Main Menu */}
+            <div className="bg-transparent py-4 px-6">
+              <div className="container mx-auto flex justify-between items-center">
+                {/* Logo */}
+                <Link href="/">
+                  <div className="flex shrink-0">
+                    <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
+                    <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
+                  </div>
+                </Link>
+
+                {/* Desktop Menu (Hidden on mobile) */}
+                <nav className="hidden md:flex flex-1 justify-center">
+                  <ul className="flex justify-between w-full max-w-3xl">
+                    {Object.keys(menuItems).map((menuName) => (
+                      <li 
+                        key={menuName} 
+                        className="relative py-2 cursor-pointer px-1 whitespace-nowrap text-center"
+                        onMouseEnter={(e) => handleMouseEnter(menuName, e)}
+                        onMouseLeave={handleMouseLeave}
+                        ref={el => menuRefs.current[menuName] = el}
+                      >
+                        <span className="font-medium hover:text-turquoise transition text-sm lg:text-base">{menuName}</span>
+                        {activeDropdown === menuName && (
+                          <DropdownMenu 
+                            items={menuItems[menuName]} 
+                            parentRef={menuRefs.current[menuName]}
+                            className={headerBgClass}
+                          />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                {/* Mobile Menu Button */}
+                <div className="md:hidden flex items-center">
+                  <button 
+                    className="bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-4 rounded transition mr-2"
+                  >
+                    BOOK
+                  </button>
+                  <button
+                    onClick={toggleMobileMenu}
+                    className="text-navy-dark p-2 focus:outline-none"
+                  >
+                    <FaBars className="text-2xl" />
+                  </button>
                 </div>
-              </Link>
 
-              {/* Desktop Menu (Hidden on mobile) */}
-              <nav className="hidden md:flex flex-1 justify-center">
-                <ul className="flex justify-between w-full max-w-3xl">
-                  {Object.keys(menuItems).map((menuName) => (
-                    <li 
-                      key={menuName} 
-                      className="relative py-2 cursor-pointer px-1 whitespace-nowrap text-center"
-                      onMouseEnter={(e) => handleMouseEnter(menuName, e)}
-                      onMouseLeave={handleMouseLeave}
-                      ref={el => menuRefs.current[menuName] = el}
-                    >
-                      <span className="font-medium hover:text-turquoise transition text-sm lg:text-base">{menuName}</span>
-                      {activeDropdown === menuName && (
-                        <DropdownMenu 
-                          items={menuItems[menuName]} 
-                          parentRef={menuRefs.current[menuName]}
-                          className={headerBgClass}
-                        />
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              {/* Mobile Menu Button */}
-              <div className="md:hidden flex items-center">
-                <button 
-                  className="bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-4 rounded transition mr-2"
-                >
-                  BOOK
-                </button>
-                <button
-                  onClick={toggleMobileMenu}
-                  className="text-navy-dark p-2 focus:outline-none"
-                >
-                  <FaBars className="text-2xl" />
+                {/* Book Now Button (Hidden on mobile) */}
+                <button className="hidden md:block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-6 rounded transition shrink-0">
+                  BOOK NOW
                 </button>
               </div>
-
-              {/* Book Now Button (Hidden on mobile) */}
-              <button className="hidden md:block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-6 rounded transition shrink-0">
-                BOOK NOW
-              </button>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Mobile Menu Overlay - Moved outside header */}
       <div 

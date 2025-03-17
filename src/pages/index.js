@@ -2,6 +2,8 @@ import Head from 'next/head';
 import HeroSlider from '../components/HeroSlider';
 import WelcomeSection from '../components/WelcomeSection';
 import ProductsSection from '../components/ProductsSection';
+import ShopSection from '../components/ShopSection';
+import ServicesShowcase from '../components/ServicesShowcase';
 
 export default function Home() {
   // Hero slider data
@@ -91,6 +93,8 @@ export default function Home() {
       <HeroSlider slides={slides} />
       <WelcomeSection />
       <ProductsSection products={featuredProducts} />
+      <ShopSection />
+      <ServicesShowcase />
     </>
   );
 }
