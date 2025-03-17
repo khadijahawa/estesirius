@@ -93,7 +93,7 @@ const About = () => {
           objectFit="cover"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-8xl font-bold text-gray-500 opacity-60">About Us</h1>
+          <h1 className="text-5xl sm:text-6x1 md:text-8xl font-bold text-[#1A2A4A] opacity-30">About Us</h1>
         </div>
       </div>
       
@@ -102,7 +102,7 @@ const About = () => {
         {/* Top section with image and "From the Start" */}
         <div className="flex flex-col md:flex-row mb-12">
           {/* Left image - height matching the "From the Start" title */}
-          <div className="w-full md:w-1/2 relative" style={{ height: "20rem" }}>
+          <div className="w-full md:w-1/2 relative" style={{ height: "24rem" }}>
             <Image 
               src="/images/pls-08.jpg" 
               alt="Our Company" 
@@ -113,7 +113,7 @@ const About = () => {
           
           {/* "From the Start" section - no border, dynamic sizing */}
           <div className="w-full md:w-1/2 bg-white p-8 flex flex-col">
-            <h2 className="text-3xl font-semibold mb-4 text-black">From the Start</h2>
+            <h2 className="text-5xl font-semibold mb-4 text-black">From the Start</h2>
             <div className="flex flex-col h-full">
               <div className="grid grid-cols-2 grid-rows-2 gap-4 h-full">
                 <div className="p-2">
@@ -135,7 +135,7 @@ const About = () => {
         
         {/* "Our Commitment" section - no background, equal sized boxes */}
         <div className="p-8 mb-12">
-          <h2 className="text-3xl font-semibold mb-8 text-left">Our Commitment</h2>
+          <h2 className="text-5xl font-semibold mb-8 text-left">Our Commitment</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {commitments.map((commitment) => (
               <div key={commitment.id} className="relative">
@@ -169,7 +169,7 @@ const About = () => {
             />
           </div>
           <div className="relative flex flex-col items-center justify-center py-16">
-            <h2 className="text-3xl font-semibold text-white text-center mb-6">Daily Promotions</h2>
+            <h2 className="text-5xl font-semibold text-white text-center mb-6">Daily Promotions</h2>
             <p className="text-white text-center max-w-2xl mb-8">
               Mauris vel quam vel felis maximus bibendum vel quis erat. Duis accumsan posuere est quis egestas. 
               Donec nec odio non tellus convallis mattis a nec purus. Duis quis tortor elit.
@@ -180,7 +180,7 @@ const About = () => {
 
         {/* Services Section with circular images - title aligned left */}
         <div className="p-8 bg-white">
-          <h2 className="text-3xl font-semibold mb-8 ml-4">Our Services</h2>
+          <h2 className="text-5xl font-semibold mb-8 ml-4 text-center">Our Services</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {services.map((service) => (
               <div key={service.id} className="flex flex-col items-center">
@@ -209,7 +209,7 @@ const About = () => {
             />
           </div>
           <div className="relative">
-            <h2 className="text-3xl font-semibold text-white text-center mb-8">Customer Reviews</h2>
+            <h2 className="text-5xl font-semibold text-white text-center mb-8">Customer Reviews</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {reviews.map((review) => (
                 <div key={review.id} className="p-6 backdrop-blur-sm" style={{ minHeight: "fit-content" }}>
