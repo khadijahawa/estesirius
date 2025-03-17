@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import HeroSlider from '../components/HeroSlider';
-import WelcomeSection from '../components/WelcomeSection';
-import ShopSection from '../components/ShopSection';
-import ServicesSection from '../components/ServicesSection';
-import AboutSection from '../components/AboutSection';
-import PromotionsSection from '../components/PromotionsSection';
-import PlanSelectionSection from '../components/PlanSelectionSection';
-import StatsSection from '../components/StatsSection';
+import HeroSlider from '../components/index/HeroSlider';
+import WelcomeSection from '../components/index/WelcomeSection';
+import ShopSection from '../components/index/ShopSection';
+import ServicesSection from '../components/index/ServicesSection';
+import AboutSection from '../components/index/AboutSection';
+import PromotionsSection from '../components/index/PromotionsSection';
+import PlanSelectionSection from '../components/index/PlanSelectionSection';
+import StatsSection from '../components/index/StatsSection';
 
 
 export default function Home() {
