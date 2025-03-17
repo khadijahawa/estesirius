@@ -2,7 +2,7 @@ import Head from 'next/head';
 import HeroSlider from '../components/HeroSlider';
 import WelcomeSection from '../components/WelcomeSection';
 import ShopSection from '../components/ShopSection';
-
+import ServicesSection from '../components/ServicesSection';
 
 export default function Home() {
   // Hero slider data has been moved to the HeroSlider component
@@ -18,6 +18,7 @@ export default function Home() {
         <HeroSlider />
         <WelcomeSection />
         <ShopSection />
+        <ServicesSection />
       </main>
     </>
   );
