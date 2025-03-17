@@ -9,6 +9,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
   const menuRefs = useRef({});
   const headerRef = useRef(null);
   const [headerBgClass, setHeaderBgClass] = useState("bg-white/80 backdrop-blur-sm");
@@ -30,8 +31,10 @@ export default function Header() {
       // Set scrolled state for styling
       if (currentScrollY > 50) {
         setIsScrolled(true);
+        setIsAtTop(false);
       } else {
         setIsScrolled(false);
+        setIsAtTop(true);
       }
 
       // Hide header when scrolling down, show when scrolling up
@@ -77,8 +80,10 @@ export default function Header() {
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isHidden ? '-translate-y-full' : 'translate-y-0'
       }`}>
-        {/* Top Navigation Bar - Now shares animation with header */}
-        <div className="hidden md:block w-full bg-transparent py-3 px-6 mt-2">
+        {/* Top Navigation Bar - Only shows when at the top of the page */}
+        <div className={`hidden md:block w-full bg-transparent py-3 px-6 mt-2 transition-all duration-300 ${
+          isAtTop ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0 overflow-hidden'
+        }`}>
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center text-white">
               <FaPhone className="mr-2 text-primary" />
@@ -98,9 +103,9 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Main Header */}
-        <header ref={headerRef} className="w-full">
-          <div className={`mx-auto max-w-[95%] md:max-w-[90%] mt-4 rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}>
+        {/* Main Header - Adjust top margin when nav bar is hidden */}
+        <header ref={headerRef} className={`w-full ${!isAtTop ? 'mt-2' : ''}`}>
+          <div className={`mx-auto max-w-[95%] md:max-w-[90%] ${isAtTop ? 'mt-4' : 'mt-0'} rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}>
             {/* Logo and Main Menu */}
             <div className="bg-transparent py-4 px-6">
               <div className="container mx-auto flex justify-between items-center">
