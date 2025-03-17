@@ -64,7 +64,7 @@ const ServicesSection = () => {
               y: -5,
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
             }}
-            className="bg-gradient-to-br from-secondary-dark to-primary-light rounded-lg p-8 shadow-lg flex flex-col justify-center"
+            className="bg-secondary-dark rounded-lg p-8 shadow-lg flex flex-col justify-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">All Info</h2>
             <ul className="text-white space-y-4">

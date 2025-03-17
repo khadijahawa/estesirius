@@ -8,6 +8,7 @@ import PromotionsSection from '../components/PromotionsSection';
 import PlanSelectionSection from '../components/PlanSelectionSection';
 import StatsSection from '../components/StatsSection';
 
+
 export default function Home() {
   // Hero slider data has been moved to the HeroSlider component
   
@@ -28,6 +29,7 @@ export default function Home() {
         <PlanSelectionSection />
         <PromotionsSection />
       </main>
+      
     </>
   );
 }

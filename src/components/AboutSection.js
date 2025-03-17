@@ -43,7 +43,7 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-1 bg-gradient-to-r from-secondary-dark to-primary p-8 text-white rounded-lg shadow-lg"
+            className="md:col-span-1 bg-secondary-dark p-8 text-white rounded-lg shadow-lg"
           >
             <motion.div
               initial={{ opacity: 0, y: 10 }}

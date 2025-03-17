@@ -57,7 +57,7 @@ const PlanSelectionSection = () => {
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-gray-light to-white"
+              className="rounded-lg overflow-hidden shadow-lg bg-gray-light"
             >
               <Image 
                 src="/images/doctor-exam.jpg" 
@@ -74,7 +74,7 @@ const PlanSelectionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="bg-gradient-to-r from-secondary-dark to-primary-light p-6 text-white rounded-lg mt-6 shadow-md"
+              className="bg-secondary-dark p-6 text-white rounded-lg mt-6 shadow-md"
             >
               <div className="flex justify-around text-center">
                 {stats.map((stat, index) => (

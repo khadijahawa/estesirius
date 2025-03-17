@@ -19,7 +19,7 @@ const StatsSection = () => {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary-dark/60 via-secondary-dark/70 to-secondary-dark/80"></div>
+        <div className="absolute inset-0 bg-secondary-dark opacity-70"></div>
       </div>
 
       {/* Content */}

@@ -48,7 +48,7 @@ const ShopSection = () => {
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-gray-light to-white"
+              className="rounded-lg overflow-hidden shadow-lg bg-gray-light"
             >
               <Image 
                 src="/images/treatment.jpg" 
