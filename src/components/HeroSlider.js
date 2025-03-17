@@ -1,7 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 
-export default function HeroSlider({ slides }) {
+export default function HeroSlider() {
+  // Hero slider data moved from index.js
+  const slides = [
+    {
+      id: 1,
+      image: "/images/pr-10.jpg",
+      title: "Beauty & Health",
+      titleHighlight: "Redefined",
+      description: "Experience the pinnacle of aesthetic transformations with our expert team of plastic surgeons and state-of-the-art facilities. Your journey to confidence starts here.",
+      primaryButton: "BOOK CONSULTATION",
+      secondaryButton: "VIEW SERVICES"
+    },
+    {
+      id: 2,
+      image: "/images/pr-29.jpg",
+      title: "Advanced",
+      titleHighlight: "Treatments",
+      description: "Discover our innovative procedures and cutting-edge technologies designed to deliver natural-looking results with minimal recovery time.",
+      primaryButton: "EXPLORE PROCEDURES",
+      secondaryButton: "MEET OUR DOCTORS"
+    },
+    {
+      id: 3,
+      image: "/images/pr-15.jpg",
+      title: "Your Beauty",
+      titleHighlight: "Our Passion",
+      description: "Let our skilled professionals guide you through a personalized transformation journey tailored to your unique aesthetic goals.",
+      primaryButton: "GET STARTED",
+      secondaryButton: "READ TESTIMONIALS"
+    }
+  ];
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -107,15 +138,15 @@ export default function HeroSlider({ slides }) {
               }`}
               style={{ transitionDuration: `${FADE_DURATION * 2}ms` }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-                {slide.title} <span className="text-turquoise">{slide.titleHighlight}</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-sans">
+                {slide.title} <span className="text-primary">{slide.titleHighlight}</span>
               </h1>
               <p className="text-white text-lg md:text-xl mb-8 text-wrap-balance">
                 {slide.description}
               </p>
               <div className="flex flex-wrap gap-4">
                 <button 
-                  className={`bg-turquoise hover:bg-turquoise/80 text-white font-bold py-3 px-8 rounded transition ${
+                  className={`bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded transition font-sans ${
                     index === currentSlide && !isAnimating 
                       ? 'animate-fadeIn' 
                       : 'opacity-0'
@@ -125,7 +156,7 @@ export default function HeroSlider({ slides }) {
                   {slide.primaryButton}
                 </button>
                 <button 
-                  className={`bg-white hover:bg-gray-100 text-turquoise font-bold py-3 px-8 rounded transition ${
+                  className={`bg-white hover:bg-gray-light text-primary font-bold py-3 px-8 rounded transition ${
                     index === currentSlide && !isAnimating 
                       ? 'animate-fadeIn' 
                       : 'opacity-0'
@@ -158,7 +189,7 @@ export default function HeroSlider({ slides }) {
               cy="18" 
               r="16" 
               fill="none" 
-              stroke="var(--turquoise)" 
+              stroke="var(--color-primary)" 
               strokeWidth="3" 
               strokeDasharray="100"
               strokeDashoffset={100 - progress}
@@ -174,7 +205,7 @@ export default function HeroSlider({ slides }) {
             <button
               key={slide.id}
               className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? 'bg-turquoise w-6' : 'bg-white/50'
+                index === currentSlide ? 'bg-primary w-6' : 'bg-white/50'
               }`}
               style={{ transitionDuration: `${FADE_DURATION / 2}ms` }}
               onClick={() => handleSlideChange(index)}

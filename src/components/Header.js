@@ -81,18 +81,18 @@ export default function Header() {
         <div className="hidden md:block w-full bg-transparent py-3 px-6 mt-2">
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center text-white">
-              <FaPhone className="mr-2 text-turquoise" />
+              <FaPhone className="mr-2 text-primary" />
               <span>ST. LAMBOR, NEW YORK (US)</span>
             </div>
             
             <div className="flex items-center overflow-hidden">
               <div className="news-ticker-container">
-                <span className="news-ticker text-white"><span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
+                <span className="news-ticker text-white"><span className="bg-primary px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
               </div>
             </div>
             
             <div className="flex items-center text-white">
-              <FaEnvelope className="mr-2 text-turquoise" />
+              <FaEnvelope className="mr-2 text-primary" />
               <span>CLINIC: +31 2349334972</span>
             </div>
           </div>
@@ -107,8 +107,8 @@ export default function Header() {
                 {/* Logo */}
                 <Link href="/">
                   <div className="flex shrink-0">
-                    <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
-                    <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
+                    <span className="bg-primary text-white px-3 py-2 font-bold font-sans">ESTE</span>
+                    <span className="bg-secondary text-white px-3 py-2 font-bold font-sans">SIRIUS</span>
                   </div>
                 </Link>
 
@@ -123,7 +123,7 @@ export default function Header() {
                         onMouseLeave={handleMouseLeave}
                         ref={el => menuRefs.current[menuName] = el}
                       >
-                        <span className="font-medium hover:text-turquoise transition text-sm lg:text-base">{menuName}</span>
+                        <span className="font-medium hover:text-primary transition text-sm lg:text-base font-sans">{menuName}</span>
                         {activeDropdown === menuName && (
                           <DropdownMenu 
                             items={menuItems[menuName]} 
@@ -139,20 +139,20 @@ export default function Header() {
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
                   <button 
-                    className="bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-4 rounded transition mr-2"
+                    className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded transition mr-2"
                   >
                     BOOK
                   </button>
                   <button
                     onClick={toggleMobileMenu}
-                    className="text-navy-dark p-2 focus:outline-none"
+                    className="text-secondary p-2 focus:outline-none"
                   >
                     <FaBars className="text-2xl" />
                   </button>
                 </div>
 
                 {/* Book Now Button (Hidden on mobile) */}
-                <button className="hidden md:block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-6 rounded transition shrink-0">
+                <button className="hidden md:block bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded transition shrink-0">
                   BOOK NOW
                 </button>
               </div>
@@ -177,12 +177,12 @@ export default function Header() {
       >
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex">
-            <span className="bg-turquoise text-white px-2 py-1 text-sm font-bold">ESTE</span>
-            <span className="bg-navy-dark text-white px-2 py-1 text-sm font-bold">SIRIUS</span>
+            <span className="bg-primary text-white px-2 py-1 text-sm font-bold font-sans">ESTE</span>
+            <span className="bg-secondary text-white px-2 py-1 text-sm font-bold font-sans">SIRIUS</span>
           </div>
           <button 
             onClick={toggleMobileMenu} 
-            className="text-navy-dark focus:outline-none"
+            className="text-secondary focus:outline-none"
           >
             <FaTimes className="text-2xl" />
           </button>
@@ -194,12 +194,12 @@ export default function Header() {
               {Object.keys(menuItems).map((menuName) => (
                 <li key={menuName} className="border-b border-gray-100 pb-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-medium text-navy-dark">{menuName}</span>
-                    <span className="text-xs text-gray-400">+</span>
+                    <span className="font-medium text-secondary">{menuName}</span>
+                    <span className="text-xs text-gray-light">+</span>
                   </div>
                   <ul className="mt-2 pl-4 space-y-2">
                     {menuItems[menuName].map((subItem) => (
-                      <li key={subItem} className="text-gray-600 text-sm hover:text-turquoise transition">
+                      <li key={subItem} className="text-gray-dark text-sm hover:text-primary transition">
                         <a href="#">{subItem}</a>
                       </li>
                     ))}
@@ -210,21 +210,21 @@ export default function Header() {
           </nav>
 
           <div className="mt-8">
-            <button className="w-full bg-turquoise hover:bg-turquoise/80 text-white font-bold py-3 rounded transition">
+            <button className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded transition">
               BOOK CONSULTATION
             </button>
           </div>
           
           <div className="mt-6 space-y-4 text-sm">
             <div className="flex items-center">
-              <FaPhone className="mr-2 text-turquoise" />
+              <FaPhone className="mr-2 text-primary" />
               <span>+31 2349334972</span>
             </div>
             <div className="flex items-center">
-              <FaEnvelope className="mr-2 text-turquoise" />
+              <FaEnvelope className="mr-2 text-primary" />
               <span>info@estesirius.com</span>
             </div>
-            <p className="text-gray-600">
+            <p className="text-gray-dark">
               ST. LAMBOR, NEW YORK (US)
             </p>
           </div>
@@ -233,7 +233,7 @@ export default function Header() {
 
       {/* Notification Badge - Moved outside header */}
       <div className="fixed bottom-8 right-8 z-50">
-        <div className="notification-badge bg-turquoise text-white rounded-full w-14 h-14 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:bg-turquoise/90 transition-all">
+        <div className="notification-badge bg-primary text-white rounded-full w-14 h-14 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:bg-primary-dark transition-all">
           <span className="text-xs">NEW</span>
           <span className="font-bold">'54</span>
         </div>

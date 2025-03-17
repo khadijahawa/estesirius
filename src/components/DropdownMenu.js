@@ -22,7 +22,7 @@ export default function DropdownMenu({ items, parentRef, className = "bg-white/8
 
   const menuContent = (
     <div 
-      className={`dropdown-menu fixed shadow-lg rounded-md py-2 z-50 ${className}`}
+      className={`dropdown-menu fixed shadow-lg rounded-md py-2 z-50 ${className} font-sans`}
       style={{ 
         top: `${position.top}px`, 
         left: `${position.left}px`,
@@ -33,7 +33,7 @@ export default function DropdownMenu({ items, parentRef, className = "bg-white/8
         {items.map((item, index) => (
           <li key={index}>
             <Link href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}>
-              <span className="block px-4 py-2 hover:bg-gray-100 transition cursor-pointer">
+              <span className="block px-4 py-2 hover:bg-gray-light transition cursor-pointer">
                 {item}
               </span>
             </Link>
