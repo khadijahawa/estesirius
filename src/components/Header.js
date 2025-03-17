@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FaPhone, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 import DropdownMenu from './DropdownMenu';
@@ -6,17 +6,54 @@ import DropdownMenu from './DropdownMenu';
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const menuRefs = useRef({});
+  const headerRef = useRef(null);
+  const [headerBgClass, setHeaderBgClass] = useState("bg-white/80 backdrop-blur-sm");
 
   const menuItems = {
     HOME: ["HOME 01", "HOME 02", "HOME 03", "HOME 04", "HOME 05"],
-    "ABOUT US": ["OUR STORY", "OUR TEAM", "OUR VALUES", "TESTIMONIALS"],
+    "ABOUT": ["OUR STORY", "OUR TEAM", "OUR VALUES", "TESTIMONIALS"],
     SHOP: ["PRODUCTS", "SERVICES", "SPECIAL OFFERS", "GIFT CARDS"],
     PAGES: ["FAQ", "GALLERY", "PRICING", "BEFORE/AFTER", "APPOINTMENTS"],
     BLOG: ["BLOG GRID", "BLOG LIST", "BLOG SINGLE", "CATEGORIES"],
     CONTACT: ["CONTACT 01", "CONTACT 02", "CONTACT 03"]
   };
 
-  const handleMouseEnter = (menuName) => {
+  // Handle scroll events to control header visibility
+  useEffect(() => {
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Set scrolled state for styling
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // Hide header when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlHeader);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', controlHeader);
+    };
+  }, [lastScrollY]);
+
+  const handleMouseEnter = (menuName, event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
     setActiveDropdown(menuName);
   };
 
@@ -35,81 +72,96 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full">
-      {/* Top Navigation Bar - Hidden on mobile */}
-      <div className="hidden md:block bg-navy-dark text-white py-3">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center">
+    <>
+      {/* Top Navigation Bar - Completely separate from header */}
+      <div className="hidden md:block fixed top-0 left-0 right-0 w-full z-50 bg-transparent py-3 px-6 mt-2">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center text-white">
             <FaPhone className="mr-2 text-turquoise" />
             <span>ST. LAMBOR, NEW YORK (US)</span>
           </div>
           
           <div className="flex items-center overflow-hidden">
             <div className="news-ticker-container">
-              <span className="news-ticker"><span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
+              <span className="news-ticker text-white"><span className="bg-turquoise px-2 py-1 text-white font-bold mr-2">NEWS</span>THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS</span>
             </div>
           </div>
           
-          <div className="flex items-center">
+          <div className="flex items-center text-white">
             <FaEnvelope className="mr-2 text-turquoise" />
             <span>CLINIC: +31 2349334972</span>
           </div>
         </div>
       </div>
 
-      {/* Logo and Main Menu */}
-      <div className="bg-white py-4 shadow-md">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/">
-            <div className="flex">
-              <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
-              <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
-            </div>
-          </Link>
+      {/* Main Header - Now separate from top navigation */}
+      <header 
+        ref={headerRef}
+        className={`fixed top-0 md:top-12 left-0 right-0 w-full z-40 transition-all duration-300 ${
+          isHidden ? '-translate-y-full' : 'translate-y-0'
+        }`}
+      >
+        <div className={`mx-auto max-w-[95%] md:max-w-[90%] mt-4 rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}>
+          {/* Logo and Main Menu */}
+          <div className="bg-transparent py-4 px-6">
+            <div className="container mx-auto flex justify-between items-center">
+              {/* Logo */}
+              <Link href="/">
+                <div className="flex shrink-0">
+                  <span className="bg-turquoise text-white px-3 py-2 font-bold">ESTE</span>
+                  <span className="bg-navy-dark text-white px-3 py-2 font-bold">SIRIUS</span>
+                </div>
+              </Link>
 
-          {/* Desktop Menu (Hidden on mobile) */}
-          <nav className="hidden md:flex">
-            <ul className="flex space-x-6">
-              {Object.keys(menuItems).map((menuName) => (
-                <li 
-                  key={menuName} 
-                  className="relative py-2 cursor-pointer"
-                  onMouseEnter={() => handleMouseEnter(menuName)}
-                  onMouseLeave={handleMouseLeave}
+              {/* Desktop Menu (Hidden on mobile) */}
+              <nav className="hidden md:flex flex-1 justify-center">
+                <ul className="flex justify-between w-full max-w-3xl">
+                  {Object.keys(menuItems).map((menuName) => (
+                    <li 
+                      key={menuName} 
+                      className="relative py-2 cursor-pointer px-1 whitespace-nowrap text-center"
+                      onMouseEnter={(e) => handleMouseEnter(menuName, e)}
+                      onMouseLeave={handleMouseLeave}
+                      ref={el => menuRefs.current[menuName] = el}
+                    >
+                      <span className="font-medium hover:text-turquoise transition text-sm lg:text-base">{menuName}</span>
+                      {activeDropdown === menuName && (
+                        <DropdownMenu 
+                          items={menuItems[menuName]} 
+                          parentRef={menuRefs.current[menuName]}
+                          className={headerBgClass}
+                        />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* Mobile Menu Button */}
+              <div className="md:hidden flex items-center">
+                <button 
+                  className="bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-4 rounded transition mr-2"
                 >
-                  <span className="font-medium hover:text-turquoise transition">{menuName}</span>
-                  {activeDropdown === menuName && (
-                    <DropdownMenu items={menuItems[menuName]} />
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
+                  BOOK
+                </button>
+                <button
+                  onClick={toggleMobileMenu}
+                  className="text-navy-dark p-2 focus:outline-none"
+                >
+                  <FaBars className="text-2xl" />
+                </button>
+              </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button 
-              className="bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-4 rounded transition mr-2"
-            >
-              BOOK
-            </button>
-            <button
-              onClick={toggleMobileMenu}
-              className="text-navy-dark p-2 focus:outline-none"
-            >
-              <FaBars className="text-2xl" />
-            </button>
+              {/* Book Now Button (Hidden on mobile) */}
+              <button className="hidden md:block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-6 rounded transition shrink-0">
+                BOOK NOW
+              </button>
+            </div>
           </div>
-
-          {/* Book Now Button (Hidden on mobile) */}
-          <button className="hidden md:block bg-turquoise hover:bg-turquoise/80 text-white font-bold py-2 px-6 rounded transition">
-            BOOK NOW
-          </button>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Moved outside header */}
       <div 
         className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity duration-300 ${
           mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
@@ -117,7 +169,7 @@ export default function Header() {
         onClick={toggleMobileMenu}
       ></div>
 
-      {/* Mobile Menu Slide-in Panel */}
+      {/* Mobile Menu Slide-in Panel - Moved outside header */}
       <div 
         className={`fixed top-0 right-0 bottom-0 w-4/5 max-w-xs bg-white z-50 shadow-xl transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -179,13 +231,13 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Notification Badge */}
-      <div className="fixed bottom-8 right-8 z-40">
-        <div className="notification-badge bg-turquoise text-white rounded-full w-14 h-14 flex flex-col items-center justify-center">
+      {/* Notification Badge - Moved outside header */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <div className="notification-badge bg-turquoise text-white rounded-full w-14 h-14 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:bg-turquoise/90 transition-all">
           <span className="text-xs">NEW</span>
           <span className="font-bold">'54</span>
         </div>
       </div>
-    </header>
+    </>
   );
 }
