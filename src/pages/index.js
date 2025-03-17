@@ -3,6 +3,10 @@ import HeroSlider from '../components/HeroSlider';
 import WelcomeSection from '../components/WelcomeSection';
 import ShopSection from '../components/ShopSection';
 import ServicesSection from '../components/ServicesSection';
+import AboutSection from '../components/AboutSection';
+import PromotionsSection from '../components/PromotionsSection';
+import PlanSelectionSection from '../components/PlanSelectionSection';
+import StatsSection from '../components/StatsSection';
 
 export default function Home() {
   // Hero slider data has been moved to the HeroSlider component
@@ -17,8 +21,12 @@ export default function Home() {
       <main>
         <HeroSlider />
         <WelcomeSection />
+        <AboutSection />
+        <StatsSection />
         <ShopSection />
         <ServicesSection />
+        <PlanSelectionSection />
+        <PromotionsSection />
       </main>
     </>
   );
