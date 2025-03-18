@@ -16,22 +16,22 @@ const ImageComparisonSlider = () => {
 
   const handleMouseMove = (e) => {
     if (!isDraggingRef.current || !containerRef.current) return;
-    
+
     const containerRect = containerRef.current.getBoundingClientRect();
     const containerWidth = containerRect.width;
     const mouseX = e.clientX - containerRect.left;
-    
+
     const newPosition = Math.max(0, Math.min(100, (mouseX / containerWidth) * 100));
     setSliderPosition(newPosition);
   };
 
   const handleTouchMove = (e) => {
     if (!containerRef.current) return;
-    
+
     const containerRect = containerRef.current.getBoundingClientRect();
     const containerWidth = containerRect.width;
     const touchX = e.touches[0].clientX - containerRect.left;
-    
+
     const newPosition = Math.max(0, Math.min(100, (touchX / containerWidth) * 100));
     setSliderPosition(newPosition);
   };
@@ -39,7 +39,7 @@ const ImageComparisonSlider = () => {
   useEffect(() => {
     document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => {
       document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mousemove', handleMouseMove);
@@ -47,9 +47,9 @@ const ImageComparisonSlider = () => {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row max-w-6xl mx-auto p-4 gap-8">
+    <div className="flex flex-col lg:flex-row max-w-6xl mx-auto p-20 gap-70">
       {/* Image Comparison Component */}
-      <div 
+      <div
         ref={containerRef}
         className="relative w-full lg:w-1/2 h-96 overflow-hidden rounded-lg shadow-lg"
         onMouseMove={handleMouseMove}
@@ -57,29 +57,31 @@ const ImageComparisonSlider = () => {
       >
         {/* Before Image (hp-01.jpg) */}
         <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/image/hp-01.jpg" 
-            alt="Before hair transplant" 
-            className="absolute inset-0 w-full h-full object-cover"
+          <Image
+            src="/images/hp-01.jpg"
+            alt="Before hair transplant"
+            layout="fill"
+            objectFit="cover"
           />
         </div>
-        
+
         {/* After Image (hp-02.jpg) with Clip Path */}
-        <div 
+        <div
           className="absolute inset-0 w-full h-full"
-          style={{ 
-            clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` 
+          style={{
+            clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
           }}
         >
-          <img 
-            src="/image/hp-02.jpg" 
-            alt="After hair transplant" 
-            className="absolute inset-0 w-full h-full object-cover"
+          <Image
+            src="/images/hp-02.jpg"
+            alt="After hair transplant"
+            layout="fill"
+            objectFit="cover"
           />
         </div>
-        
+
         {/* Slider Line */}
-        <div 
+        <div
           className="absolute top-0 bottom-0 w-0.5 bg-white cursor-ew-resize shadow-lg"
           style={{ left: `${sliderPosition}%` }}
           onMouseDown={handleMouseDown}
@@ -94,7 +96,7 @@ const ImageComparisonSlider = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Text Content */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center">
         <h1 className="text-3xl font-bold mb-4 text-gray-800">Hair Transplant</h1>
