@@ -5,10 +5,10 @@ import OurCommitment from '../components/aboutus/OurCommitment';
 import DailyPromotions from '../components/aboutus/DailyPromotions';
 import OurServices from '../components/aboutus/OurServices';
 import CustomerReviews from '../components/aboutus/CustomerReviews';
-
+import ImageComp from '../components/aboutus/ImageComp';
 const About = () => {
   return (
-    <div className="container mx-auto pt-32 md:pt-44">
+    <div className="container mx-auto pt-0 md:pt-0">
       {/* Header with background image */}
       <AboutHeader />
       
@@ -28,6 +28,9 @@ const About = () => {
         
         {/* Reviews section with background image */}
         <CustomerReviews />
+
+        {/*Imafe Comprasion section */}
+        <ImageComp />
       </div>
     </div>
   );
