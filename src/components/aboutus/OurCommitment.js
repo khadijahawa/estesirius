@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const OurCommitment = () => {
   const commitments = [
@@ -25,12 +27,34 @@ const OurCommitment = () => {
     }
   ];
   
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  
   return (
-    <div className="p-8 mb-12">
-      <h2 className="text-5xl font-semibold mb-8 text-left">Our Commitment</h2>
+    <div className="p-8 mb-12" ref={ref}>
+      <motion.h2 
+        className="text-5xl font-semibold mb-8 text-left"
+        initial={{ opacity: 0, x: -30 }}
+        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+        transition={{ duration: 0.6 }}
+      >
+        Our Commitment
+      </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {commitments.map((commitment) => (
-          <div key={commitment.id} className="relative">
+        {commitments.map((commitment, index) => (
+          <motion.div 
+            key={commitment.id} 
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+            whileHover={{ 
+              scale: 1.02,
+              boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+            }}
+          >
             {/* Background image for each box */}
             <div className="absolute inset-0">
               <Image 
@@ -40,12 +64,22 @@ const OurCommitment = () => {
                 objectFit="cover"
               />
             </div>
-            <div className="relative p-6 h-full flex flex-col">
-              <div className="text-4xl font-bold text-white mb-2">{commitment.id}</div>
+            <motion.div 
+              className="relative p-6 h-full flex flex-col"
+              initial={{ opacity: 0.8 }}
+              whileHover={{ opacity: 1 }}
+            >
+              <motion.div 
+                className="text-4xl font-bold text-white mb-2"
+                whileHover={{ scale: 1.1, originX: 0 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {commitment.id}
+              </motion.div>
               <h3 className="text-xl font-bold text-white mb-3">{commitment.title}</h3>
               <p className="text-white">{commitment.content}</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const OurServices = () => {
   const services = [
@@ -35,25 +36,70 @@ const OurServices = () => {
     }
   ];
   
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+  
   return (
-    <div className="p-8 bg-white">
-      <h2 className="text-5xl font-semibold mb-8 ml-4 text-center">Our Services</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+    <motion.div 
+      className="p-8 bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={containerVariants}
+    >
+      <motion.h2 
+        className="text-5xl font-semibold mb-8 ml-4 text-center"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        Our Services
+      </motion.h2>
+      <motion.div 
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
+        variants={containerVariants}
+      >
         {services.map((service) => (
-          <div key={service.id} className="flex flex-col items-center">
-            <div className="w-32 h-32 relative rounded-full overflow-hidden mb-4">
+          <motion.div 
+            key={service.id} 
+            className="flex flex-col items-center"
+            variants={itemVariants}
+            whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+          >
+            <motion.div 
+              className="w-32 h-32 relative rounded-full overflow-hidden mb-4"
+              whileHover={{ boxShadow: "0 0 0 4px rgba(64, 224, 208, 0.3)" }}
+            >
               <Image 
                 src={`/images/${service.image}`} 
                 alt={service.title} 
                 layout="fill" 
                 objectFit="cover"
               />
-            </div>
+            </motion.div>
             <h3 className="text-center font-medium">{service.title}</h3>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
