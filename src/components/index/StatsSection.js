@@ -19,12 +19,12 @@ const StatsSection = () => {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-secondary-dark opacity-70"></div>
+        <div className="absolute inset-0 bg-secondary opacity-70"></div>
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <StatCard key={index} stat={stat} index={index} />
           ))}
@@ -58,7 +58,7 @@ const StatCard = ({ stat, index }) => {
           type: "spring",
           stiffness: 100
         }}
-        className="text-5xl lg:text-6xl font-bold mb-3"
+        className="text-5xl lg:text-6xl font-bold mb-3 text-primary"
       >
         {stat.number}
       </motion.h2>

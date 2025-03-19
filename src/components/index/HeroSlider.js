@@ -124,8 +124,8 @@ export default function HeroSlider() {
                 style={{ transitionDuration: `${SLIDE_DURATION}ms` }}
               />
               
-              {/* Add a slight overlay for better text readability */}
-              <div className="absolute inset-0 bg-black/30 z-1"></div>
+              {/* Add a slight overlay with secondary color for better text readability */}
+              <div className="absolute inset-0 bg-secondary opacity-30 z-1"></div>
             </div>
           </div>
           
@@ -156,7 +156,7 @@ export default function HeroSlider() {
                   {slide.primaryButton}
                 </button>
                 <button 
-                  className={`bg-white hover:bg-gray-light text-primary font-bold py-3 px-8 rounded transition ${
+                  className={`bg-white hover:bg-gray text-secondary font-bold py-3 px-8 rounded transition ${
                     index === currentSlide && !isAnimating 
                       ? 'animate-fadeIn' 
                       : 'opacity-0'

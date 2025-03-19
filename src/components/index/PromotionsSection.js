@@ -8,7 +8,7 @@ const PromotionsSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-50 relative py-16 overflow-hidden"
+      className="bg-gray-light relative py-16 overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 bg-pattern"></div>
@@ -33,7 +33,7 @@ const PromotionsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold mb-6"
+              className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark"
             >
               Check the Promotions
             </motion.h2>
@@ -81,7 +81,7 @@ const PromotionsSection = () => {
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="rounded-lg overflow-hidden shadow-lg bg-gray-light"
+              className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
               <Image 
                 src="/images/measurement.jpg" 
@@ -135,7 +135,7 @@ const ProductCard = ({ product, index }) => {
             fill
             className="object-cover"
           />
-          <div className="absolute top-2 right-2 bg-secondary-dark text-white text-sm font-medium px-3 py-1 rounded-sm">
+          <div className="absolute top-2 right-2 bg-secondary text-white text-sm font-medium px-3 py-1 rounded-sm">
             ${product.price}
           </div>
         </div>
@@ -171,7 +171,7 @@ const PromoBox = ({ promo, index }) => {
           </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold mb-2 text-center sm:text-left">{promo.title}</h3>
+          <h3 className="text-xl font-bold mb-2 text-center sm:text-left text-gray-dark">{promo.title}</h3>
           <p className="text-text-light text-center sm:text-left">
             {promo.description}
           </p>

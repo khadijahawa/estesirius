@@ -20,10 +20,10 @@ const ShopSection = () => {
         <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-8">
           {/* Left Side */}
           <div className="md:w-1/2">
-            <div className="inline-block bg-secondary-dark text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
+            <div className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
               BEST INDUSTRY IN THE TOWN
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Check Our Shop</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark">Check Our Shop</h2>
             <div className="md:columns-2 gap-6 text-text-light mb-8">
               <p>
                 Quisque eu euismod arcu. Morbi et dapibus diam, sed interdum velit. Proin tempor nunc vel nisl condimentum, 
@@ -48,7 +48,7 @@ const ShopSection = () => {
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="rounded-lg overflow-hidden shadow-lg bg-gray-light"
+              className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
               <Image 
                 src="/images/treatment.jpg" 
@@ -95,7 +95,7 @@ const ProductCard = ({ product, index }) => {
             fill
             className="object-cover"
           />
-          <div className="absolute top-2 right-2 bg-secondary-dark text-white text-sm font-medium px-3 py-1 rounded-sm">
+          <div className="absolute top-2 right-2 bg-secondary text-white text-sm font-medium px-3 py-1 rounded-sm">
             ${product.price}
           </div>
         </div>

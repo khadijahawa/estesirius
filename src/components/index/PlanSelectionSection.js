@@ -9,7 +9,7 @@ const PlanSelectionSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-50 relative py-16 overflow-hidden"
+      className="bg-gray-light relative py-16 overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 bg-pattern"></div>
@@ -25,10 +25,10 @@ const PlanSelectionSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="md:w-1/2"
           >
-            <div className="inline-block bg-secondary-dark text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
+            <div className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
               ALL FACILITIES
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Choose the Best Plan</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark">Choose the Best Plan</h2>
             <div className="text-text-light mb-8">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et metus augue. Mauris ut libero eget erat 
@@ -57,7 +57,7 @@ const PlanSelectionSection = () => {
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="rounded-lg overflow-hidden shadow-lg bg-gray-light"
+              className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
               <Image 
                 src="/images/doctor-exam.jpg" 
@@ -74,7 +74,7 @@ const PlanSelectionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="bg-secondary-dark p-6 text-white rounded-lg mt-6 shadow-md"
+              className="bg-secondary p-6 text-white rounded-lg mt-6 shadow-md"
             >
               <div className="flex justify-around text-center">
                 {stats.map((stat, index) => (
@@ -85,7 +85,7 @@ const PlanSelectionSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: 0.6 + (index * 0.1) }}
                   >
-                    <h3 className="text-2xl md:text-4xl font-bold">{stat.value}</h3>
+                    <h3 className="text-2xl md:text-4xl font-bold text-primary">{stat.value}</h3>
                     <p className="text-xs md:text-sm mt-1 font-medium text-white text-opacity-80">{stat.label}</p>
                   </motion.div>
                 ))}
@@ -123,7 +123,7 @@ const ServiceItem = ({ service, index }) => {
         {service.icon}
       </motion.div>
       <div>
-        <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-gray-dark">{service.title}</h3>
         <p className="text-text-light">
           {service.description}
         </p>

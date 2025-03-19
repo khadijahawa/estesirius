@@ -15,7 +15,7 @@ const ServicesSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-50 py-16"
+      className="bg-gray-light py-16"
     >
       {/* Content */}
       <div className="container mx-auto px-4">
@@ -64,7 +64,7 @@ const ServicesSection = () => {
               y: -5,
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
             }}
-            className="bg-secondary-dark rounded-lg p-8 shadow-lg flex flex-col justify-center"
+            className="bg-secondary rounded-lg p-8 shadow-lg flex flex-col justify-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">All Info</h2>
             <ul className="text-white space-y-4">
@@ -83,7 +83,7 @@ const ServicesSection = () => {
                   className="flex items-center"
                 >
                   <span className="flex items-center justify-center bg-white bg-opacity-20 rounded-full w-6 h-6 mr-3 flex-shrink-0">
-                    <FiCheck className="text-success" />
+                    <FiCheck className="text-primary" />
                   </span>
                   <span>{item}</span>
                 </motion.li>

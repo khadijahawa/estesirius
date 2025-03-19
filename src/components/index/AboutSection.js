@@ -9,7 +9,7 @@ const AboutSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-50 py-16"
+      className="bg-gray-light py-16"
     >
       {/* Content */}
       <div className="container mx-auto px-4">
@@ -43,14 +43,14 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:col-span-1 bg-secondary-dark p-8 text-white rounded-lg shadow-lg"
+            className="md:col-span-1 bg-secondary p-8 text-white rounded-lg shadow-lg"
           >
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.5 }}
-              className="inline-block bg-secondary-dark text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm"
+              className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm border border-white border-opacity-20"
             >
               FROM 1960
             </motion.div>
@@ -122,7 +122,7 @@ const ProgressBar = ({ label, percentage, delay }) => {
           whileInView={{ width: `${percentage}%` }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: delay + 0.3, ease: "easeOut" }}
-          className="bg-white h-full rounded-full"
+          className="bg-primary h-full rounded-full"
         ></motion.div>
       </div>
     </motion.div>
