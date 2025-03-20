@@ -1,14 +1,19 @@
-import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+import Link from "next/link";
 
-export default function DropdownMenu({ items, parentRef, className = "bg-white/80 backdrop-blur-sm" }) {
+export default function DropdownMenu({
+  items,
+  parentRef,
+  className = "bg-white/80 backdrop-blur-sm"
+}) {
   const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0, width: 0 });
 
+  console.log(items, "dropdown items");
   useEffect(() => {
     setMounted(true);
-    
+
     // Calculate position based on parent ref
     if (parentRef) {
       const rect = parentRef.getBoundingClientRect();
@@ -21,10 +26,10 @@ export default function DropdownMenu({ items, parentRef, className = "bg-white/8
   }, [parentRef]);
 
   const menuContent = (
-    <div 
+    <div
       className={`dropdown-menu fixed shadow-lg rounded-md py-2 z-50 ${className} font-sans`}
-      style={{ 
-        top: `${position.top}px`, 
+      style={{
+        top: `${position.top}px`,
         left: `${position.left}px`,
         minWidth: `${position.width}px`
       }}
@@ -32,7 +37,9 @@ export default function DropdownMenu({ items, parentRef, className = "bg-white/8
       <ul>
         {items.map((item, index) => (
           <li key={index}>
-            <Link href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}>
+            <Link
+              href={`${item?.props.href.toLowerCase().replace(/\s+/g, "-")}`}
+            >
               <span className="block px-4 py-2 hover:bg-gray-light transition cursor-pointer">
                 {item}
               </span>
