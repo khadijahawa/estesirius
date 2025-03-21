@@ -20,7 +20,7 @@ export default function Custom404() {
         <meta name="description" content="Aradığınız sayfa bulunamadı. Estesirius ana sayfasına dönün veya başka bir servis arayın." />
       </Head>
       
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-gray-light pt-[15vh]">
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-gray-light pt-[25vh]">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
