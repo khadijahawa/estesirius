@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { FaQuestion, FaCalendarAlt } from "react-icons/fa";
+import Head from 'next/head';
+import HairHeader from '../../components/Hair/HairHeader';
+import HairPlanting from '../../components/Hair/HairPlanting';
+import ImageComp from '../../components/Hair/ImageComp';
 
 const servicesData = {
   "hair-transplant-for-men": {
@@ -116,136 +118,72 @@ const ServicePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Only proceed when router is ready and service parameter exists
+    if (!router.isReady) return;
+    
     if (service) {
       const serviceData = servicesData[service];
 
       if (serviceData) {
         setServiceContent(serviceData);
+        setLoading(false);
       } else {
-        setServiceContent({ title: "Service Not Found", content: "The requested service was not found." });
+        // Immediately redirect to 404 for any non-existent service
+        router.push('/404');
       }
-      setLoading(false);
     }
-  }, [service]);
+  }, [router.isReady, service, router]);
 
+  // If still loading or no service content, show loading state
   if (loading) {
     return (
-      <div className="service-page-container flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen">
         <p>Loading...</p>
       </div>
     );
   }
 
-  if (!serviceContent) {
-    return (
-      <div className="service-page-container flex justify-center items-center min-h-screen">
-        <p>Service not found</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="service-page-container">
-      <motion.div 
-        className="hero-section"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1>{serviceContent.title}</h1>
-        <h2>{serviceContent.header}</h2>
-        <p>{serviceContent.subheader}</p>
-      </motion.div>
+    <div className="min-h-screen">
+      <Head>
+        <title>{serviceContent.title} | Your Brand</title>
+        <meta name="description" content={serviceContent.subheader} />
+      </Head>
 
-      <div className="content-section">
-        <motion.div 
-          className="main-content"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          <div className="text-content">
-            <p>{serviceContent.content}</p>
-          </div>
+      {/* Header Component */}
+      <HairHeader 
+        title={serviceContent.title}
+        backgroundImage={serviceContent.images?.[0] || "/images/pr-10.jpg"}
+      />
+      
+      {/* Content Component */}
+      <HairPlanting 
+        title={serviceContent.header}
+        description={serviceContent.content}
+        image={serviceContent.images?.[1] || "/images/pr-15.jpg"}
+        benefits={[
+          {
+            title: "Natural Results",
+            description: serviceContent.procedureSteps?.[0] || "Our advanced techniques ensure natural-looking results"
+          },
+          {
+            title: "Minimal Recovery",
+            description: serviceContent.procedureSteps?.[1] || "Experience reduced downtime compared to traditional methods"
+          },
+          {
+            title: "Expert Care",
+            description: serviceContent.procedureSteps?.[2] || "Our team of specialists brings years of experience"
+          }
+        ]}
+      />
 
-          {serviceContent.images && (
-            <div className="image-gallery">
-              {serviceContent.images.map((img, index) => (
-                <motion.div 
-                  key={index} 
-                  className="image-container"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                >
-                  <img src={img} alt={`${serviceContent.title} - Image ${index + 1}`} />
-                </motion.div>
-              ))}
-            </div>
-          )}
-        </motion.div>
-      </div>
-
-      {serviceContent.procedureSteps && (
-        <motion.div 
-          className="procedures-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
-          <h3>Our Procedure Process</h3>
-          <div className="procedure-steps">
-            {serviceContent.procedureSteps.map((step, index) => (
-              <motion.div 
-                key={index} 
-                className="step"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-              >
-                <div className="step-number">{index + 1}</div>
-                <div>{step}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      )}
-
-      {serviceContent.faqs && (
-        <motion.div 
-          className="faq-section"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-        >
-          <h3>Frequently Asked Questions</h3>
-          {serviceContent.faqs.map((faq, index) => (
-            <motion.div 
-              key={index} 
-              className="faq-item"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-            >
-              <h4><FaQuestion className="inline mr-2" /> {faq.question}</h4>
-              <p>{faq.answer}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
-
-      <motion.div 
-        className="cta-section"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.8 }}
-      >
-        <h3>Ready to Transform Your Appearance?</h3>
-        <p>Schedule a consultation with our experts to discuss your personalized treatment plan.</p>
-        <button className="cta-button">
-          <FaCalendarAlt className="inline mr-2" /> Book a Consultation
-        </button>
-      </motion.div>
+      {/* Image Comparison Component */}
+      <ImageComp
+        title={serviceContent.title}
+        description={serviceContent.content}
+        beforeImage={serviceContent.images?.[0] || "/images/hp-01.jpg"}
+        afterImage={serviceContent.images?.[1] || "/images/hp-02.jpg"}
+      />
     </div>
   );
 };

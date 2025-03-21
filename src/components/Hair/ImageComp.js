@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const ImageComparisonSlider = () => {
+const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef(null);
   const isDraggingRef = useRef(false);
@@ -91,17 +91,17 @@ const ImageComparisonSlider = () => {
         }
         transition={{ duration: 0.6 }}
       >
-        {/* Before Image (hp-01.jpg) */}
+        {/* Before Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/hp-01.jpg"
-            alt="Before hair transplant"
+            src={beforeImage || "/images/hp-01.jpg"}
+            alt="Before treatment"
             layout="fill"
             objectFit="cover"
           />
         </div>
 
-        {/* After Image (hp-02.jpg) with Clip Path */}
+        {/* After Image with Clip Path */}
         <motion.div
           className="absolute inset-0 w-full h-full"
           style={{
@@ -110,8 +110,8 @@ const ImageComparisonSlider = () => {
           transition={{ duration: 0.3 }}
         >
           <Image
-            src="/images/hp-02.jpg"
-            alt="After hair transplant"
+            src={afterImage || "/images/hp-02.jpg"}
+            alt="After treatment"
             layout="fill"
             objectFit="cover"
           />
@@ -156,7 +156,7 @@ const ImageComparisonSlider = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Hair Transplant
+          {title || "Hair Transplant"}
         </motion.h1>
         <motion.p
           className="text-gray-600 leading-relaxed"
@@ -164,15 +164,7 @@ const ImageComparisonSlider = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          Hair transplantation is a surgical technique that moves individual
-          hair follicles from a part of the body called the 'donor site' to bald
-          or balding part of the body known as the 'recipient site'. It is
-          primarily used to treat male pattern baldness. In this minimally
-          invasive procedure, grafts containing hair follicles that are
-          genetically resistant to balding are transplanted to the bald scalp.
-          Our advanced techniques ensure natural-looking results with minimal
-          recovery time, helping you regain not just your hair, but your
-          confidence.
+          {description || "Hair transplantation is a surgical technique that moves individual hair follicles from a part of the body called the 'donor site' to bald or balding part of the body known as the 'recipient site'."}
         </motion.p>
         <motion.div
           className="mt-6"
@@ -181,7 +173,7 @@ const ImageComparisonSlider = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <motion.button
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
+            className="bg-secondary hover:bg-secondary/90 text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
             whileHover={{
               scale: 1.05,
               boxShadow:
