@@ -25,6 +25,26 @@ const servicesData = {
       title: "Abdominoplasty",
       content: "Details about abdominoplasty..."
     }
+  },
+  esthetics: {
+    liposuction: {
+      title: "Liposuction",
+      content: "Details about liposuction..."
+    },
+    abdominoplasty: {
+      title: "Abdominoplasty",
+      content: "Details about abdominoplasty..."
+    }
+  },
+  facial: {
+    liposuction: {
+      title: "Liposuction",
+      content: "Details about liposuction..."
+    },
+    abdominoplasty: {
+      title: "Abdominoplasty",
+      content: "Details about abdominoplasty..."
+    }
   }
 };
 
