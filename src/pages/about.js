@@ -9,27 +9,14 @@ import ImageComp from '../components/aboutus/ImageComp';
 const About = () => {
   return (
     <div className="container mx-auto pt-0 md:pt-0">
-      {/* Header with background image */}
       <AboutHeader />
       
-      {/* Main content container */}
       <div className="px-4 py-8">
-        {/* Top section with image and "From the Start" */}
         <FromTheStart />
-        
-        {/* "Our Commitment" section - no background, equal sized boxes */}
         <OurCommitment />
-        
-        {/* "Daily Promotions" section */}
         <DailyPromotions />
-
-        {/* Services Section with circular images */}
-        <OurServices />
-        
-        {/* Reviews section with background image */}
+        <OurServices />    
         <CustomerReviews />
-
-        {/*Imafe Comprasion section */}
         <ImageComp />
       </div>
     </div>

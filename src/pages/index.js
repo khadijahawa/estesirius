@@ -10,7 +10,6 @@ import StatsSection from '../components/index/StatsSection';
 
 
 export default function Home() {
-  // Hero slider data has been moved to the HeroSlider component
   
   return (
     <>
