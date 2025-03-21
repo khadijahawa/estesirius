@@ -5,7 +5,7 @@ import OurCommitment from '../components/aboutus/OurCommitment';
 import DailyPromotions from '../components/aboutus/DailyPromotions';
 import OurServices from '../components/aboutus/OurServices';
 import CustomerReviews from '../components/aboutus/CustomerReviews';
-import ImageComp from '../components/aboutus/ImageComp';
+
 const About = () => {
   return (
     <div className="container mx-auto pt-0 md:pt-0">
@@ -17,7 +17,7 @@ const About = () => {
         <DailyPromotions />
         <OurServices />    
         <CustomerReviews />
-        <ImageComp />
+
       </div>
     </div>
   );
