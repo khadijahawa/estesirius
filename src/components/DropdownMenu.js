@@ -37,12 +37,15 @@ export default function DropdownMenu({
       <ul>
         {items.map((item, index) => (
           <li key={index}>
+            {/* Link direkt olarak kullanılıyor, iç içe LinkComponent kullanımını engellemek için */}
             <Link
-              href={`${item?.props.href.toLowerCase().replace(/\s+/g, "-")}`}
+              href={item.link || item.props?.href || "#"}
+              className="block px-4 py-2 hover:bg-gray-light transition cursor-pointer"
             >
-              <span className="block px-4 py-2 hover:bg-gray-light transition cursor-pointer">
-                {item}
-              </span>
+              {/* Eğer item bir string veya element ise doğrudan göster */}
+              {typeof item === 'string' ? item : 
+               item.name ? item.name : 
+               item.props?.children ? item.props.children : 'Menu Item'}
             </Link>
           </li>
         ))}

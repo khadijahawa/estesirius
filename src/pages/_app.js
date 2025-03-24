@@ -25,17 +25,28 @@ function getDirection(locale) {
 }
 
 export default function MyApp({ Component, pageProps }) {
-  const { locale } = useRouter();
+  const router = useRouter();
+  const { locale = 'en', defaultLocale = 'en' } = router || {};
+  
+  // Geçerli locale kontrol ediliyor, eğer yoksa defaultLocale veya 'en' kullanılıyor
+  const currentLocale = locale || defaultLocale || 'en';
+  
+  // Geçerli mesajlar kontrol ediliyor, eğer locale için mesaj yoksa en kullanılıyor
+  const currentMessages = messages[currentLocale] || messages['en'];
 
   return (
     <>
       <Head>
         <title>Estesirius</title>
-        <html lang={locale} dir={getDirection(locale)} />
+        <html lang={currentLocale} dir={getDirection(currentLocale)} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <IconManager iconUrl={faviconUrl} />
-      <IntlProvider locale={locale} messages={messages[locale]}>
+      <IntlProvider 
+        locale={currentLocale} 
+        defaultLocale="en" 
+        messages={currentMessages}
+      >
         <Layout>
           <Component {...pageProps} />
         </Layout>

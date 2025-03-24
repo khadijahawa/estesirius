@@ -154,11 +154,7 @@ export default function Header() {
                         )}
                         {activeDropdown === menuName && (
                           <DropdownMenu
-                            items={menuItems[menuName].map((item) => (
-                              <Link href={item?.link} key={item?.key}>
-                                {item.name}
-                              </Link>
-                            ))}
+                            items={menuItems[menuName]}
                             parentRef={menuRefs.current[menuName]}
                             className={headerBgClass}
                           />

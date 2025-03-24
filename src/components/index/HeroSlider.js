@@ -133,11 +133,11 @@ export default function HeroSlider() {
                     <Image
                       src={slide.image}
                       alt={`ESTE SIRIUS - ${slide.title}`}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
                       priority={index === 0}
-                      className="filter brightness-90"
+                      className="filter brightness-90 object-cover"
                       loading="eager"
+                      sizes="100vw"
                     />
                   </motion.div>
                   <div className="absolute inset-0 bg-secondary opacity-10 z-1"></div>
