@@ -6,7 +6,7 @@ export default function HeroSlider() {
   const slides = [
     {
       id: 1,
-      image: "/images/pr-10.jpg",
+      image: "/images/pr-29.jpg",
       title: "Beauty & Health",
       titleHighlight: "Redefined",
       description:
@@ -16,7 +16,7 @@ export default function HeroSlider() {
     },
     {
       id: 2,
-      image: "/images/pr-29.jpg",
+      image: "/images/pr-10.jpg",
       title: "Advanced",
       titleHighlight: "Treatments",
       description:

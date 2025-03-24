@@ -4,6 +4,7 @@ import Head from 'next/head';
 import HairHeader from '../../components/Hair/HairHeader';
 import HairPlanting from '../../components/Hair/HairPlanting';
 import ImageComp from '../../components/Hair/ImageComp';
+import Custom404 from '../../pages/404'; // Import the 404 component
 
 const servicesData = {
   "hair-transplant-for-men": {
@@ -116,6 +117,7 @@ const ServicePage = () => {
 
   const [serviceContent, setServiceContent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     // Only proceed when router is ready and service parameter exists
@@ -126,15 +128,16 @@ const ServicePage = () => {
 
       if (serviceData) {
         setServiceContent(serviceData);
-        setLoading(false);
+        setNotFound(false);
       } else {
-        // Immediately redirect to 404 for any non-existent service
-        router.push('/404');
+        // Mark as not found but don't redirect
+        setNotFound(true);
       }
+      setLoading(false);
     }
-  }, [router.isReady, service, router]);
+  }, [router.isReady, service]);
 
-  // If still loading or no service content, show loading state
+  // If still loading, show loading state
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -143,8 +146,13 @@ const ServicePage = () => {
     );
   }
 
+  // If not found, render the 404 component directly
+  if (notFound) {
+    return <Custom404 />;
+  }
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-[1%] px-[3%]">
       <Head>
         <title>{serviceContent.title} | Your Brand</title>
         <meta name="description" content={serviceContent.subheader} />

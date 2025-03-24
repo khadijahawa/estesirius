@@ -1,10 +1,10 @@
 import React from 'react';
-import AboutHeader from '../components/aboutus/AboutHeader';
-import FromTheStart from '../components/aboutus/FromTheStart';
-import OurCommitment from '../components/aboutus/OurCommitment';
-import DailyPromotions from '../components/aboutus/DailyPromotions';
-import OurServices from '../components/aboutus/OurServices';
-import CustomerReviews from '../components/aboutus/CustomerReviews';
+import AboutHeader from '../components/about/AboutHeader';
+import FromTheStart from '../components/about/FromTheStart';
+import OurCommitment from '../components/about/OurCommitment';
+import DailyPromotions from '../components/about/DailyPromotions';
+import OurServices from '../components/about/OurServices';
+import CustomerReviews from '../components/about/CustomerReviews';
 
 const About = () => {
   return (
