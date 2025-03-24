@@ -1,9 +1,9 @@
 // pages/hairplant.js
 import React from 'react';
 import Head from 'next/head';
-import HairHeader from '../components/Hair/HairHeader';
-import HairPlanting from '../components/Hair/HairPlanting';
-import ImageComp from '../components/Hair/ImageComp';
+import HairHeader from '../../components/Hair/HairHeader';
+import HairPlanting from '../../components/Hair/HairPlanting';
+import ImageComp from '../../components/Hair/ImageComp';
 
 
 export default function Hairplant() {
