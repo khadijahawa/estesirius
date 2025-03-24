@@ -6,36 +6,6 @@ import { FaFacebook, FaTwitter, FaYoutube, FaVimeo, FaPhone, FaEnvelope, FaMapMa
 const Footer = () => {
   return (
     <footer className="bg-primary">
-      {/* Top Info Bar - Added from Header */}
-      <div className="bg-secondary py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-gray-light">
-            <div className="flex items-center mb-2 md:mb-0">
-              <FaPhone className="mr-2 text-primary" />
-              <span className="font-medium">ISTANBUL TÜRKİYE</span>
-            </div>
-            
-            <div className="hidden md:block">
-              <div className="flex items-center overflow-hidden">
-                <div className="news-ticker-container">
-                  <span className="news-ticker">
-                    <span className="bg-primary px-2 py-1 text-white font-bold mr-2">
-                      NEWS
-                    </span>
-                    THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS
-                  </span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex items-center">
-              <FaEnvelope className="mr-2 text-primary" />
-              <span className="font-medium">CLINIC: +31 2349334972</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
       {/* Upper Section */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -69,7 +39,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, color: 'var(--color-white)' }}
                   transition={{ duration: 0.2 }}
-                  className="text-gray-light hover:text-gray text-xl"
+                  className="text-white text-xl hover:text-white bg-secondary-light p-2 rounded-full"
                 >
                   {social.icon}
                 </motion.a>
@@ -132,12 +102,12 @@ const Footer = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center mr-3 flex-shrink-0">
-                    {info.icon}
+                  <div className="w-10 h-10 rounded-full bg-secondary-light flex items-center justify-center mr-3 flex-shrink-0">
+                    <span className="text-white text-lg">{info.icon}</span>
                   </div>
                   <div>
-                    <p className="font-medium text-gray-light">{info.label}</p>
-                    <p className="text-gray text-sm">{info.value}</p>
+                    <p className="font-medium text-white">{info.label}</p>
+                    <p className="text-gray-light text-sm">{info.value}</p>
                   </div>
                 </motion.div>
               ))}
@@ -183,7 +153,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <div>
-              <p className="text-sm text-gray-light">© Copyright 2024 Este Sirius. All Rights Reserved.</p>
+              <p className="text-sm text-gray-light">© Copyright 2025 Este Sirius. All Rights Reserved.</p>
             </div>
 
             {/* Award */}
@@ -225,22 +195,22 @@ const socialLinks = [
 // Contact information data
 const contactInfo = [
   { 
-    icon: <FaPhone className="text-gray-light" />, 
+    icon: <FaPhone />, 
     label: "Phone", 
     value: "+36 4365 3980" 
   },
   { 
-    icon: <FaEnvelope className="text-gray-light" />, 
+    icon: <FaEnvelope />, 
     label: "Email", 
     value: "contact@estesirius.com" 
   },
   { 
-    icon: <FaMapMarkerAlt className="text-gray-light" />, 
+    icon: <FaMapMarkerAlt />, 
     label: "Address", 
     value: "123 Medical Plaza, Suite 456" 
   },
   { 
-    icon: <FaGlobeAmericas className="text-gray-light" />, 
+    icon: <FaGlobeAmericas />, 
     label: "Country", 
     value: "United States" 
   }
