@@ -10,6 +10,7 @@ export default function DropdownMenu({
   const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0, width: 0 });
 
+  console.log(items, "dropdown items");
   useEffect(() => {
     setMounted(true);
 
@@ -36,10 +37,12 @@ export default function DropdownMenu({
       <ul>
         {items.map((item, index) => (
           <li key={index}>
-            <Link href={`${item?.props.href.toLowerCase().replace(/\s+/g, "-")}`}>
-              <a className="block px-4 py-2 hover:bg-gray-light transition cursor-pointer">
+            <Link
+              href={`${item?.props.href.toLowerCase().replace(/\s+/g, "-")}`}
+            >
+              <span className="block px-4 py-2 hover:bg-gray-light transition cursor-pointer">
                 {item}
-              </a>
+              </span>
             </Link>
           </li>
         ))}
