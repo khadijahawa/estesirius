@@ -6,6 +6,36 @@ import { FaFacebook, FaTwitter, FaYoutube, FaVimeo, FaPhone, FaEnvelope, FaMapMa
 const Footer = () => {
   return (
     <footer className="bg-primary">
+      {/* Top Info Bar - Added from Header */}
+      <div className="bg-secondary py-3">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-light">
+            <div className="flex items-center mb-2 md:mb-0">
+              <FaPhone className="mr-2 text-primary" />
+              <span className="font-medium">ISTANBUL TÜRKİYE</span>
+            </div>
+            
+            <div className="hidden md:block">
+              <div className="flex items-center overflow-hidden">
+                <div className="news-ticker-container">
+                  <span className="news-ticker">
+                    <span className="bg-primary px-2 py-1 text-white font-bold mr-2">
+                      NEWS
+                    </span>
+                    THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND PROMOTIONS
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex items-center">
+              <FaEnvelope className="mr-2 text-primary" />
+              <span className="font-medium">CLINIC: +31 2349334972</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       {/* Upper Section */}
       <motion.div
         initial={{ opacity: 0 }}

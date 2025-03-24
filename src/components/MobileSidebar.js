@@ -62,8 +62,8 @@ export default function MobileSidebar({
     }
   };
 
-  // Turquoise color constant for consistency
-  const turquoiseColor = "#2DD4BF"; // You can adjust this shade of turquoise as needed
+  // Use CSS variable instead of hardcoded color
+  const turquoiseColor = "var(--color-primary)"; // Replace hardcoded value with CSS variable
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { FaPhone, FaEnvelope, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import DropdownMenu from "./DropdownMenu";
 import MobileSidebar from "./MobileSidebar";
 
@@ -10,7 +10,6 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isAtTop, setIsAtTop] = useState(true);
   const menuRefs = useRef({});
   const headerRef = useRef(null);
   const [headerBgClass, setHeaderBgClass] = useState(
@@ -51,10 +50,8 @@ export default function Header() {
 
       if (currentScrollY > 50) {
         setIsScrolled(true);
-        setIsAtTop(false);
       } else {
         setIsScrolled(false);
-        setIsAtTop(true);
       }
 
       // Hide header when scrolling down, show when scrolling up
@@ -106,51 +103,16 @@ export default function Header() {
 
   return (
     <>
-      {/* Wrapper div that contains both nav elements with shared animation */}
+      {/* Wrapper div that contains the header with animation */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        {/* Top Navigation Bar - Only shows when at the top of the page */}
-        <div
-          className={`hidden md:block w-full bg-transparent py-3 px-6 mt-2 transition-all duration-300 ${
-            isAtTop
-              ? "opacity-100 max-h-20"
-              : "opacity-0 max-h-0 overflow-hidden"
-          }`}
-        >
-          <div className="container mx-auto flex justify-between items-center">
-            <div className="flex items-center text-white">
-              <FaPhone className="mr-2 text-primary" />
-              <span>ISTANBUL TÜRKİYE</span>
-            </div>
-
-            <div className="flex items-center overflow-hidden">
-              <div className="news-ticker-container">
-                <span className="news-ticker text-white">
-                  <span className="bg-primary px-2 py-1 text-white font-bold mr-2">
-                    NEWS
-                  </span>
-                  THIS IS THE LATEST NEWS ABOUT OUR CLINIC SERVICES AND
-                  PROMOTIONS
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center text-white">
-              <FaEnvelope className="mr-2 text-primary" />
-              <span>CLINIC: +31 2349334972</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Header - Adjust top margin when nav bar is hidden */}
-        <header ref={headerRef} className={`w-full ${!isAtTop ? "mt-2" : ""}`}>
+        {/* Main Header */}
+        <header ref={headerRef} className="w-full pt-4">
           <div
-            className={`mx-auto max-w-[95%] md:max-w-[90%] ${
-              isAtTop ? "mt-4" : "mt-0"
-            } rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}
+            className={`mx-auto max-w-[95%] md:max-w-[90%] rounded-xl overflow-visible ${headerBgClass} shadow-lg transition-all duration-300`}
           >
             {/* Logo and Main Menu */}
             <div className="bg-transparent py-4 px-6">
