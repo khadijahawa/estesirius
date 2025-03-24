@@ -5,8 +5,8 @@ import HairHeader from '../../components/Hair/HairHeader';
 import HairPlanting from '../../components/Hair/HairPlanting';
 import ImageComp from '../../components/Hair/ImageComp';
 
-
 export default function Hairplant() {
+  console.log("Current locale:", locale);
   return (
     <div className="min-h-screen">
       <Head>

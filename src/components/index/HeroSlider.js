@@ -125,7 +125,7 @@ export default function HeroSlider() {
               <div className="absolute inset-0 z-0">
                 <div className="relative w-full h-full">
                   <motion.div
-                    className="w-full h-full"
+                    className="w-full h-full relative" // Added 'relative' positioning here
                     variants={variants.image}
                     initial="enter"
                     animate="center"
@@ -133,10 +133,10 @@ export default function HeroSlider() {
                     <Image
                       src={slide.image}
                       alt={`ESTE SIRIUS - ${slide.title}`}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      sizes="100vw"
                       priority={index === 0}
-                      className="filter brightness-90"
+                      className="object-cover filter brightness-90"
                       loading="eager"
                     />
                   </motion.div>

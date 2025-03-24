@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaFacebook, FaTwitter, FaYoutube, FaVimeo, FaPhone, FaEnvelope, FaMapMarkerAlt, FaGlobeAmericas, FaAward } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaYoutube, FaVimeo, FaPhone, FaEnvelope, FaMapMarkerAlt, FaGlobeAmericas, FaAward, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -189,7 +189,7 @@ const socialLinks = [
   { icon: <FaFacebook />, link: "https://facebook.com" },
   { icon: <FaTwitter />, link: "https://twitter.com" },
   { icon: <FaYoutube />, link: "https://youtube.com" },
-  { icon: <FaVimeo />, link: "https://vimeo.com" }
+  { icon: <FaInstagram />, link: "https://instagram.com" }
 ];
 
 // Contact information data
