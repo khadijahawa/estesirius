@@ -62,8 +62,8 @@ const StatCard = ({ stat, index }) => {
       >
         {stat.number}
       </motion.h2>
-      <p className="text-xl font-bold mb-2 text-white">{stat.label}</p>
-      <p className="text-white text-opacity-80">{stat.description}</p>
+      <p className="text-xl font-bold mb-2 text-gray-dark">{stat.label}</p>
+      <p className="text-gray-dark text-opacity-80">{stat.description}</p>
     </motion.div>
   );
 };

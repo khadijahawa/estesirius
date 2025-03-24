@@ -140,7 +140,7 @@ export default function HeroSlider() {
                       loading="eager"
                     />
                   </motion.div>
-                  <div className="absolute inset-0 bg-secondary opacity-30 z-1"></div>
+                  <div className="absolute inset-0 bg-secondary opacity-10 z-1"></div>
                 </div>
               </div>
 
