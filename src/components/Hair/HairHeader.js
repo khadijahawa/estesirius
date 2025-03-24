@@ -12,8 +12,8 @@ export default function HairHeader({ title, backgroundImage }) {
         objectFit="cover"
         priority
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
-        <h1 className="text-white text-6xl font-bold tracking-wider text-center px-4">{title || "Hairplant"}</h1>
+      <div className="absolute inset-0 flex items-center justify-center bg-primary bg-opacity-40">
+        <h1 className="text-secondary text-6xl font-bold tracking-wider text-center px-4">{title || "Hairplant"}</h1>
       </div>
     </div>
   );

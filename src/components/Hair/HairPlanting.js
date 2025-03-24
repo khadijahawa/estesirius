@@ -16,12 +16,12 @@ export default function HairPlanting({ title, description, image, benefits }) {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-semibold text-gray-800">{title || "Hairplant Definition"}</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-semibold text-gray-dark">{title || "Hairplant Definition"}</h2>
+            <p className="text-lg text-gray-dark leading-relaxed">
               {description || "Hairplant is our revolutionary approach to hair restoration that combines cutting-edge technology with natural techniques..."}
             </p>
             <div className="pt-4">
-              <button className="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+              <button className="bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition duration-300">
                 Learn More
               </button>
             </div>
@@ -47,7 +47,7 @@ export default function HairPlanting({ title, description, image, benefits }) {
       </div>
 
       {/* Additional Info Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-light py-16">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-3xl mx-auto text-center mb-12"
@@ -56,8 +56,8 @@ export default function HairPlanting({ title, description, image, benefits }) {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Why Choose Our Treatment?</h2>
-            <p className="text-lg text-gray-600">Discover the advantages that make our approach stand out from conventional treatments.</p>
+            <h2 className="text-3xl font-semibold text-gray-dark mb-4">Why Choose Our Treatment?</h2>
+            <p className="text-lg text-gray-dark">Discover the advantages that make our approach stand out from conventional treatments.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -75,8 +75,8 @@ export default function HairPlanting({ title, description, image, benefits }) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-xl font-medium text-gray-dark mb-2">{benefit.title}</h3>
+                <p className="text-gray-dark">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

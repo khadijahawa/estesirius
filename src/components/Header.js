@@ -26,17 +26,17 @@ export default function Header() {
     HAIR: [
       {
         name: "Hair Transplant For Men",
-        link: "/transplant/hair/hair-transplant-for-men",
+        link: "/hair/hair-transplant-for-men",
         key: "hair-transplant-for-men"
       },
       {
         name: "Hair Transplant For Women",
-        link: "/transplant/hair/hair-transplant-for-women",
+        link: "/hair/hair-transplant-for-women",
         key: "hair-transplant-for-women"
       },
       {
         name: "Beard Transplant",
-        link: "/transplant/hair/beard-transplant",
+        link: "/hair/beard",
         key: "beard-transplant"
       }
     ],

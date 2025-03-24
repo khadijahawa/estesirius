@@ -131,13 +131,13 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
         >
           {/* Slider Handle */}
           <motion.div
-            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded-full border-2 border-gray-300 shadow-md flex items-center justify-center"
+            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded-full border-2 border-gray shadow-md flex items-center justify-center"
             animate={{ scale: isDraggingRef.current ? 1.1 : 1 }}
             transition={{ duration: 0.2 }}
           >
             <div className="flex flex-col gap-0.5">
-              <div className="w-1 h-4 bg-gray-400 rounded-full"></div>
-              <div className="w-1 h-4 bg-gray-400 rounded-full"></div>
+              <div className="w-1 h-4 bg-gray-dark rounded-full"></div>
+              <div className="w-1 h-4 bg-gray-dark rounded-full"></div>
             </div>
           </motion.div>
         </motion.div>
@@ -151,7 +151,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
         transition={{ duration: 0.6, delay: 0.3 }}
       >
         <motion.h1
-          className="text-3xl font-bold mb-4 text-gray-800"
+          className="text-3xl font-bold mb-4 text-gray-dark"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -159,7 +159,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
           {title || "Hair Transplant"}
         </motion.h1>
         <motion.p
-          className="text-gray-600 leading-relaxed"
+          className="text-gray-dark leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -173,7 +173,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <motion.button
-            className="bg-secondary hover:bg-secondary/90 text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
+            className="bg-secondary hover:bg-secondary-dark text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
             whileHover={{
               scale: 1.05,
               boxShadow:
