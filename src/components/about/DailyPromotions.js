@@ -19,7 +19,7 @@ const DailyPromotions = () => {
     >
       <div className="absolute inset-0">
         <Image 
-          src="/images/pr-04.jpg" 
+          src="about/pr-04.jpg" 
           alt="Daily Promotions Background" 
           layout="fill" 
           objectFit="cover"

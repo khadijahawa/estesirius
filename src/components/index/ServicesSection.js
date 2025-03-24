@@ -30,7 +30,7 @@ const ServicesSection = () => {
               className="overflow-hidden rounded-lg shadow-md"
             >
               <Image 
-                src="/images/treatment1.jpg" 
+                src="/images/index/treatment1.jpg" 
                 alt="Medical treatment procedure" 
                 width={600} 
                 height={400} 
@@ -45,7 +45,7 @@ const ServicesSection = () => {
               className="overflow-hidden rounded-lg shadow-md"
             >
               <Image 
-                src="/images/treatment2.jpg" 
+                src="/images/index/treatment2.jpg" 
                 alt="Medical professional performing treatment" 
                 width={600} 
                 height={400} 
@@ -100,7 +100,7 @@ const ServicesSection = () => {
             className="overflow-hidden rounded-lg shadow-md h-full"
           >
             <Image 
-              src="/images/examination.jpg" 
+              src="/images/index/examination.jpg" 
               alt="Medical consultation and examination" 
               width={600} 
               height={800} 

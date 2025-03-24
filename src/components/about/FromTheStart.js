@@ -35,7 +35,7 @@ const FromTheStart = () => {
         transition={{ duration: 0.7 }}
       >
         <Image 
-          src="/images/pls-08.jpg" 
+          src="/images/about/pls-08.jpg" 
           alt="Our Company" 
           layout="fill" 
           objectFit="cover"

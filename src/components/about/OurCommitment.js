@@ -58,7 +58,7 @@ const OurCommitment = () => {
             {/* Background image for each box */}
             <div className="absolute inset-0">
               <Image 
-                src="/images/pr-03.jpg" 
+                src="/images/about/pr-03.jpg" 
                 alt="Box Background" 
                 layout="fill" 
                 objectFit="cover"

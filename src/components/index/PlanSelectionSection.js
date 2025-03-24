@@ -60,7 +60,7 @@ const PlanSelectionSection = () => {
               className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
               <Image 
-                src="/images/doctor-exam.jpg" 
+                src="/images/index/doctor-exam.jpg" 
                 alt="Doctor Examining Patient" 
                 width={800} 
                 height={500} 

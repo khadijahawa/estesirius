@@ -68,7 +68,7 @@ const Footer = () => {
             >
               <div className="flex-shrink-0 mr-4">
                 <Image 
-                  src="/images/customer.jpg" 
+                  src="/images/footer/customer.jpg" 
                   alt="Customer" 
                   width={60} 
                   height={60} 
@@ -218,12 +218,12 @@ const contactInfo = [
 
 // Gallery images data
 const galleryImages = [
-  "/images/gallery1.jpg",
-  "/images/gallery2.jpg",
-  "/images/gallery3.jpg",
-  "/images/gallery4.jpg",
-  "/images/gallery5.jpg",
-  "/images/gallery6.jpg"
+  "/images/footer/gallery1.jpg",
+  "/images/footer/gallery2.jpg",
+  "/images/footer/gallery3.jpg",
+  "/images/footer/gallery4.jpg",
+  "/images/footer/gallery5.jpg",
+  "/images/footer/gallery6.jpg"
 ];
 
 export default Footer;

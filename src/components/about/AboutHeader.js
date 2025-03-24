@@ -5,7 +5,7 @@ const AboutHeader = () => {
   return (
     <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
       <Image 
-        src="/images/pr-05.jpg" 
+        src="/images/about/pr-05.jpg" 
         alt="About Us Header" 
         layout="fill" 
         objectFit="cover" 

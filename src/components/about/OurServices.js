@@ -89,7 +89,7 @@ const OurServices = () => {
               whileHover={{ boxShadow: "0 0 0 4px rgba(64, 224, 208, 0.3)" }}
             >
               <Image 
-                src={`/images/${service.image}`} 
+                src={`/images/about/${service.image}`} 
                 alt={service.title} 
                 layout="fill" 
                 objectFit="cover"

@@ -13,7 +13,7 @@ const StatsSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/stats-background.jpg" 
+          src="/images/index/stats-background.jpg" 
           alt="Medical professionals at work" 
           fill
           priority

@@ -36,7 +36,7 @@ export default function HairPlanting({ title, description, image, benefits }) {
             viewport={{ once: true }}
           >
             <Image 
-              src={image || "/images/pr-15.jpg"}
+              src={image || "/images/hair/pr-15.jpg"}
               alt="Procedure Image"
               layout="fill"
               objectFit="cover"

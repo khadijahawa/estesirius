@@ -73,7 +73,7 @@ const CustomerReviews = () => {
     >
       <div className="absolute inset-0">
         <Image 
-          src="/images/pr-06.jpg" 
+          src="/images/about/pr-06.jpg" 
           alt="Reviews Background" 
           layout="fill" 
           objectFit="cover"

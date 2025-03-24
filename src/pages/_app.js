@@ -7,7 +7,7 @@ import { IntlProvider } from "react-intl";
 import IconManager from "../components/IconManager";
 
 // Import the icon directly
-import faviconUrl from "../utilities/ico/images/Estesirius_logo.ico";
+import faviconUrl from "../../public/ico/Estesirius_logo.ico";
 
 import en from "../lang/en.json";
 import ar from "../lang/ar.json";

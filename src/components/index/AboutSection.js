@@ -28,7 +28,7 @@ const AboutSection = () => {
               className="overflow-hidden rounded-lg shadow-lg"
             >
               <Image 
-                src="/images/doctor-consultation.jpg" 
+                src="/images/index/octor-consultation.jpg" 
                 alt="Doctor Consultation" 
                 width={600} 
                 height={600} 

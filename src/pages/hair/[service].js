@@ -36,9 +36,9 @@ const servicesData = {
       }
     ],
     images: [
-      "/images/hair-transplant-men-1.jpg",
-      "/images/hair-transplant-men-2.jpg",
-      "/images/hair-transplant-men-3.jpg"
+      "/images/hair/hair-transplant-men-1.jpg",
+      "/images/hair/hair-transplant-men-2.jpg",
+      "/images/hair/hair-transplant-men-3.jpg"
     ]
   },
   "hair-transplant-for-women": {
@@ -70,9 +70,9 @@ const servicesData = {
       }
     ],
     images: [
-      "/images/hair-transplant-women-1.jpg",
-      "/images/hair-transplant-women-2.jpg",
-      "/images/hair-transplant-women-3.jpg"
+      "/images/hair/hair-transplant-women-1.jpg",
+      "/images/hair/hair-transplant-women-2.jpg",
+      "/images/hair/hair-transplant-women-3.jpg"
     ]
   },
   "beard": {
@@ -104,9 +104,9 @@ const servicesData = {
       }
     ],
     images: [
-      "/images/beard-transplant-1.jpg",
-      "/images/beard-transplant-2.jpg",
-      "/images/beard-transplant-3.jpg"
+      "/images/hair/beard-transplant-1.jpg",
+      "/images/hair/beard-transplant-2.jpg",
+      "/images/hair/beard-transplant-3.jpg"
     ]
   }
 };
@@ -161,14 +161,14 @@ const ServicePage = () => {
       {/* Header Component */}
       <HairHeader 
         title={serviceContent.title}
-        backgroundImage={serviceContent.images?.[0] || "/images/pr-10.jpg"}
+        backgroundImage={serviceContent.images?.[0] || "/images/hair/pr-10.jpg"}
       />
       
       {/* Content Component */}
       <HairPlanting 
         title={serviceContent.header}
         description={serviceContent.content}
-        image={serviceContent.images?.[1] || "/images/pr-15.jpg"}
+        image={serviceContent.images?.[1] || "/images/hair/pr-15.jpg"}
         benefits={[
           {
             title: "Natural Results",
@@ -189,8 +189,8 @@ const ServicePage = () => {
       <ImageComp
         title={serviceContent.title}
         description={serviceContent.content}
-        beforeImage={serviceContent.images?.[0] || "/images/hp-01.jpg"}
-        afterImage={serviceContent.images?.[1] || "/images/hp-02.jpg"}
+        beforeImage={serviceContent.images?.[0] || "/images/hair/hp-01.jpg"}
+        afterImage={serviceContent.images?.[1] || "/images/hair/hp-02.jpg"}
       />
     </div>
   );

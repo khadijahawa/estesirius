@@ -94,7 +94,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
         {/* Before Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src={beforeImage || "/images/hp-01.jpg"}
+            src={beforeImage || "/images/hair/hp-01.jpg"}
             alt="Before treatment"
             layout="fill"
             objectFit="cover"
@@ -110,7 +110,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
           transition={{ duration: 0.3 }}
         >
           <Image
-            src={afterImage || "/images/hp-02.jpg"}
+            src={afterImage || "/images/hair/hp-02.jpg"}
             alt="After treatment"
             layout="fill"
             objectFit="cover"

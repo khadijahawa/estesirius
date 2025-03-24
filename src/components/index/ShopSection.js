@@ -51,7 +51,7 @@ const ShopSection = () => {
               className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
               <Image 
-                src="/images/treatment.jpg" 
+                src="/images/index/treatment.jpg" 
                 alt="Facial Treatment" 
                 width={600} 
                 height={400} 
@@ -112,22 +112,22 @@ const products = [
   {
     name: "CREAM",
     price: "99",
-    image: "/images/cream.jpg"
+    image: "/images/index/cream.jpg"
   },
   {
     name: "SOAP",
     price: "19",
-    image: "/images/soap.jpg"
+    image: "/images/index/soap.jpg"
   },
   {
     name: "FILLER",
     price: "75",
-    image: "/images/filler.jpg"
+    image: "/images/index/filler.jpg"
   },
   {
     name: "DETERGENT",
     price: "150",
-    image: "/images/detergent.jpg"
+    image: "/images/index/detergent.jpg"
   }
 ];
 

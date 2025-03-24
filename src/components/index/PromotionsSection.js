@@ -59,14 +59,14 @@ const PromotionsSection = () => {
             >
               <div className="w-12 h-12 rounded-full overflow-hidden mr-4 shadow-md">
                 <Image 
-                  src="/images/profile.jpg" 
+                  src="/images/index/profile.jpg" 
                   alt="Doctor Profile" 
                   width={48} 
                   height={48} 
                   className="w-full h-full object-cover" 
                 />
               </div>
-              <img src="/images/signature.png" alt="Signature" className="w-24 h-auto" />
+              <img src="/images/index/signature.png" alt="Signature" className="w-24 h-auto" />
             </motion.div>
           </div>
 
@@ -186,17 +186,17 @@ const promotionProducts = [
   {
     name: "CUSTOM PRODUCT",
     price: "40",
-    image: "/images/custom-product.jpg"
+    image: "/images/index/custom-product.jpg"
   },
   {
     name: "FULL SERVICE",
     price: "40",
-    image: "/images/full-service.jpg"
+    image: "/images/index/full-service.jpg"
   },
   {
     name: "BEST PRODUCT",
     price: "40",
-    image: "/images/best-product.jpg"
+    image: "/images/index/best-product.jpg"
   }
 ];
 
@@ -205,12 +205,12 @@ const promoBoxes = [
   {
     title: "Promo of the Month",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
-    image: "/images/promo-month.jpg"
+    image: "/images/index/promo-month.jpg"
   },
   {
     title: "Best Season Sales",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
-    image: "/images/best-season.jpg"
+    image: "/images/index/best-season.jpg"
   }
 ];
 
