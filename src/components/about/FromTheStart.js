@@ -37,8 +37,10 @@ const FromTheStart = () => {
         <Image 
           src="/images/about/pls-08.jpg" 
           alt="Our Company" 
-          layout="fill" 
-          objectFit="cover"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+          style={{ objectFit: "cover" }}
         />
       </motion.div>
       

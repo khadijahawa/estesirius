@@ -60,8 +60,9 @@ const OurCommitment = () => {
               <Image 
                 src="/images/about/pr-03.jpg" 
                 alt="Box Background" 
-                layout="fill" 
-                objectFit="cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+                style={{ objectFit: "cover" }}
               />
             </div>
             <motion.div 

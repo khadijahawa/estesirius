@@ -91,8 +91,9 @@ const OurServices = () => {
               <Image 
                 src={`/images/about/${service.image}`} 
                 alt={service.title} 
-                layout="fill" 
-                objectFit="cover"
+                fill
+                sizes="128px"
+                style={{ objectFit: "cover" }}
               />
             </motion.div>
             <h3 className="text-center font-medium">{service.title}</h3>

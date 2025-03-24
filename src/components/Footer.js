@@ -5,14 +5,25 @@ import { FaFacebook, FaTwitter, FaYoutube, FaVimeo, FaPhone, FaEnvelope, FaMapMa
 
 const Footer = () => {
   return (
-    <footer className="bg-primary">
+    <footer className="bg-primary relative">
+      {/* Background Image with Transparency - positioned to cover entire footer */}
+      <div className="absolute inset-0 opacity-10 z-0 overflow-hidden">
+        <Image 
+          src="/images/footer/pr-02.jpg" 
+          alt="Footer Background" 
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
+      </div>
+      
       {/* Upper Section */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="container mx-auto px-4 py-16"
+        className="container mx-auto px-4 py-16 relative z-10"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
           {/* Column 1 - Este Sirius */}
@@ -47,7 +58,7 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Column 2 - Our Customers */}
+          {/* Column 2 - Our Doctors */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,30 +66,30 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2 className="text-xl font-bold mb-6 relative text-gray-light">
-              Our Customers
+              Our Doctors
               <span className="absolute bottom-0 left-0 w-16 h-1 bg-gray-light"></span>
             </h2>
             <p className="text-gray-light mb-6">
-              We take pride in our patients' satisfaction. Read what they have to say about their experience with us.
+              Meet our expert team of plastic surgeons with years of experience in aesthetic and reconstructive procedures.
             </p>
             <motion.div 
-              className="flex items-center bg-white bg-opacity-10 p-4 rounded-lg"
+              className="flex items-center relative p-4 rounded-lg"
               whileHover={{ y: -5, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
               transition={{ duration: 0.3 }}
             >
               <div className="flex-shrink-0 mr-4">
                 <Image 
-                  src="/images/footer/customer.jpg" 
-                  alt="Customer" 
+                  src="/images/footer/doctor.jpg" 
+                  alt="Doctor" 
                   width={60} 
                   height={60} 
-                  className="rounded-full border-2 border-gray-light"
+                  className="rounded-full border-2 border-secondary-light"
                 />
               </div>
               <div>
-                <h3 className="font-bold text-gray-light">Emily Johnson</h3>
-                <p className="text-sm text-gray">Designer, LA</p>
-                <p className="text-sm mt-1 text-gray-light">"Incredible results and caring staff!"</p>
+                <h3 className="font-bold text-gray-light">Dr. Robert Williams</h3>
+                <p className="text-sm text-gray-light">Chief Plastic Surgeon</p>
+                <p className="text-sm mt-1 text-gray-light">"Dedicated to aesthetic excellence."</p>
               </div>
             </motion.div>
           </motion.div>
@@ -112,6 +123,19 @@ const Footer = () => {
                 </motion.div>
               ))}
             </div>
+            <Link href="/contact" passHref>
+              <motion.div 
+                className="mt-6 inline-block bg-secondary-light text-white px-6 py-2 rounded-md text-center"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: "var(--color-secondary-dark)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                Contact Us
+              </motion.div>
+            </Link>
           </motion.div>
 
           {/* Column 4 - Our Gallery */}
@@ -148,7 +172,7 @@ const Footer = () => {
       </motion.div>
 
       {/* Lower Section */}
-      <div className="bg-secondary-dark py-6">
+      <div className="bg-secondary-dark py-6 relative z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}

@@ -19,10 +19,11 @@ const DailyPromotions = () => {
     >
       <div className="absolute inset-0">
         <Image 
-          src="about/pr-04.jpg" 
+          src="/images/about/pr-04.jpg" 
           alt="Daily Promotions Background" 
-          layout="fill" 
-          objectFit="cover"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
         />
       </div>
       <motion.div 

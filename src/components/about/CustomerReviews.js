@@ -75,8 +75,9 @@ const CustomerReviews = () => {
         <Image 
           src="/images/about/pr-06.jpg" 
           alt="Reviews Background" 
-          layout="fill" 
-          objectFit="cover"
+          fill
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
         />
       </div>
       <motion.div 
