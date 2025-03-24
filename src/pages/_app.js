@@ -18,7 +18,7 @@ const messages = {
 };
 
 function getDirection(locale) {
-  if (locale === "en") {
+  if (locale === "ar") {
     return "rtl";
   }
   return "ltr";
@@ -31,6 +31,8 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Estesirius</title>
+        <html lang={locale} dir={getDirection(locale)} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <IconManager iconUrl={faviconUrl} />
       <IntlProvider locale={locale} messages={messages[locale]}>
