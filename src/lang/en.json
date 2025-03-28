@@ -1,0 +1,40 @@
+{
+  "Navbar.Home": "Home",
+  "Navbar.About": "About",
+  "Navbar.Hair": "Hair",
+  "Navbar.Operations": "Operations",
+  "Navbar.ESTHETIC": "ESTHETIC",
+  "Navbar.CONTACT": "CONTACT",
+  "Navbar.BOOK": "BOOK NOW",
+
+  "Navbar.dropdown.ourStory": "OUR STORY",
+  "Navbar.dropdown.testimonials": "TESTIMONIALS",
+
+  "Navbar.dropdown.hairForMen": "HAIR TRANSPLANT FOR MEN",
+  "Navbar.dropdown.hairForWomen": "HAIR TRANSPLANT FOR WOMEN",
+  "Navbar.dropdown.beard": "BEARD TRANSPLANT",
+
+  "Navbar.dropdown.botox": "BOTULINUM TOXIN OR BOTOX",
+  "Navbar.dropdown.fillers": "DERMAL FILLERS",
+  "Navbar.dropdown.prp": "PRP (PLATELET-RICH PLASMA)",
+  "Navbar.dropdown.mesotherapy": "MESOTHERAPY",
+  "Navbar.dropdown.threads": "THREAD LIFTING",
+  "Navbar.dropdown.peeling": "PEELING",
+
+  "Navbar.dropdown.faceLift": "FACE LIFT",
+  "Navbar.dropdown.temporalLift": "TEMPORAL LIFT",
+  "Navbar.dropdown.rhinoplasty": "RHINOPLASTY",
+  "Navbar.dropdown.blepharoplasty": "BLEPHAROPLASTY",
+  "Navbar.dropdown.otoplasty": "OTOPLASTY",
+  "Navbar.dropdown.chin": "CHIN SURGERY OR GENIOPLASTY",
+
+  "Navbar.dropdown.abdominoplasty": "ABDOMINOPLASTY",
+  "Navbar.dropdown.liposuction": "LIPOSUCTION",
+  "Navbar.dropdown.thighLift": "THIGH LIFT",
+  "Navbar.dropdown.armLift": "ARM LIFT",
+  "Navbar.dropdown.bbl": "BUTTOCK LIPOFILLING / BBL",
+
+  "Navbar.dropdown.breastLipofilling": "BREAST LIPOFILLING",
+  "Navbar.dropdown.breastLift": "BREAST LIFT",
+  "Navbar.dropdown.gynecomastia": "GYNECOMASTIA"
+}

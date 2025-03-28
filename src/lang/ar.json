@@ -1,0 +1,40 @@
+{
+  "Navbar.Home": "الرئيسية",
+  "Navbar.About": "حول",
+  "Navbar.Hair": "شعر",
+  "Navbar.Operations": "العمليات",
+  "Navbar.ESTHETIC": "التجميل",
+  "Navbar.CONTACT": "اتصال",
+  "Navbar.BOOK": "احجز الآن",
+
+  "Navbar.dropdown.ourStory": "قصتنا",
+  "Navbar.dropdown.testimonials": "الشهادات",
+
+  "Navbar.dropdown.hairForMen": "زراعة الشعر للرجال",
+  "Navbar.dropdown.hairForWomen": "زراعة الشعر للنساء",
+  "Navbar.dropdown.beard": "زراعة اللحية",
+
+  "Navbar.dropdown.botox": "توكسين البوتولينوم أو بوتوكس",
+  "Navbar.dropdown.fillers": "الفيلر الجلدي",
+  "Navbar.dropdown.prp": "PRP (البلازما الغنية بالصفائح الدموية)",
+  "Navbar.dropdown.mesotherapy": "الميزوثيرابي",
+  "Navbar.dropdown.threads": "رفع بالخيوط",
+  "Navbar.dropdown.peeling": "تقشير",
+
+  "Navbar.dropdown.faceLift": "رفع الوجه",
+  "Navbar.dropdown.temporalLift": "رفع الزوايا الزمنية",
+  "Navbar.dropdown.rhinoplasty": "جراحة الأنف",
+  "Navbar.dropdown.blepharoplasty": "جراحة الجفن",
+  "Navbar.dropdown.otoplasty": "جراحة الأذن",
+  "Navbar.dropdown.chin": "جراحة الذقن أو جراحة التجميل الذقني",
+
+  "Navbar.dropdown.abdominoplasty": "جراحة البطن",
+  "Navbar.dropdown.liposuction": "شفط الدهون",
+  "Navbar.dropdown.thighLift": "رفع الفخذ",
+  "Navbar.dropdown.armLift": "رفع الذراع",
+  "Navbar.dropdown.bbl": "تكبير المؤخرة / برازليين (BBL)",
+
+  "Navbar.dropdown.breastLipofilling": "تكبير الثدي بالدهون",
+  "Navbar.dropdown.breastLift": "رفع الثدي",
+  "Navbar.dropdown.gynecomastia": "تثدي الرجال"
+}

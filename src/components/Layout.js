@@ -3,18 +3,16 @@ import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+export default function Layout({ children }) {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Head>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <title>ESTESIRIUS</title>
       </Head>
       <Header />
-      <main className="mainLayout flex-1">{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
     </div>
   );
-};
-
-export default Layout;
+}
