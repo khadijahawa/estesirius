@@ -257,13 +257,13 @@ const contactInfo = [
   {
     icon: <FaPhone />,
     label: "Phone",
-    value: "+9053952045300"
+    value: "+905395204530"
   },
-  {
-    icon: <FaEnvelope />,
-    label: "Email",
-    value: "contact@estesirius.com"
-  },
+  // {
+  //   icon: <FaEnvelope />,
+  //   label: "Email",
+  //   value: "contact@estesirius.com"
+  // },
   // {
   //   icon: <FaMapMarkerAlt />,
   //   label: "Address",
