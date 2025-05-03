@@ -1,6 +1,7 @@
 import { FaPhone, FaEnvelope, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function MobileSidebar({
   isOpen,
@@ -95,12 +96,18 @@ export default function MobileSidebar({
             <div className="flex justify-between items-center p-4 border-b">
               <Link href="/">
                 <div className="flex">
-                  <span className="bg-primary text-white px-2 py-1 text-sm font-bold font-sans">
+                  {/* <span className="bg-primary text-white px-2 py-1 text-sm font-bold font-sans">
                     ESTE
                   </span>
                   <span className="bg-secondary text-white px-2 py-1 text-sm font-bold font-sans">
                     SIRIUS
-                  </span>
+                  </span> */}
+                  <Image
+                    src="/images/clinic/newlogo2.png"
+                    alt="Logo"
+                    width={100}
+                    height={50}
+                  />
                 </div>
               </Link>
               <motion.button
@@ -136,6 +143,7 @@ export default function MobileSidebar({
                                 color: turquoiseColor,
                                 transition: { duration: 0.2 }
                               }}
+                              onClick={onClose}
                             >
                               {menuName}
                             </motion.span>
@@ -179,6 +187,7 @@ export default function MobileSidebar({
                                     color: turquoiseColor,
                                     transition: { duration: 0.2 }
                                   }}
+                                  onClick={onClose}
                                 >
                                   {subItem.name}
                                 </motion.span>

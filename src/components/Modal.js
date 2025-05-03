@@ -23,7 +23,7 @@ const Modal = ({ show, onClose, subcategory, cases }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white p-6 rounded-lg w-full max-w-5xl h-[500px] md:h-[700px] relative"
+        className="bg-white p-6 rounded-lg w-full max-w-5xl h-[65%] md:h-[700px]  relative"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-2xl font-bold mb-4">{subcategory?.title}</h2>
@@ -32,7 +32,7 @@ const Modal = ({ show, onClose, subcategory, cases }) => {
         <div className="relative w-full flex justify-center items-center my-14">
           {" "}
           {/* Adjusted for bottom margin */}
-          <div className="relative w-1/2 h-[400px] flex justify-center items-center">
+          <div className="relative w-1/2 h-[90%] h-[400px] flex justify-center items-center">
             <Image
               src={cases[currentCase]?.before}
               alt="Before"

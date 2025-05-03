@@ -328,11 +328,11 @@ const ServicePage = () => {
   return (
     <div className="container mx-auto px-2 my-16 pt-16">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">
+        <h2 className="text-4xl font-bold text-center my-12">
           {categoryData.title}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-18">
           {/* Left Column */}
           <div>
             {leftSubcategories.map((key) => {
@@ -343,7 +343,7 @@ const ServicePage = () => {
                   className="flex flex-col sm:flex-row items-start gap-4 mb-8"
                   onClick={() => handleOpenModal(subcategory)}
                 >
-                  <div className="relative w-64 h-64 flex-shrink-0">
+                  <div className="relative w-[100%] h-64 md:w-64 md:h-64 flex-shrink-0">
                     <Image
                       src={subcategory.subImage}
                       alt={subcategory.title}
@@ -407,7 +407,7 @@ const ServicePage = () => {
                   className="flex flex-col sm:flex-row items-start gap-4 mb-8"
                   onClick={() => handleOpenModal(subcategory)}
                 >
-                  <div className="relative w-64 h-64 flex-shrink-0">
+                  <div className="relative w-[100%] h-64 md:w-64 md:h-64 flex-shrink-0">
                     <Image
                       src={subcategory.subImage}
                       alt={subcategory.title}
