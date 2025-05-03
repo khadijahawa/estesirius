@@ -204,13 +204,13 @@ const promoBoxes = [
     title: "Exclusive Skin Care",
     description:
       "Get 25% off on all skin care treatments, including facials, anti-aging creams, and personalized consultations.",
-    image: "/images/index/skin-care-promo.jpg"
+    image: "/images/clinic/home1.JPG"
   },
   {
     title: "Body Contouring Special",
     description:
       "Save big on our body contouring services! Sculpt and define your body with our advanced treatments, now at a discounted rate.",
-    image: "/images/index/body-contouring-promo.jpg"
+    image: "/images/clinic/home2.JPG"
   }
 ];
 export default PromotionsSection;

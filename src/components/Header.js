@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import DropdownMenu from "./DropdownMenu";
 import MobileSidebar from "./MobileSidebar";
+import Image from "next/image";
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -190,12 +191,18 @@ export default function Header() {
                 {/* Logo */}
                 <Link href="/">
                   <div className="flex shrink-0">
-                    <span className="bg-primary text-white px-3 py-2 font-bold font-sans">
+                    {/* <span className="bg-primary text-white px-3 py-2 font-bold font-sans">
                       ESTE
                     </span>
                     <span className="bg-secondary text-white px-3 py-2 font-bold font-sans">
                       SIRIUS
-                    </span>
+                    </span> */}
+                    <Image
+                      src="/images/clinic/newlogo2.png"
+                      alt="Logo"
+                      width={100}
+                      height={50}
+                    />
                   </div>
                 </Link>
 

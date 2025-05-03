@@ -2,27 +2,27 @@ import { FaPhone, FaEnvelope, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function MobileSidebar({ 
-  isOpen, 
-  onClose, 
-  menuItems, 
-  hasDropdown 
+export default function MobileSidebar({
+  isOpen,
+  onClose,
+  menuItems,
+  hasDropdown
 }) {
   // Animation variants
   const sidebarVariants = {
     closed: {
       x: "100%",
-      transition: { 
-        type: "spring", 
-        stiffness: 300, 
-        damping: 30 
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30
       }
     },
     open: {
       x: 0,
-      transition: { 
-        type: "spring", 
-        stiffness: 300, 
+      transition: {
+        type: "spring",
+        stiffness: 300,
         damping: 30,
         staggerChildren: 0.07,
         delayChildren: 0.2
@@ -31,12 +31,12 @@ export default function MobileSidebar({
   };
 
   const itemVariants = {
-    closed: { 
-      x: 20, 
-      opacity: 0 
+    closed: {
+      x: 20,
+      opacity: 0
     },
-    open: { 
-      x: 0, 
+    open: {
+      x: 0,
       opacity: 1,
       transition: {
         type: "spring",
@@ -47,12 +47,12 @@ export default function MobileSidebar({
   };
 
   const contactVariants = {
-    closed: { 
-      y: 20, 
-      opacity: 0 
+    closed: {
+      y: 20,
+      opacity: 0
     },
-    open: { 
-      y: 0, 
+    open: {
+      y: 0,
       opacity: 1,
       transition: {
         type: "spring",
@@ -120,8 +120,8 @@ export default function MobileSidebar({
               <nav>
                 <motion.ul className="space-y-6" variants={itemVariants}>
                   {Object.keys(menuItems).map((menuName, index) => (
-                    <motion.li 
-                      key={menuName} 
+                    <motion.li
+                      key={menuName}
                       className="border-b border-gray-100 pb-4 group"
                       variants={itemVariants}
                       custom={index}
@@ -129,19 +129,19 @@ export default function MobileSidebar({
                       <div className="flex justify-between items-center">
                         {!hasDropdown(menuName) ? (
                           <Link href={menuItems[menuName][0].link}>
-                            <motion.span 
+                            <motion.span
                               className="font-medium text-secondary inline-block"
-                              whileHover={{ 
-                                x: 5, 
-                                color: turquoiseColor, 
-                                transition: { duration: 0.2 } 
+                              whileHover={{
+                                x: 5,
+                                color: turquoiseColor,
+                                transition: { duration: 0.2 }
                               }}
                             >
                               {menuName}
                             </motion.span>
                           </Link>
                         ) : (
-                          <motion.span 
+                          <motion.span
                             className="font-medium text-secondary"
                             whileHover={{ color: turquoiseColor }}
                           >
@@ -149,7 +149,7 @@ export default function MobileSidebar({
                           </motion.span>
                         )}
                         {hasDropdown(menuName) && (
-                          <motion.span 
+                          <motion.span
                             className="text-xs text-gray-light"
                             whileHover={{ rotate: 45, color: turquoiseColor }}
                           >
@@ -159,7 +159,7 @@ export default function MobileSidebar({
                       </div>
                       {/* Only show submenu items for dropdowns */}
                       {hasDropdown(menuName) && (
-                        <motion.ul 
+                        <motion.ul
                           className="mt-2 pl-4 space-y-3"
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
@@ -172,12 +172,12 @@ export default function MobileSidebar({
                               variants={itemVariants}
                             >
                               <Link href={subItem.link}>
-                                <motion.span 
+                                <motion.span
                                   className="inline-block py-1"
-                                  whileHover={{ 
-                                    x: 8, 
-                                    color: turquoiseColor, 
-                                    transition: { duration: 0.2 } 
+                                  whileHover={{
+                                    x: 8,
+                                    color: turquoiseColor,
+                                    transition: { duration: 0.2 }
                                   }}
                                 >
                                   {subItem.name}
@@ -193,16 +193,13 @@ export default function MobileSidebar({
               </nav>
 
               {/* Book consultation button */}
-              <motion.div 
-                className="mt-8"
-                variants={contactVariants}
-              >
-                <motion.button 
+              <motion.div className="mt-8" variants={contactVariants}>
+                <motion.button
                   className="w-full bg-primary text-white font-bold py-3 rounded-lg"
-                  whileHover={{ 
-                    scale: 1.02, 
+                  whileHover={{
+                    scale: 1.02,
                     backgroundColor: turquoiseColor,
-                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" 
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)"
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -211,13 +208,13 @@ export default function MobileSidebar({
               </motion.div>
 
               {/* Contact information */}
-              <motion.div 
+              <motion.div
                 className="mt-8 space-y-5 text-sm"
                 variants={contactVariants}
               >
-                <motion.div 
+                <motion.div
                   className="flex items-center bg-gray-50 p-3 rounded-md"
-                  whileHover={{ 
+                  whileHover={{
                     backgroundColor: "#f3f4f6",
                     y: -2,
                     boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.05)"
@@ -226,15 +223,15 @@ export default function MobileSidebar({
                   <motion.div whileHover={{ scale: 1.1 }}>
                     <FaPhone className="mr-3 text-primary" />
                   </motion.div>
-                  <motion.span 
+                  <motion.span
                     className="font-medium"
                     whileHover={{ color: turquoiseColor }}
                   >
-                    +31 2349334972
+                    +905395204530
                   </motion.span>
                 </motion.div>
-                
-                <motion.div 
+
+                {/* <motion.div 
                   className="flex items-center bg-gray-50 p-3 rounded-md"
                   whileHover={{ 
                     backgroundColor: "#f3f4f6", 
@@ -251,21 +248,21 @@ export default function MobileSidebar({
                   >
                     info@estesirius.com
                   </motion.span>
-                </motion.div>
-                
-                <motion.div 
+                </motion.div> */}
+
+                <motion.div
                   className="bg-gray-50 p-3 rounded-md text-center"
-                  whileHover={{ 
-                    backgroundColor: "#f3f4f6", 
+                  whileHover={{
+                    backgroundColor: "#f3f4f6",
                     y: -2,
                     boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.05)"
                   }}
                 >
-                  <motion.p 
+                  <motion.p
                     className="text-gray-dark font-medium"
                     whileHover={{ color: turquoiseColor }}
                   >
-                    ST. LAMBOR, NEW YORK (US)
+                    Turkey, Istanbul
                   </motion.p>
                 </motion.div>
               </motion.div>

@@ -54,12 +54,12 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="flex items-center mb-6">
-              <div className="bg-white text-secondary-dark font-bold px-4 py-2 text-xl">
-                ESTE
-              </div>
-              <div className="bg-secondary-dark text-gray-light font-bold px-4 py-2 text-xl">
-                SIRIUS
-              </div>
+              <Image
+                src="/images/clinic/footerlogo2.png"
+                alt="Logo"
+                width={350}
+                height={150}
+              />
             </div>
             <p className="text-gray-light mb-6">
               Specialized plastic surgery clinic delivering premium care with
