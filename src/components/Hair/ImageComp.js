@@ -4,7 +4,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) => {
+const ImageComparisonSlider = ({
+  title,
+  description,
+  beforeImage,
+  afterImage
+}) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef(null);
   const isDraggingRef = useRef(false);
@@ -59,10 +64,8 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
     };
   }, []);
 
-  // Add animation effect when the component comes into view
   useEffect(() => {
     if (inView) {
-      // Animate the slider position from 0 to 50 when it comes into view
       const timer = setTimeout(() => {
         setSliderPosition(0);
         setTimeout(() => {
@@ -79,10 +82,9 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
       ref={ref}
       className="flex flex-col lg:flex-row max-w-6xl mx-auto p-20 gap-70"
     >
-      {/* Image Comparison Component */}
       <motion.div
         ref={containerRef}
-        className="relative w-full lg:w-1/2 h-96 overflow-hidden rounded-lg shadow-lg"
+        className="relative w-full lg:w-1/2 overflow-hidden rounded-lg shadow-lg"
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
         initial={{ opacity: 0, scale: 0.95 }}
@@ -91,17 +93,15 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
         }
         transition={{ duration: 0.6 }}
       >
-        {/* Before Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src={beforeImage || "/images/hair/hp-01.jpg"}
+            src={beforeImage}
             alt="Before treatment"
             layout="fill"
             objectFit="cover"
           />
         </div>
 
-        {/* After Image with Clip Path */}
         <motion.div
           className="absolute inset-0 w-full h-full"
           style={{
@@ -110,14 +110,13 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
           transition={{ duration: 0.3 }}
         >
           <Image
-            src={afterImage || "/images/hair/hp-02.jpg"}
+            src={afterImage}
             alt="After treatment"
             layout="fill"
             objectFit="cover"
           />
         </motion.div>
 
-        {/* Slider Line with Pulse Effect */}
         <motion.div
           className="absolute top-0 bottom-0 w-0.5 bg-white cursor-ew-resize shadow-lg"
           style={{ left: `${sliderPosition}%` }}
@@ -129,7 +128,6 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
               : "none"
           }}
         >
-          {/* Slider Handle */}
           <motion.div
             className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white rounded-full border-2 border-gray shadow-md flex items-center justify-center"
             animate={{ scale: isDraggingRef.current ? 1.1 : 1 }}
@@ -143,7 +141,6 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
         </motion.div>
       </motion.div>
 
-      {/* Text Content */}
       <motion.div
         className="w-full lg:w-1/2 flex flex-col justify-center"
         initial={{ opacity: 0, x: 30 }}
@@ -156,7 +153,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          {title || "Hair Transplant"}
+          {title}
         </motion.h1>
         <motion.p
           className="text-gray-dark leading-relaxed"
@@ -164,7 +161,7 @@ const ImageComparisonSlider = ({ title, description, beforeImage, afterImage }) 
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          {description || "Hair transplantation is a surgical technique that moves individual hair follicles from a part of the body called the 'donor site' to bald or balding part of the body known as the 'recipient site'."}
+          {description}
         </motion.p>
         <motion.div
           className="mt-6"

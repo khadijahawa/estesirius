@@ -1,14 +1,14 @@
-import Image from 'next/image';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const FromTheStart = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
-  
+
   const paragraphVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (custom) => ({
@@ -19,7 +19,7 @@ const FromTheStart = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       className="flex flex-col md:flex-row mb-12"
       initial={{ opacity: 0 }}
@@ -27,32 +27,32 @@ const FromTheStart = () => {
       transition={{ duration: 0.6 }}
     >
       {/* Left image - height matching the "From the Start" title */}
-      <motion.div 
-        className="w-full md:w-1/2 relative" 
+      <motion.div
+        className="w-full md:w-1/2 relative"
         style={{ height: "24rem" }}
         initial={{ opacity: 0, x: -30 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
         transition={{ duration: 0.7 }}
       >
-        <Image 
-          src="/images/about/pls-08.jpg" 
-          alt="Our Company" 
+        <Image
+          src="/images/about/pls-08.jpg"
+          alt="Our Company"
           fill
           priority
           sizes="(max-width: 768px) 100vw, 50vw"
           style={{ objectFit: "cover" }}
         />
       </motion.div>
-      
-      {/* "From the Start" section - no border, dynamic sizing */}
-      <motion.div 
-        className="w-full md:w-1/2 bg-white p-8 flex flex-col"
+
+      {/* "From the Start" section */}
+      <motion.div
+        className="w-full md:w-1/2 bg-white p-4 md:p-8 flex flex-col"
         initial={{ opacity: 0, x: 30 }}
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
         transition={{ duration: 0.7, delay: 0.2 }}
       >
-        <motion.h2 
-          className="text-5xl font-semibold mb-4 text-black"
+        <motion.h2
+          className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 text-black"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
@@ -60,42 +60,67 @@ const FromTheStart = () => {
           From the Start
         </motion.h2>
         <div className="flex flex-col h-full">
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 h-full">
-            <motion.div 
+          <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-4 h-full">
+            {/* First paragraph */}
+            <motion.div
               className="p-2"
               variants={paragraphVariants}
               custom={0}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
-              <p className="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et metus augue. Mauris ut libero eget.</p>
+              <p className="text-black">
+                Our journey began with a vision to offer the most advanced
+                aesthetic treatments that are both safe and transformative. From
+                the outset, our goal has been to empower individuals to feel
+                confident and rejuvenated through personalized care.
+              </p>
             </motion.div>
-            <motion.div 
-              className="p-2"
+
+            {/* Second paragraph */}
+            <motion.div
+              className="p-0 md:p-2"
               variants={paragraphVariants}
               custom={1}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
-              <p className="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et metus augue. Mauris ut libero eget.</p>
+              <p className="text-black">
+                As pioneers in the field, we continually invest in cutting-edge
+                technology and highly skilled professionals. This ensures that
+                each client experiences results that surpass expectations,
+                leaving them with a fresh and youthful appearance.
+              </p>
             </motion.div>
-            <motion.div 
-              className="p-2"
+
+            {/* Third paragraph */}
+            <motion.div
+              className="p-0 md:p-2"
               variants={paragraphVariants}
               custom={2}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
-              <p className="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et metus augue. Mauris ut libero eget.</p>
+              <p className="text-black">
+                We are proud of the lasting relationships we&lsquo;ve built with
+                our clients. Our commitment to providing exceptional services
+                has made us a trusted name in the aesthetic industry.
+              </p>
             </motion.div>
-            <motion.div 
-              className="p-2"
+
+            {/* Fourth paragraph */}
+            <motion.div
+              className="p-0 md:p-2"
               variants={paragraphVariants}
               custom={3}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
-              <p className="text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et metus augue. Mauris ut libero eget.</p>
+              <p className="text-black">
+                As we look to the future, we remain dedicated to enhancing our
+                services, focusing on customer satisfaction, and staying ahead
+                of the curve in aesthetic innovations.
+              </p>
             </motion.div>
           </div>
         </div>

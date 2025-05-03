@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const StatsSection = () => {
   return (
@@ -12,9 +12,9 @@ const StatsSection = () => {
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/images/index/stats-background.jpg" 
-          alt="Medical professionals at work" 
+        <Image
+          src="/images/index/stats-background.jpg"
+          alt="Medical professionals at work"
           fill
           priority
           className="object-cover object-center"
@@ -37,24 +37,24 @@ const StatsSection = () => {
 // Stat Card Component
 const StatCard = ({ stat, index }) => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
-      whileHover={{ 
+      transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+      whileHover={{
         y: -5,
         boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
       }}
       className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8 text-center border border-white border-opacity-10 transition-all duration-300"
     >
-      <motion.h2 
+      <motion.h2
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ 
-          duration: 0.6, 
-          delay: 0.3 + (index * 0.1),
+        transition={{
+          duration: 0.6,
+          delay: 0.3 + index * 0.1,
           type: "spring",
           stiffness: 100
         }}
@@ -71,24 +71,24 @@ const StatCard = ({ stat, index }) => {
 // Stats data
 const stats = [
   {
-    number: "13",
+    number: "6",
     label: "Products",
-    description: "Vivamus vel nibh mi"
+    description: "For Skin and Hair Care"
   },
   {
-    number: "45",
-    label: "Workers",
-    description: "Vivamus vel nibh mi"
+    number: "27",
+    label: "Employee",
+    description: "Varies Specialization"
   },
   {
-    number: "26",
-    label: "Creators",
-    description: "Nunc sollicitudin dolor"
+    number: "5390",
+    label: "Visitors",
+    description: "From All Around the world"
   },
   {
-    number: "78",
+    number: "11",
     label: "Years",
-    description: "Etiam fringilla quam"
+    description: "Of Experience"
   }
 ];
 

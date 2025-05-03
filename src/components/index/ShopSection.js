@@ -1,8 +1,16 @@
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { FiArrowRight } from 'react-icons/fi';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FiArrowRight } from "react-icons/fi";
 
 const ShopSection = () => {
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "+905395204530";
+    ("Hello, I would like more information about the services offered.");
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappURL, "_blank");
+  };
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -23,17 +31,23 @@ const ShopSection = () => {
             <div className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
               BEST INDUSTRY IN THE TOWN
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark">Check Our Shop</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark">
+              Take An Appointment
+            </h2>
             <div className="md:columns-2 gap-6 text-text-light mb-8">
               <p>
-                Quisque eu euismod arcu. Morbi et dapibus diam, sed interdum velit. Proin tempor nunc vel nisl condimentum, 
-                nec tempor risus accumsan.
+                We are known for our advanced and professional services in
+                aesthetic transformations. Our team of experts is dedicated to
+                delivering the highest quality care to each of our clients.
               </p>
               <p className="mt-4 md:mt-0">
-                Fusce tempus erat at justo fringilla, quis consectetur felis fermentum. Integer at congue diam, in convallis mi.
+                With over 12 years of experience in the industry, we aim to
+                bring out your true beauty with the latest technologies and
+                procedures.
               </p>
             </div>
-            <motion.button 
+            <motion.button
+              onClick={handleWhatsAppRedirect}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-primary text-white px-6 py-3 rounded flex items-center font-medium transition-colors hover:bg-primary-dark"
@@ -45,17 +59,17 @@ const ShopSection = () => {
 
           {/* Right Side */}
           <div className="md:w-1/2 mt-8 md:mt-0">
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
-              <Image 
-                src="/images/index/treatment.jpg" 
-                alt="Facial Treatment" 
-                width={600} 
-                height={400} 
-                className="w-full h-full object-cover" 
+              <Image
+                src="/images/index/treatment.jpg"
+                alt="Facial Treatment"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
               />
             </motion.div>
           </div>
@@ -75,29 +89,29 @@ const ShopSection = () => {
 // Product Card Component
 const ProductCard = ({ product, index }) => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <motion.div
-        whileHover={{ 
+        whileHover={{
           y: -5,
           boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)"
         }}
         className="card bg-white rounded-lg overflow-hidden shadow-md relative transition-all"
       >
         <div className="relative h-48 sm:h-56">
-          <Image 
-            src={product.image} 
-            alt={product.name} 
+          <Image
+            src={product.image}
+            alt={product.name}
             fill
-            className="object-cover"
+            className="object-contain w-full h-full "
           />
-          <div className="absolute top-2 right-2 bg-secondary text-white text-sm font-medium px-3 py-1 rounded-sm">
+          {/* <div className="absolute top-2 right-2 bg-secondary text-white text-sm font-medium px-3 py-1 rounded-sm">
             ${product.price}
-          </div>
+          </div> */}
         </div>
         <div className="p-4 text-center">
           <h3 className="font-bold text-gray-dark">{product.name}</h3>
@@ -110,24 +124,24 @@ const ProductCard = ({ product, index }) => {
 // Product data
 const products = [
   {
-    name: "CREAM",
+    name: "HAIR VITAMINS",
     price: "99",
-    image: "/images/index/cream.jpg"
+    image: "/images/products/gida.png"
   },
   {
-    name: "SOAP",
+    name: "SERUM",
     price: "19",
-    image: "/images/index/soap.jpg"
+    image: "/images/products/60.jpg"
   },
   {
-    name: "FILLER",
+    name: "SUN SCREEN",
     price: "75",
-    image: "/images/index/filler.jpg"
+    image: "/images/products/sunScreen.png"
   },
   {
-    name: "DETERGENT",
+    name: "SHAMPOO",
     price: "150",
-    image: "/images/index/detergent.jpg"
+    image: "/images/products/shampoo.jpg"
   }
 ];
 

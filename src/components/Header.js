@@ -20,9 +20,9 @@ export default function Header() {
     HOME: [{ name: "HOME", link: "/", key: "home" }],
     ABOUT: [
       { name: "OUR STORY", link: "/about", key: "our-story" },
-      { name: "TESTIMONIALS", link: "/testimonials", key: "testimonials" }
+      { name: "SHOP", link: "/shop", key: "shop" }
     ],
-    HAIR: [
+    "HAIR TRANSPLANT": [
       {
         name: "Hair Transplant For Men",
         link: "/hair/hair-transplant-for-men",
@@ -39,9 +39,69 @@ export default function Header() {
         key: "beard-transplant"
       }
     ],
-    OPERATIONS: [{ name: "GALLERY", link: "/gallery", key: "gallery" }],
-    ESTHETIC: [{ name: "ESTHETIC 1", link: "/esthetic1", key: "esthetic1" }],
-    FACIAL: [{ name: "FACE LIFT", link: "/", key: "face-l" }]
+
+    "ESTHETIC MEDICINE": [
+      {
+        name: "FILLER",
+        link: "/operations/dermal-filler-injection",
+        key: "esthetic1"
+      },
+      { name: "BOTOX", link: "/operations/botox-injection", key: "esthetic1" },
+      { name: "THREADS", link: "/operations/thread-lift", key: "esthetic1" },
+      { name: "PRP", link: "/operations/prp-injection", key: "esthetic1" },
+      {
+        name: "MESOTHERAPY",
+        link: "/operations/mesotherapy",
+        key: "esthetic1"
+      },
+      {
+        name: "IMMUNE SYSTEM BOOSTER TREATMENTS",
+        link: "/operations/Immune-System-Booster-Treatment",
+        key: "esthetic1"
+      },
+      {
+        name: "STEM CELLS",
+        link: "/operations/Stem-Cell-Therapy",
+        key: "esthetic1"
+      }
+    ],
+
+    "COSMETIC SURGERIES": [
+      {
+        name: "FACIAL SURGERY",
+        link: "/facial/facial-surgery",
+        key: "gallery"
+      },
+      {
+        name: "BODY CONTOURING",
+        link: "/facial/Body-Contouring",
+        key: "gallery"
+      },
+      { name: "BREAST SURGERY", link: "/facial/Breast-Surgery", key: "gallery" }
+    ],
+    MACHINES: [
+      { name: "HYDRAFACIAL", link: "/machines/HYDRAFACIAL", key: "face-l" },
+      {
+        name: "GOLDEN NEEDLE (SCARLET)",
+        link: "/machines/GOLDEN-NEEDLE",
+        key: "face-l"
+      },
+      {
+        name: "HIFU (ULTHERA)",
+        link: "/machines/HIFU-(ULTHERA)",
+        key: "face-l"
+      },
+      { name: "ENDOLIFT", link: "/machines/ENDOLIFT", key: "face-l" },
+      { name: "OZON", link: "/machines/OZON", key: "face-l" },
+      { name: "HYDRAPEN", link: "/machines/HYDRAPEN", key: "face-l" },
+      { name: "DERMAPEN", link: "/machines/DERMAPEN", key: "face-l" },
+      {
+        name: "PLAZMAPEN (PLEXER)",
+        link: "/machines/PLAZMAPEN-(PLEXER)",
+        key: "face-l"
+      },
+      { name: "G8", link: "/machines/G8", key: "face-l" }
+    ]
   };
 
   useEffect(() => {
@@ -74,8 +134,11 @@ export default function Header() {
 
   const handleMouseEnter = (menuName, event) => {
     // Only show dropdown if menu has more than one item or the item doesn't point to the menu name
-    if (menuItems[menuName].length <= 1 && 
-        menuItems[menuName][0].name === menuName) return;
+    if (
+      menuItems[menuName].length <= 1 &&
+      menuItems[menuName][0].name === menuName
+    )
+      return;
     const rect = event.currentTarget.getBoundingClientRect();
     setActiveDropdown(menuName);
   };
@@ -96,9 +159,16 @@ export default function Header() {
 
   // Helper function to check if a menu needs a dropdown
   const hasDropdown = (menuName) => {
-    return !(menuItems[menuName].length === 1 && 
-            (menuItems[menuName][0].name === menuName || 
-             menuItems[menuName][0].name === menuName + " 01"));
+    return !(
+      menuItems[menuName].length === 1 &&
+      (menuItems[menuName][0].name === menuName ||
+        menuItems[menuName][0].name === menuName + " 01")
+    );
+  };
+
+  const handleWhatsAppRedirect = () => {
+    const whatsappURL = `https://wa.me/+905395204530`;
+    window.open(whatsappURL, "_blank");
   };
 
   return (
@@ -179,7 +249,10 @@ export default function Header() {
                 </div>
 
                 {/* Book Now Button (Hidden on mobile) */}
-                <button className="hidden md:block bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded transition shrink-0 transform hover:scale-[1.02] active:scale-[0.98]">
+                <button
+                  onClick={() => handleWhatsAppRedirect()}
+                  className="hidden md:block bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded transition shrink-0 transform hover:scale-[1.02] active:scale-[0.98]"
+                >
                   BOOK NOW
                 </button>
               </div>
@@ -189,20 +262,12 @@ export default function Header() {
       </div>
 
       {/* Mobile Sidebar Component */}
-      <MobileSidebar 
-        isOpen={mobileMenuOpen} 
-        onClose={toggleMobileMenu} 
+      <MobileSidebar
+        isOpen={mobileMenuOpen}
+        onClose={toggleMobileMenu}
         menuItems={menuItems}
         hasDropdown={hasDropdown}
       />
-
-      {/* Notification Badge */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <div className="notification-badge bg-primary text-white rounded-full w-14 h-14 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:bg-primary-dark transition-all transform hover:scale-105 active:scale-95">
-          <span className="text-xs">NEW</span>
-          <span className="font-bold">&apos;54</span>
-        </div>
-      </div>
     </>
   );
 }

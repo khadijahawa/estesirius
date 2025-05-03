@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const CustomerReviews = () => {
   const [ref, inView] = useInView({
@@ -13,27 +13,30 @@ const CustomerReviews = () => {
   const reviews = [
     {
       id: 1,
-      name: "John Smith",
-      content: "Their products exceeded my expectations. Highly recommend!",
-      date: "March 2, 2025",
+      name: "",
+      content:
+        "Their aesthetic procedures exceeded my expectations. Highly recommend for anyone looking to enhance their appearance safely and professionally!",
+      date: "March 2, 2023",
       rating: 5
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      content: "Great quality and excellent customer service. Will definitely purchase again.",
-      date: "February 15, 2025",
-      rating: 4
+      name: "",
+      content:
+        "The customer service was excellent, and the results from my procedure were transformative. My confidence has never been higher.",
+      date: "February 15, 2021",
+      rating: 5
     },
     {
       id: 3,
-      name: "Michael Brown",
-      content: "Their team was incredibly helpful throughout the entire process.",
-      date: "January 27, 2025",
-      rating: 3
+      name: "",
+      content:
+        "The staff was incredibly helpful throughout the entire consultation and procedure. I felt well taken care of and informed every step of the way.",
+      date: "January 27, 2020",
+      rating: 5
     }
   ];
-  
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,58 +59,59 @@ const CustomerReviews = () => {
 
   const starVariants = {
     hidden: { opacity: 0, scale: 0 },
-    visible: custom => ({
+    visible: (custom) => ({
       opacity: 1,
       scale: 1,
       transition: { duration: 0.3, delay: custom * 0.1 }
     })
   };
-  
+
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
-      className="relative p-8 mb-12"
+      className="relative p-2 md:p-8  mb-12"
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="absolute inset-0">
-        <Image 
-          src="/images/about/pr-06.jpg" 
-          alt="Reviews Background" 
+        <Image
+          src="/images/about/pr-06.jpg"
+          alt="Reviews Background"
           fill
           sizes="100vw"
           style={{ objectFit: "cover" }}
         />
       </div>
-      <motion.div 
+      <motion.div
         className="relative"
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <motion.h2 
+        <motion.h2
           className="text-5xl font-semibold text-white text-center mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          Customer Reviews
+          Customer Reviews for Our Aesthetic Treatments
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reviews.map((review, index) => (
-            <motion.div 
-              key={review.id} 
+            <motion.div
+              key={review.id}
               className="p-6 backdrop-blur-sm relative rounded-lg"
               style={{ minHeight: "fit-content" }}
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
-                boxShadow: "0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05)"
+                boxShadow:
+                  "0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05)"
               }}
             >
               <motion.div className="absolute bottom-6 right-3 flex">
-                {[...Array(5)].map((_, starIndex) => (
+                {[...Array(5)].map((_, starIndex) =>
                   starIndex < review.rating ? (
                     <motion.div
                       key={starIndex}
@@ -127,9 +131,9 @@ const CustomerReviews = () => {
                       <FaRegStar className="text-gray-400" />
                     </motion.div>
                   )
-                ))}
+                )}
               </motion.div>
-              <motion.h3 
+              <motion.h3
                 className="text-xl font-bold text-white mb-3"
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : { opacity: 0 }}
@@ -137,7 +141,7 @@ const CustomerReviews = () => {
               >
                 {review.name}
               </motion.h3>
-              <motion.p 
+              <motion.p
                 className="mb-3 text-white"
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : { opacity: 0 }}
@@ -145,7 +149,7 @@ const CustomerReviews = () => {
               >
                 {review.content}
               </motion.p>
-              <motion.p 
+              <motion.p
                 className="text-sm text-white"
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : { opacity: 0 }}

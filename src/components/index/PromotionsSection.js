@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const PromotionsSection = () => {
   return (
@@ -19,25 +19,25 @@ const PromotionsSection = () => {
         <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-8">
           {/* Left Side */}
           <div className="md:w-1/2">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-block bg-primary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm"
             >
-              BEST SUMMER OFFERS
+              EXCLUSIVE AESTHETIC OFFERS
             </motion.div>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark"
             >
-              Check the Promotions
+              Elevate Your Beauty with Our Aesthetic Treatments
             </motion.h2>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -45,50 +45,47 @@ const PromotionsSection = () => {
               className="text-text-light mb-8"
             >
               <p>
-                Pellentesque maximus pharetra tristique. Vestibulum eget odio blandit, finibus felis non, efficitur diam. 
-                Sed condimentum pellentesque eros. Etiam posuere turpis in ultricies ullamcorper. Suspendisse potenti. 
-                Maecenas et faucibus metus, ut consequat nisi.
+                At our clinic, we believe that beauty is personal. Whether
+                you&apos;re looking to rejuvenate your skin, sculpt your body,
+                or enhance your facial features, our aesthetic treatments are
+                designed to bring out the best version of you.
+              </p>
+              <p className="mt-4 md:mt-0">
+                With the latest technology and expert care, we offer a range of
+                treatments including facials, botox, fillers, and body
+                contouring to help you achieve glowing, youthful skin and a more
+                confident you. Our team of professionals is committed to
+                providing safe, effective, and personalized solutions.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex items-center"
-            >
-              <div className="w-12 h-12 rounded-full overflow-hidden mr-4 shadow-md">
-                <Image 
-                  src="/images/index/profile.jpg" 
-                  alt="Doctor Profile" 
-                  width={48} 
-                  height={48} 
-                  className="w-full h-full object-cover" 
-                />
-              </div>
-              <img src="/images/index/signature.png" alt="Signature" className="w-24 h-auto" />
-            </motion.div>
+            ></motion.div>
           </div>
 
           {/* Right Side */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="md:w-1/2 mt-8 md:mt-0"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
               className="rounded-lg overflow-hidden shadow-lg bg-gray"
             >
-              <Image 
-                src="/images/measurement.jpg" 
-                alt="Body Measurement" 
-                width={600} 
-                height={400} 
-                className="w-full h-full object-cover" 
+              <Image
+                src="/images/index/doctor-consultation.jpg"
+                alt="Body Measurement"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
               />
             </motion.div>
           </motion.div>
@@ -115,29 +112,29 @@ const PromotionsSection = () => {
 // Product Card Component
 const ProductCard = ({ product, index }) => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
+      transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
     >
       <motion.div
-        whileHover={{ 
+        whileHover={{
           y: -5,
           boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)"
         }}
         className="card bg-white rounded-lg overflow-hidden shadow-md relative transition-all h-full"
       >
         <div className="relative h-48 sm:h-64">
-          <Image 
-            src={product.image} 
-            alt={product.name} 
+          <Image
+            src={product.image}
+            alt={product.name}
             fill
             className="object-cover"
           />
-          <div className="absolute top-2 right-2 bg-secondary text-white text-sm font-medium px-3 py-1 rounded-sm">
+          {/* <div className="absolute top-2 right-2 bg-secondary text-white text-sm font-medium px-3 py-1 rounded-sm">
             ${product.price}
-          </div>
+          </div> */}
         </div>
         <div className="p-4 text-center">
           <h3 className="font-bold text-gray-dark">{product.name}</h3>
@@ -150,28 +147,30 @@ const ProductCard = ({ product, index }) => {
 // Promo Box Component
 const PromoBox = ({ promo, index }) => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
+      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
       whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.08)" }}
       className="bg-white rounded-lg p-6 shadow-md transition-all duration-300"
     >
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
         <div className="w-20 h-20 shrink-0">
           <div className="w-20 h-20 rounded-full overflow-hidden shadow-md">
-            <Image 
-              src={promo.image} 
-              alt={promo.title} 
-              width={80} 
-              height={80} 
-              className="w-full h-full object-cover" 
+            <Image
+              src={promo.image}
+              alt={promo.title}
+              width={80}
+              height={80}
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
         <div>
-          <h3 className="text-xl font-bold mb-2 text-center sm:text-left text-gray-dark">{promo.title}</h3>
+          <h3 className="text-xl font-bold mb-2 text-center sm:text-left text-gray-dark">
+            {promo.title}
+          </h3>
           <p className="text-text-light text-center sm:text-left">
             {promo.description}
           </p>
@@ -184,34 +183,34 @@ const PromoBox = ({ promo, index }) => {
 // Promotion Products data
 const promotionProducts = [
   {
-    name: "CUSTOM PRODUCT",
-    price: "40",
-    image: "/images/index/custom-product.jpg"
+    name: "HAIR CARE SET",
+    price: "60",
+    image: "/images/products/aylik.jpg"
   },
   {
-    name: "FULL SERVICE",
-    price: "40",
-    image: "/images/index/full-service.jpg"
+    name: "3 MONTHS HAIR CARE",
+    price: "120",
+    image: "/images/products/3aylik.jpg"
   },
   {
-    name: "BEST PRODUCT",
-    price: "40",
-    image: "/images/index/best-product.jpg"
+    name: "HAIR VITAMINS SET",
+    price: "150",
+    image: "/images/products/6gida.png"
   }
 ];
 
-// Promo Boxes data
 const promoBoxes = [
   {
-    title: "Promo of the Month",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
-    image: "/images/index/promo-month.jpg"
+    title: "Exclusive Skin Care",
+    description:
+      "Get 25% off on all skin care treatments, including facials, anti-aging creams, and personalized consultations.",
+    image: "/images/index/skin-care-promo.jpg"
   },
   {
-    title: "Best Season Sales",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.",
-    image: "/images/index/best-season.jpg"
+    title: "Body Contouring Special",
+    description:
+      "Save big on our body contouring services! Sculpt and define your body with our advanced treatments, now at a discounted rate.",
+    image: "/images/index/body-contouring-promo.jpg"
   }
 ];
-
 export default PromotionsSection;
