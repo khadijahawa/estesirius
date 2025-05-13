@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { FormattedMessage } from "react-intl";
 
 export default function Shop() {
   return (
@@ -12,7 +13,7 @@ export default function Shop() {
         />
       </Head>
 
-      <div className="shop-hero relative h-[500px] flex items-center overflow-hidden">
+      <div className="shop-hero relative h-[500px] pt-15 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
@@ -28,15 +29,13 @@ export default function Shop() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-bold text-turquoise mb-6">
-              Our Shop
+              <FormattedMessage id="Shop.title" />
             </h1>
             <p className="text-white text-lg mb-8 text-wrap-balance">
-              Discover our exclusive range of premium products tailored for your
-              beauty and health needs. From nourishing hair vitamins to
-              high-performance sunscreens, we offer only the best.
+              <FormattedMessage id="Shop.description" />
             </p>
             <button className="bg-white hover:bg-gray-100 text-turquoise font-bold py-3 px-8 rounded transition">
-              SHOP NOW
+              <FormattedMessage id="Shop.shopNow" />
             </button>
           </div>
         </div>
@@ -89,38 +88,33 @@ export default function Shop() {
 // Product Data (Example Products)
 const products = [
   {
-    name: "Hair Vitamins",
+    name: <FormattedMessage id="Shop.hairVitamins" />,
     price: "39.99",
     image: "/images/products/gida.png",
-    description:
-      "Boost your hair health with our premium Hair Vitamins, designed to support growth, thickness, and overall hair strength. Packed with essential nutrients, it's your daily hair care companion."
+    description: <FormattedMessage id="Shop.hairVitaminsDescription" />
   },
   {
-    name: "Hair Serum",
+    name: <FormattedMessage id="Shop.hairSerum" />,
     price: "49.99",
     image: "/images/products/60-removebg-preview.png",
-    description:
-      "Our Hair Serum is crafted to repair damaged strands, enhance shine, and protect from heat styling. Ideal for all hair types, it nourishes deeply and provides a smooth, silky finish."
+    description: <FormattedMessage id="Shop.hairSerumDescription" />
   },
   {
-    name: "Sunscreen SPF 50",
+    name: <FormattedMessage id="Shop.sunscreen" />,
     price: "29.99",
     image: "/images/products/sunScreen.png",
-    description:
-      "Protect your skin from harmful UV rays with our high-quality Sunscreen SPF 50. Designed for daily use, this sunscreen shields your skin while keeping it moisturized and smooth."
+    description: <FormattedMessage id="Shop.sunscreenDescription" />
   },
   {
-    name: "Shampoo for All Hair Types",
+    name: <FormattedMessage id="Shop.shampoo" />,
     price: "24.99",
     image: "/images/products/shampoo-removebg-preview.png",
-    description:
-      "Our Shampoo is formulated for all hair types, gently cleansing while maintaining moisture and vitality. With natural ingredients, it promotes healthy, shiny hair with every wash."
+    description: <FormattedMessage id="Shop.shampooDescription" />
   },
   {
-    name: "Complete Hair Care Set",
+    name: <FormattedMessage id="Shop.completeHairCareSet" />,
     price: "129.99",
     image: "/images/products/3aylik-removebg-preview.png",
-    description:
-      "Everything your hair needs in one set! Includes Hair Vitamins, Hair Serum, and Shampoo for a complete hair care routine that promotes healthy, strong, and shiny hair."
+    description: <FormattedMessage id="Shop.completeHairCareSetDescription" />
   }
 ];

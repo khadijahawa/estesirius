@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 import IconManager from "../components/IconManager";
 
-// Import the icon directly
 import faviconUrl from "../../public/ico/Estesirius_logo.ico";
 
 import en from "../lang/en.json";
@@ -18,35 +17,24 @@ const messages = {
 };
 
 function getDirection(locale) {
-  if (locale === "ar") {
-    return "rtl";
+  if (locale === "en") {
+    return "ltr";
   }
-  return "ltr";
-}
 
+  return "rtl";
+}
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const { locale = 'en', defaultLocale = 'en' } = router || {};
-  
-  // Geçerli locale kontrol ediliyor, eğer yoksa defaultLocale veya 'en' kullanılıyor
-  const currentLocale = locale || defaultLocale || 'en';
-  
-  // Geçerli mesajlar kontrol ediliyor, eğer locale için mesaj yoksa en kullanılıyor
-  const currentMessages = messages[currentLocale] || messages['en'];
-
+  const { locale } = useRouter();
   return (
     <>
       <Head>
         <title>Estesirius</title>
-        <html lang={currentLocale} dir={getDirection(currentLocale)} />
+        <html lang={locale} dir={getDirection(locale)} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <IconManager iconUrl={faviconUrl} />
-      <IntlProvider 
-        locale={currentLocale} 
-        defaultLocale="en" 
-        messages={currentMessages}
-      >
+      <IntlProvider locale={locale} messages={messages[locale]}>
         <Layout>
           <Component {...pageProps} />
         </Layout>

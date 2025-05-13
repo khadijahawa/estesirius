@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import { FormattedMessage } from "react-intl";
 const PromotionsSection = () => {
   return (
     <motion.section
@@ -26,7 +26,7 @@ const PromotionsSection = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-block bg-primary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm"
             >
-              EXCLUSIVE AESTHETIC OFFERS
+              <FormattedMessage id="PromotionsSection.exclusiveAestheticOffers" />
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
@@ -35,7 +35,7 @@ const PromotionsSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark"
             >
-              Elevate Your Beauty with Our Aesthetic Treatments
+              <FormattedMessage id="PromotionsSection.elevateYourBeauty" />
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -45,17 +45,10 @@ const PromotionsSection = () => {
               className="text-text-light mb-8"
             >
               <p>
-                At our clinic, we believe that beauty is personal. Whether
-                you&apos;re looking to rejuvenate your skin, sculpt your body,
-                or enhance your facial features, our aesthetic treatments are
-                designed to bring out the best version of you.
+                <FormattedMessage id="PromotionsSection.elevateYourBeautyDescription" />
               </p>
               <p className="mt-4 md:mt-0">
-                With the latest technology and expert care, we offer a range of
-                treatments including facials, botox, fillers, and body
-                contouring to help you achieve glowing, youthful skin and a more
-                confident you. Our team of professionals is committed to
-                providing safe, effective, and personalized solutions.
+                <FormattedMessage id="PromotionsSection.elevateYourBeautyDescription2" />
               </p>
             </motion.div>
             <motion.div
@@ -183,17 +176,17 @@ const PromoBox = ({ promo, index }) => {
 // Promotion Products data
 const promotionProducts = [
   {
-    name: "HAIR CARE SET",
+    name: <FormattedMessage id="PromotionsSection.hairCareSet" />,
     price: "60",
     image: "/images/products/aylik.jpg"
   },
   {
-    name: "3 MONTHS HAIR CARE",
+    name: <FormattedMessage id="PromotionsSection.threeMonthsHairCare" />,
     price: "120",
     image: "/images/products/3aylik.jpg"
   },
   {
-    name: "HAIR VITAMINS SET",
+    name: <FormattedMessage id="PromotionsSection.hairVitaminsSet" />,
     price: "150",
     image: "/images/products/6gida.png"
   }
@@ -201,15 +194,17 @@ const promotionProducts = [
 
 const promoBoxes = [
   {
-    title: "Exclusive Skin Care",
-    description:
-      "Get 25% off on all skin care treatments, including facials, anti-aging creams, and personalized consultations.",
+    title: <FormattedMessage id="PromotionsSection.exclusiveSkinCare" />,
+    description: (
+      <FormattedMessage id="PromotionsSection.exclusiveSkinCareDescription" />
+    ),
     image: "/images/clinic/home1.JPG"
   },
   {
-    title: "Body Contouring Special",
-    description:
-      "Save big on our body contouring services! Sculpt and define your body with our advanced treatments, now at a discounted rate.",
+    title: <FormattedMessage id="PromotionsSection.bodyContouringSpecial" />,
+    description: (
+      <FormattedMessage id="PromotionsSection.bodyContouringSpecialDescription" />
+    ),
     image: "/images/clinic/home2.JPG"
   }
 ];

@@ -1,7 +1,7 @@
 // components/Aesthetic/AestheticHeader.js
 import React from "react";
 import Image from "next/image";
-
+import { FormattedMessage } from "react-intl";
 export default function AestheticHeader() {
   return (
     <div className="relative w-full h-[50vh]">
@@ -14,7 +14,7 @@ export default function AestheticHeader() {
       />
       <div className="absolute inset-0 flex items-center justify-center">
         <h1 className="text-white text-6xl font-bold tracking-wider">
-          Esthetic MACHINES
+          <FormattedMessage id="EstheticMachines.title" />
         </h1>
       </div>
     </div>

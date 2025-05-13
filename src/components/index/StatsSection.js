@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FormattedMessage } from "react-intl";
 
 const StatsSection = () => {
   return (
@@ -72,23 +73,23 @@ const StatCard = ({ stat, index }) => {
 const stats = [
   {
     number: "6",
-    label: "Products",
-    description: "For Skin and Hair Care"
+    label: <FormattedMessage id="StatsSection.products" />,
+    description: <FormattedMessage id="StatsSection.forSkinAndHairCare" />
   },
   {
     number: "27",
-    label: "Employee",
-    description: "Varies Specialization"
+    label: <FormattedMessage id="StatsSection.employee" />,
+    description: <FormattedMessage id="StatsSection.variesSpecialization" />
   },
   {
     number: "5390",
-    label: "Visitors",
-    description: "From All Around the world"
+    label: <FormattedMessage id="StatsSection.visitors" />,
+    description: <FormattedMessage id="StatsSection.fromAllAroundTheWorld" />
   },
   {
     number: "11",
-    label: "Years",
-    description: "Of Experience"
+    label: <FormattedMessage id="StatsSection.years" />,
+    description: <FormattedMessage id="StatsSection.ofExperience" />
   }
 ];
 

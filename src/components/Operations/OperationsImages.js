@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { FormattedMessage } from "react-intl";
 
 const OperationsImages = ({ cases, procedureSteps }) => {
   const [currentCase, setCurrentCase] = useState(0);
@@ -17,7 +18,7 @@ const OperationsImages = ({ cases, procedureSteps }) => {
       <div className="relative w-full max-w-screen-lg">
         <div className="mb-8 px-4">
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            Procedure Steps
+            <FormattedMessage id="ProcedureSteps" />
           </h3>
           <ul className="list-inside list-decimal space-y-2 text-gray-700">
             {procedureSteps.map((step, index) => (

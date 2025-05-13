@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import { FormattedMessage } from "react-intl";
 
 const DailyPromotions = () => {
   const [ref, inView] = useInView({
@@ -43,7 +44,7 @@ const DailyPromotions = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Daily Promotions on Aesthetic Treatments
+          <FormattedMessage id="AboutSection.dailyPromotions" />
         </motion.h2>
         <motion.p
           className="text-white text-center max-w-2xl mb-8"
@@ -51,11 +52,7 @@ const DailyPromotions = () => {
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Discover exclusive deals on our premium aesthetic treatments. Whether
-          you&lsquo;re looking for rejuvenating facials, body contouring, or
-          non-surgical facial enhancements, we have something special for
-          everyone. Enjoy high-quality, safe, and effective procedures at
-          discounted prices. Act now and book your session today!
+          <FormattedMessage id="AboutSection.dailyPromotionsDescription" />
         </motion.p>
         <motion.button
           className="bg-white text-black py-2 px-6 rounded inline-block"
@@ -70,7 +67,7 @@ const DailyPromotions = () => {
           whileTap={{ scale: 0.95 }}
           onClick={() => handleWhatsAppRedirect()}
         >
-          Contact Us
+          <FormattedMessage id="AboutSection.contactUs" />
         </motion.button>
       </motion.div>
     </motion.div>

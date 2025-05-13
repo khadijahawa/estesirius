@@ -13,6 +13,7 @@ import {
   FaGlobeAmericas,
   FaAward
 } from "react-icons/fa";
+import { FormattedMessage } from "react-intl";
 
 const Footer = () => {
   const phoneNumber = "+905395204530";
@@ -62,9 +63,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-light mb-6">
-              Specialized plastic surgery clinic delivering premium care with
-              innovative techniques and personalized attention to enhance
-              natural beauty and restore confidence.
+              <FormattedMessage id="Footer.description" />
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -91,12 +90,11 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2 className="text-xl font-bold mb-6 relative text-gray-light">
-              Our Doctors
+              <FormattedMessage id="Footer.doctors" />
               <span className="absolute bottom-0 left-0 w-16 h-1 bg-gray-light"></span>
             </h2>
             <p className="text-gray-light mb-6">
-              Meet our expert team of plastic surgeons with years of experience
-              in aesthetic and reconstructive procedures.
+              <FormattedMessage id="Footer.doctorsDescription" />
             </p>
             <motion.div
               className="flex items-center relative p-4 rounded-lg"
@@ -131,7 +129,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h2 className="text-xl font-bold mb-6 relative text-gray-light">
-              Quick Contacts
+              <FormattedMessage id="Footer.quickContacts" />
               <span className="absolute bottom-0 left-0 w-16 h-1 bg-gray-light"></span>
             </h2>
             <div className="space-y-4">
@@ -175,7 +173,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <h2 className="text-xl font-bold mb-6 relative text-gray-light">
-              Our Gallery
+              <FormattedMessage id="Footer.gallery" />
               <span className="absolute bottom-0 left-0 w-16 h-1 bg-gray-light"></span>
             </h2>
             <div className="grid grid-cols-3 gap-2">
@@ -210,7 +208,7 @@ const Footer = () => {
             {/* Copyright */}
             <div>
               <p className="text-sm text-gray-light">
-                © Copyright 2025 Este Sirius. All Rights Reserved.
+                <FormattedMessage id="Footer.copyright" />
               </p>
             </div>
 
@@ -218,7 +216,7 @@ const Footer = () => {
             <div className="flex items-center">
               <FaAward className="text-primary mr-2" />
               <p className="text-sm text-gray-light">
-                Premium Plastic Surgery Clinic
+                <FormattedMessage id="Footer.award" />
               </p>
             </div>
 

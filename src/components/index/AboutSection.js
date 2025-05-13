@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
+import { FormattedMessage } from "react-intl";
 
 const AboutSection = () => {
   const handleWhatsAppRedirect = () => {
@@ -61,7 +62,7 @@ const AboutSection = () => {
               transition={{ duration: 0.4, delay: 0.5 }}
               className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm border border-white border-opacity-20"
             >
-              FROM 2014
+              <FormattedMessage id="AboutSection.from2014" />
             </motion.div>
 
             <motion.h2
@@ -71,7 +72,7 @@ const AboutSection = () => {
               transition={{ duration: 0.4, delay: 0.6 }}
               className="text-3xl md:text-4xl font-bold mb-6"
             >
-              The origin of the Business
+              <FormattedMessage id="AboutSection.theOriginOfTheBusiness" />
             </motion.h2>
 
             <motion.p
@@ -81,21 +82,21 @@ const AboutSection = () => {
               transition={{ duration: 0.4, delay: 0.7 }}
               className="mb-8 text-white text-opacity-90"
             >
-              our clinic has been dedicated to offering exceptional cosmetic and
-              aesthetic services with a focus on patient care, innovative
-              treatments, and the latest advancements in medical technology.
-              With decades of experience and a team of renowned professionals,
-              we are committed to bringing your vision of beauty to life.
+              <FormattedMessage id="AboutSection.ourClinicHasBeenDedicatedToOfferingExceptionalCosmeticAndAestheticServicesWithAFocusOnPatientCareInnovativeTreatmentsAndTheLatestAdvancementsInMedicalTechnologyWithDecadesOfExperienceAndATeamOfRenownedProfessionalsWeAreCommittedToBringingYourVisionOfBeautyToLife" />
             </motion.p>
 
             <div className="space-y-6 mb-8">
               <ProgressBar
-                label="Customer Satisfaction"
+                label={
+                  <FormattedMessage id="AboutSection.customerSatisfaction" />
+                }
                 percentage={92}
                 delay={0.8}
               />
               <ProgressBar
-                label="Professional Expertise"
+                label={
+                  <FormattedMessage id="AboutSection.professionalExpertise" />
+                }
                 percentage={86}
                 delay={0.9}
               />
@@ -116,7 +117,7 @@ const AboutSection = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-primary border border-white border-opacity-20 text-white px-6 py-3 rounded flex items-center font-medium transition-all hover:bg-primary-dark"
             >
-              MORE INFO
+              <FormattedMessage id="AboutSection.moreInfo" />
               <FiArrowRight className="ml-2" />
             </motion.button>
           </motion.div>

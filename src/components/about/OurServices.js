@@ -1,34 +1,35 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import { FormattedMessage } from "react-intl";
 
 const OurServices = () => {
   const services = [
     {
       id: 1,
       image: "ar_01 (1).jpg",
-      title: "Cosmetic Surgery"
+      title: <FormattedMessage id="OurServices.cosmeticSurgery" />
     },
     {
       id: 2,
       image: "ar_01 (2).jpg",
-      title: "Hair Transplant"
+      title: <FormattedMessage id="OurServices.hairTransplant" />
     },
 
     {
       id: 3,
       image: "ar_01 (4).jpg",
-      title: "Hydrafacial"
+      title: <FormattedMessage id="OurServices.hydrafacial" />
     },
     {
       id: 4,
       image: "ar_01 (5).jpg",
-      title: "Aesthetic Medicine"
+      title: <FormattedMessage id="OurServices.aestheticMedicine" />
     },
     {
       id: 5,
       image: "ar_01 (6).jpg",
-      title: "Machines"
+      title: <FormattedMessage id="OurServices.machines" />
     }
   ];
 
@@ -67,7 +68,7 @@ const OurServices = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        Our Services
+        <FormattedMessage id="OurServices.title" />
       </motion.h2>
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"

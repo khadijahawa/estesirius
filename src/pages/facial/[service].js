@@ -3,17 +3,17 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Modal from "../../components/Modal";
+import { FormattedMessage } from "react-intl";
 
 const serviceData = {
   "facial-surgery": {
-    title: "Facial Surgery",
+    title: <FormattedMessage id="FacialSurgery.title" />,
 
-    description:
-      "Facial surgery involves various procedures that focus on enhancing or rejuvenating facial features. These procedures help improve appearance and balance, targeting areas such as the eyes, nose, ears, chin, and overall facial skin.",
+    description: <FormattedMessage id="FacialSurgery.description" />,
     subcategories: {
       Facelift: {
-        title: "Facelift",
-        tag: "TRANSFORMATIVE",
+        title: <FormattedMessage id="Facelift.title" />,
+        tag: <FormattedMessage id="Facelift.tag" />,
         subImage: "/images/face/facelift2.jpg",
         beforeAfterImages: [
           "/images/operations/meso1.JPG",
@@ -21,12 +21,11 @@ const serviceData = {
           "/images/operations/thread1-2.JPG",
           "/images/operations/thread2-2.JPG"
         ],
-        description:
-          "A facelift is a surgical procedure aimed at reducing visible signs of aging in the face and neck. It tightens loose skin, removes excess fat, and smooths wrinkles for a youthful, refreshed appearance."
+        description: <FormattedMessage id="Facelift.description" />
       },
       "Temporal-Lifting": {
-        title: "Temporal Lifting",
-        tag: "YOUTHFUL",
+        title: <FormattedMessage id="TemporalLifting.title" />,
+        tag: <FormattedMessage id="TemporalLifting.tag" />,
         subImage: "/images/face/temporal1.jpg",
         beforeAfterImages: [
           "/images/clinic/temporal-before1.jpeg",
@@ -34,12 +33,11 @@ const serviceData = {
           "/images/clinic/temporal-before4.jpeg",
           "/images/clinic/temporal-after4.jpeg"
         ],
-        description:
-          "Temporal lifting focuses on lifting the outer part of the eyebrows and the upper face. It rejuvenates the eye area by creating a more lifted and refreshed look, often used to combat drooping eyelids and sagging eyebrows."
+        description: <FormattedMessage id="TemporalLifting.description" />
       },
       Rhinoplasty: {
-        title: "Rhinoplasty",
-        tag: "REGENERATIVE",
+        title: <FormattedMessage id="Rhinoplasty.title" />,
+        tag: <FormattedMessage id="Rhinoplasty.tag" />,
         subImage: "/images/face/righn2.jpg",
         beforeAfterImages: [
           "/images/clinic/nose-before1.png",
@@ -47,12 +45,11 @@ const serviceData = {
           "/images/clinic/nose-before2.png",
           "/images/clinic/nose-after2.png"
         ],
-        description:
-          "Rhinoplasty is a surgical procedure to reshape the nose, improving both aesthetic appearance and functionality. It can alter the size, shape, and structure of the nose, creating better facial harmony."
+        description: <FormattedMessage id="Rhinoplasty.description" />
       },
       Blepharoplasty: {
-        title: "Blepharoplasty",
-        tag: "BALANCING",
+        title: <FormattedMessage id="Blepharoplasty.title" />,
+        tag: <FormattedMessage id="Blepharoplasty.tag" />,
         subImage: "/images/face/Blepharoplasty1.jpg",
         beforeAfterImages: [
           "/images/clinic/oto-before1.JPG",
@@ -60,12 +57,11 @@ const serviceData = {
           "/images/clinic/oto-before2.JPG",
           "/images/clinic/oto-after2.JPG"
         ],
-        description:
-          "Blepharoplasty, or eyelid surgery, removes excess skin and fat from the eyelids to treat drooping eyelids and under-eye bags. This procedure can help create a more youthful and alert look."
+        description: <FormattedMessage id="Blepharoplasty.description" />
       },
       Otoplasty: {
-        title: "Otoplasty",
-        tag: "SCULPTING",
+        title: <FormattedMessage id="Otoplasty.title" />,
+        tag: <FormattedMessage id="Otoplasty.tag" />,
         subImage: "/images/face/Otoplasty1.jpg",
         beforeAfterImages: [
           "/images/clinic/ear-after1.JPG",
@@ -73,12 +69,11 @@ const serviceData = {
           "/images/clinic/ear-before2.JPG",
           "/images/clinic/ear-after2.JPG"
         ],
-        description:
-          "Otoplasty is a surgery to correct protruding or malformed ears. The procedure reshapes and repositions the ears, making them more symmetrical and closer to the head for a more balanced appearance."
+        description: <FormattedMessage id="Otoplasty.description" />
       },
       "Chin-Surgery-or-Genioplasty": {
-        title: "Chin Surgery or Genioplasty",
-        tag: "HARMONIZING",
+        title: <FormattedMessage id="ChinSurgery.title" />,
+        tag: <FormattedMessage id="ChinSurgery.tag" />,
         subImage: "/images/face/chin1.jpg",
         beforeAfterImages: [
           "/images/clinic/chin-before1.jpeg",
@@ -86,12 +81,11 @@ const serviceData = {
           "/images/clinic/chin-before2.jpeg",
           "/images/clinic/chin-after2.jpeg"
         ],
-        description:
-          "Chin surgery, also known as genioplasty, involves reshaping the chin to improve facial balance. This surgery can address a weak chin or overly prominent chin, contributing to a more harmonious facial profile."
+        description: <FormattedMessage id="ChinSurgery.description" />
       },
       Teeth: {
-        title: "Teeth Restoration",
-        tag: "AESTHETIC",
+        title: <FormattedMessage id="Teeth.title" />,
+        tag: <FormattedMessage id="Teeth.tag" />,
         subImage: "/images/face/teeth.jpg",
         beforeAfterImages: [
           "/images/clinic/teeth-before1.jpeg",
@@ -99,19 +93,17 @@ const serviceData = {
           "/images/clinic/teeth-before2-2.jpeg",
           "/images/clinic/teeth-after2-2.jpeg"
         ],
-        description:
-          "Teeth restoration procedures, including dental implants, veneers, and whitening, aim to improve the appearance of your smile. These procedures are tailored to address various dental concerns, including gaps, discoloration, and misalignment."
+        description: <FormattedMessage id="Teeth.description" />
       }
     }
   },
   "Body-Contouring": {
-    title: "Body Contouring",
-    description:
-      "Body contouring is a collection of cosmetic procedures that reshape and enhance the body by removing excess fat, tightening skin, and sculpting specific areas to improve overall body proportions.",
+    title: <FormattedMessage id="BodyContouring.title" />,
+    description: <FormattedMessage id="BodyContouring.description" />,
     subcategories: {
       Abdominoplasty: {
-        title: "Abdominoplasty",
-        tag: "TRANSFORMATIVE",
+        title: <FormattedMessage id="Abdominoplasty.title" />,
+        tag: <FormattedMessage id="Abdominoplasty.tag" />,
         subImage: "/images/body/tummy1.jpg",
         beforeAfterImages: [
           "/images/clinic/tummytuck-before1.JPG",
@@ -119,12 +111,11 @@ const serviceData = {
           "/images/clinic/tummytuck-before2.JPG",
           "/images/clinic/tummytuck-after2.JPG"
         ],
-        description:
-          "Abdominoplasty, or a tummy tuck, is a surgical procedure that removes excess skin and fat from the abdomen. It tightens the abdominal muscles to create a flatter, firmer, and more toned abdominal appearance."
+        description: <FormattedMessage id="Abdominoplasty.description" />
       },
       Liposuction: {
-        title: "Liposuction",
-        tag: "CONTOURING",
+        title: <FormattedMessage id="Liposuction.title" />,
+        tag: <FormattedMessage id="Liposuction.tag" />,
         subImage: "/images/body/lipo2.jpg",
         beforeAfterImages: [
           "/images/clinic/lipo-before1.jpeg",
@@ -132,12 +123,11 @@ const serviceData = {
           "/images/clinic/lipo-before3.jpeg",
           "/images/clinic/lipo-after3.jpeg"
         ],
-        description:
-          "Liposuction is a procedure that removes excess fat from various areas of the body, such as the abdomen, thighs, and arms. It contours the body to enhance its natural shape and proportions."
+        description: <FormattedMessage id="Liposuction.description" />
       },
       "Thigh-Lift": {
-        title: "Thigh Lift",
-        tag: "TONING",
+        title: <FormattedMessage id="ThighLift.title" />,
+        tag: <FormattedMessage id="ThighLift.tag" />,
         subImage: "/images/body/thighLift3.jpg",
         beforeAfterImages: [
           "/images/clinic/thighlift-after1.JPG",
@@ -145,12 +135,11 @@ const serviceData = {
           "/images/clinic/thigh.jpeg",
           "/images/clinic/thigh2.jpeg"
         ],
-        description:
-          "A thigh lift removes excess skin and fat from the upper thighs, improving the contour and tone of the legs. This procedure is particularly effective for those who have lost a significant amount of weight."
+        description: <FormattedMessage id="ThighLift.description" />
       },
       "Arm-Lift": {
-        title: "Arm Lift",
-        tag: "TONING",
+        title: <FormattedMessage id="ArmLift.title" />,
+        tag: <FormattedMessage id="ArmLift.tag" />,
         subImage: "/images/body/armLift1.jpg",
         beforeAfterImages: [
           "/images/clinic/armlift-before1.JPG",
@@ -158,12 +147,11 @@ const serviceData = {
           "/images/clinic/armlift-before2.jpeg",
           "/images/clinic/armlift-after2.jpeg"
         ],
-        description:
-          "An arm lift, or brachioplasty, removes excess skin and fat from the upper arms. It helps tone the arms and eliminate the appearance of 'bat wings' for a more defined and youthful look."
+        description: <FormattedMessage id="ArmLift.description" />
       },
       "Buttock-Lipofilling-or-BBL": {
-        title: "Buttock Lipofilling or BBL",
-        tag: "SCULPTING",
+        title: <FormattedMessage id="ButtockLipofilling.title" />,
+        tag: <FormattedMessage id="ButtockLipofilling.tag" />,
         subImage: "/images/body/bbl1.jpg",
         beforeAfterImages: [
           "/images/clinic/bbl-before1.JPG",
@@ -171,20 +159,18 @@ const serviceData = {
           "/images/clinic/bbl-before2.JPG",
           "/images/clinic/bbl-after2.JPG"
         ],
-        description:
-          "Buttock lipofilling, also known as the Brazilian Butt Lift (BBL), involves liposuction to remove fat from other areas of the body, which is then purified and injected into the buttocks to enhance their shape and volume."
+        description: <FormattedMessage id="ButtockLipofilling.description" />
       }
     }
   },
   "Breast-Surgery": {
-    title: "Breast Surgery",
+    title: <FormattedMessage id="BreastSurgery.title" />,
 
-    description:
-      "Breast surgery includes various procedures designed to enhance or modify the size, shape, and appearance of the breasts. It includes both aesthetic and reconstructive procedures.",
+    description: <FormattedMessage id="BreastSurgery.description" />,
     subcategories: {
       "Breast-Augmentation": {
-        title: "Breast Augmentation",
-        tag: "ENHANCING",
+        title: <FormattedMessage id="BreastAugmentation.title" />,
+        tag: <FormattedMessage id="BreastAugmentation.tag" />,
         subImage: "/images/breast/breast1.jpg",
         beforeAfterImages: [
           "/images/clinic/breast-before1.jpeg",
@@ -192,12 +178,11 @@ const serviceData = {
           "/images/clinic/breast-before2.jpeg",
           "/images/clinic/breast-after2.jpeg"
         ],
-        description:
-          "Breast augmentation uses implants or fat transfer to increase the size and volume of the breasts, enhancing body proportions and creating a fuller, more youthful appearance."
+        description: <FormattedMessage id="BreastAugmentation.description" />
       },
       "Breast-Lipofilling": {
-        title: "Breast Lipofilling",
-        tag: "UPLIFTING",
+        title: <FormattedMessage id="BreastLipofilling.title" />,
+        tag: <FormattedMessage id="BreastLipofilling.tag" />,
         subImage: "/images/breast/lipofilling.jpg",
         beforeAfterImages: [
           "/images/clinic/lipo-breast-before1.JPG",
@@ -205,12 +190,11 @@ const serviceData = {
           "/images/clinic/lipo-breast-before2.JPG",
           "/images/clinic/lipo-breast-after2.JPG"
         ],
-        description:
-          "Breast lipofilling involves using fat harvested from other areas of the body and reintroducing it into the breasts to increase volume and improve shape. It offers a natural alternative to implants."
+        description: <FormattedMessage id="BreastLipofilling.description" />
       },
       "Breast-Lift": {
-        title: "Breast Lift",
-        tag: "NATURAL",
+        title: <FormattedMessage id="BreastLift.title" />,
+        tag: <FormattedMessage id="BreastLift.tag" />,
         subImage: "/images/breast/filling.jpg",
         beforeAfterImages: [
           "/images/clinic/lipo-breast-before1.JPG",
@@ -218,12 +202,11 @@ const serviceData = {
           "/images/clinic/lipo-breast-before2.JPG",
           "/images/clinic/lipo-breast-after2.JPG"
         ],
-        description:
-          "A breast lift (mastopexy) lifts and reshapes sagging breasts. It removes excess skin and tightens tissue, restoring a more youthful contour to the breasts."
+        description: <FormattedMessage id="BreastLift.description" />
       },
       Gynecomastia: {
-        title: "Gynecomastia",
-        tag: "MASCULINE",
+        title: <FormattedMessage id="Gynecomastia.title" />,
+        tag: <FormattedMessage id="Gynecomastia.tag" />,
         subImage: "/images/breast/Gynecomastia1.jpg",
         beforeAfterImages: [
           "/images/clinic/geo-breast-after1.JPG",
@@ -231,8 +214,7 @@ const serviceData = {
           "/images/clinic/geo-breast-after2.JPG",
           "/images/clinic/geo-breast-before2.JPG"
         ],
-        description:
-          "Gynecomastia surgery is a procedure to reduce enlarged male breasts, restoring a more masculine chest contour. The surgery can involve liposuction and the removal of excess glandular tissue."
+        description: <FormattedMessage id="Gynecomastia.description" />
       }
     }
   }
@@ -320,13 +302,32 @@ const ServicePage = () => {
         return "bg-yellow-600 text-white";
       case "MASCULINE":
         return "bg-yellow-500 text-white";
+      case "BALANCING":
+        return "bg-red-800 text-white";
+      case "TRANSFORMATIONAL":
+        return "bg-red-800 text-white";
+      case "REGENERATIVE":
+        return "bg-red-800 text-white";
+      case "YOUTHFUL":
+        return "bg-red-800 text-white";
+      case "MINIMAL":
+        return "bg-red-800 text-white";
+      case "EXPERT":
+        return "bg-red-800 text-white";
+      case "NATURAL":
+        return "bg-red-800 text-white";
+      case "BALANCING":
+        return "bg-red-800 text-white";
+
       default:
-        return "bg-gray-300 text-gray-800";
+        return "bg-red-800 text-white";
     }
   };
 
+  console.log(categoryData.subcategories);
+
   return (
-    <div className="container mx-auto px-2 my-16 pt-16">
+    <div className="container mx-auto px-2 my-16 pt-26">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center my-12">
           {categoryData.title}
@@ -365,10 +366,13 @@ const ServicePage = () => {
                       </div>
                     </div>
                     <p className="text-gray-600">
-                      {expanded[key]
-                        ? subcategory.description
-                        : subcategory.description.slice(0, 150) + "..."}
-                      {subcategory.description?.length > 150 &&
+                      {/* {expanded[key]
+                        ? subcategory?.description
+                        : subcategory?.description
+                        ? subcategory?.description?.slice(0, 150) + "..."
+                        : ""}
+
+                      {subcategory?.description?.length > 150 &&
                         !expanded[key] && (
                           <span
                             className="text-teal-400 cursor-pointer"
@@ -380,6 +384,7 @@ const ServicePage = () => {
                             Read More
                           </span>
                         )}
+
                       {expanded[key] && (
                         <span
                           className="text-teal-400 cursor-pointer"
@@ -390,7 +395,8 @@ const ServicePage = () => {
                         >
                           Read Less
                         </span>
-                      )}
+                      )} */}
+                      {subcategory?.description}
                     </p>
                   </div>
                 </div>
@@ -429,10 +435,12 @@ const ServicePage = () => {
                       </div>
                     </div>
                     <p className="text-gray-600">
-                      {expanded[key]
-                        ? subcategory.description
-                        : subcategory.description.slice(0, 150) + "..."}
-                      {subcategory.description?.length > 150 &&
+                      {/* {expanded[key]
+                        ? subcategory?.description
+                        : typeof subcategory?.description === "string"
+                        ? subcategory?.description.slice(0, 150) + "..."
+                        : ""}
+                      {subcategory?.description?.length > 150 &&
                         !expanded[key] && (
                           <span
                             className="text-teal-400 cursor-pointer"
@@ -444,6 +452,7 @@ const ServicePage = () => {
                             Read More
                           </span>
                         )}
+
                       {expanded[key] && (
                         <span
                           className="text-teal-400 cursor-pointer"
@@ -454,7 +463,8 @@ const ServicePage = () => {
                         >
                           Read Less
                         </span>
-                      )}
+                      )} */}
+                      {subcategory?.description}
                     </p>
                   </div>
                 </div>

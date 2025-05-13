@@ -2,32 +2,29 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FormattedMessage } from "react-intl";
 
 const OurCommitment = () => {
   const commitments = [
     {
       id: 1,
-      title: "The Beginning",
-      content:
-        "Our journey began with a vision to offer the most advanced aesthetic treatments, blending innovation with care. We prioritized creating personalized experiences to empower our clients and help them achieve their beauty goals."
+      title: <FormattedMessage id="OurCommitment.theBeginning" />,
+      content: <FormattedMessage id="OurCommitment.theBeginningContent" />
     },
     {
       id: 2,
-      title: "Settling",
-      content:
-        "Our team continually focused on creating a professional environment equipped with state-of-the-art technologies. We strive for excellence in every procedure we offer, ensuring customer satisfaction and long-lasting results."
+      title: <FormattedMessage id="OurCommitment.settling" />,
+      content: <FormattedMessage id="OurCommitment.settlingContent" />
     },
     {
       id: 3,
-      title: "Production",
-      content:
-        "Through extensive research and a commitment to staying ahead of industry trends, we have developed cutting-edge procedures that are safe, effective, and cater to all our clients’ needs. We're proud to be a trusted leader in the aesthetic industry."
+      title: <FormattedMessage id="OurCommitment.production" />,
+      content: <FormattedMessage id="OurCommitment.productionContent" />
     },
     {
       id: 4,
-      title: "Today",
-      content:
-        "Today, we continue to provide exceptional services to our clients. Our focus remains on delivering the highest quality treatments while continuously improving our offerings based on customer feedback and technological advancements."
+      title: <FormattedMessage id="OurCommitment.today" />,
+      content: <FormattedMessage id="OurCommitment.todayContent" />
     }
   ];
 
@@ -44,7 +41,7 @@ const OurCommitment = () => {
         animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
         transition={{ duration: 0.6 }}
       >
-        Our Commitment
+        <FormattedMessage id="OurCommitment.title" />
       </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {commitments.map((commitment, index) => (

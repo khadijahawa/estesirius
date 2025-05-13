@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
+import { FormattedMessage } from "react-intl";
 const FromTheStart = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -57,7 +57,7 @@ const FromTheStart = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
         >
-          From the Start
+          <FormattedMessage id="FromTheStart.fromTheStart" />
         </motion.h2>
         <div className="flex flex-col h-full">
           <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-4 h-full">
@@ -70,10 +70,7 @@ const FromTheStart = () => {
               animate={inView ? "visible" : "hidden"}
             >
               <p className="text-black">
-                Our journey began with a vision to offer the most advanced
-                aesthetic treatments that are both safe and transformative. From
-                the outset, our goal has been to empower individuals to feel
-                confident and rejuvenated through personalized care.
+                <FormattedMessage id="FromTheStart.paragraph1" />
               </p>
             </motion.div>
 
@@ -86,10 +83,7 @@ const FromTheStart = () => {
               animate={inView ? "visible" : "hidden"}
             >
               <p className="text-black">
-                As pioneers in the field, we continually invest in cutting-edge
-                technology and highly skilled professionals. This ensures that
-                each client experiences results that surpass expectations,
-                leaving them with a fresh and youthful appearance.
+                <FormattedMessage id="FromTheStart.paragraph2" />
               </p>
             </motion.div>
 
@@ -102,9 +96,7 @@ const FromTheStart = () => {
               animate={inView ? "visible" : "hidden"}
             >
               <p className="text-black">
-                We are proud of the lasting relationships we&lsquo;ve built with
-                our clients. Our commitment to providing exceptional services
-                has made us a trusted name in the aesthetic industry.
+                <FormattedMessage id="FromTheStart.paragraph3" />
               </p>
             </motion.div>
 
@@ -117,9 +109,7 @@ const FromTheStart = () => {
               animate={inView ? "visible" : "hidden"}
             >
               <p className="text-black">
-                As we look to the future, we remain dedicated to enhancing our
-                services, focusing on customer satisfaction, and staying ahead
-                of the curve in aesthetic innovations.
+                <FormattedMessage id="FromTheStart.paragraph4" />
               </p>
             </motion.div>
           </div>

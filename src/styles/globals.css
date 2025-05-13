@@ -138,6 +138,30 @@ h6 {
   animation: tickerScroll 20s linear infinite;
 }
 
+/* styles/globals.css */
+.language-switcher {
+  display: flex;
+  gap: 10px;
+}
+
+.language-switcher button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.language-switcher button.active {
+  font-weight: bold;
+  color: #0070f3;
+}
+
+.language-switcher button:disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
+
 @keyframes tickerScroll {
   0% {
     transform: translateX(100%);

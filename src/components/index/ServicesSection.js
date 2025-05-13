@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiCheck } from "react-icons/fi";
-
+import { FormattedMessage } from "react-intl";
 const ServicesSection = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -67,14 +67,26 @@ const ServicesSection = () => {
             className="bg-secondary rounded-lg p-8 shadow-lg flex flex-col justify-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
-              All Info
+              <FormattedMessage id="ServicesSection.allInfo" />
             </h2>
             <ul className="text-white space-y-4">
               {[
-                "Professional consultation with experts",
-                "Premium quality equipment and products",
-                "Post-procedure care and follow-up",
-                "Personalized treatment plans"
+                <FormattedMessage
+                  id="ServicesSection.professionalConsultation"
+                  key="consultation"
+                />,
+                <FormattedMessage
+                  id="ServicesSection.premiumQuality"
+                  key="premium"
+                />,
+                <FormattedMessage
+                  id="ServicesSection.postProcedureCare"
+                  key="care"
+                />,
+                <FormattedMessage
+                  id="ServicesSection.personalizedTreatment"
+                  key="personalized"
+                />
               ].map((item, index) => (
                 <motion.li
                   key={index}

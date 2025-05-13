@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { FormattedMessage } from "react-intl";
 
 export default function HairPlanting({
   title,
@@ -75,11 +76,10 @@ export default function HairPlanting({
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-semibold text-gray-dark mb-4">
-              Why Choose Our Treatment?
+              <FormattedMessage id="HairTransplant.benefits.title" />
             </h2>
             <p className="text-lg text-gray-dark">
-              Discover the advantages that make our approach stand out from
-              conventional treatments.
+              <FormattedMessage id="HairTransplant.benefits.description" />
             </p>
           </motion.div>
 

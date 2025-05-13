@@ -1,41 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { FormattedMessage } from "react-intl";
 
 export default function HeroSlider() {
-  // Hero slider data
   const slides = [
     {
       id: 1,
       image: "/images/index/pr-29.jpg",
-      title: "Beauty & Health",
-      titleHighlight: "Redefined",
-      description:
-        "Experience the pinnacle of aesthetic transformations with our expert team of plastic surgeons and state-of-the-art facilities. Your journey to confidence starts here.",
-      primaryButton: "BOOK CONSULTATION",
-      secondaryButton: "VIEW SERVICES",
+      title: <FormattedMessage id="HeroSlider.title1" />,
+      titleHighlight: <FormattedMessage id="HeroSlider.titleHighlight1" />,
+      description: <FormattedMessage id="HeroSlider.description1" />,
+      primaryButton: <FormattedMessage id="HeroSlider.primaryButton1" />,
+      secondaryButton: <FormattedMessage id="HeroSlider.secondaryButton1" />,
       phoneNumber: "+905395204530"
     },
     {
       id: 2,
       image: "/images/index/pr-10.jpg",
-      title: "Advanced",
-      titleHighlight: "Treatments",
-      description:
-        "Discover our innovative procedures and cutting-edge technologies designed to deliver natural-looking results with minimal recovery time.",
-      primaryButton: "EXPLORE PROCEDURES",
-      secondaryButton: "MEET OUR DOCTORS",
+      title: <FormattedMessage id="HeroSlider.title2" />,
+      titleHighlight: <FormattedMessage id="HeroSlider.titleHighlight2" />,
+      description: <FormattedMessage id="HeroSlider.description2" />,
+      primaryButton: <FormattedMessage id="HeroSlider.primaryButton2" />,
+      secondaryButton: <FormattedMessage id="HeroSlider.secondaryButton2" />,
       phoneNumber: "+905395204530"
     },
     {
       id: 3,
-      image: "/images/index/pr-15.jpg",
-      title: "Your Beauty",
-      titleHighlight: "Our Passion",
-      description:
-        "Let our skilled professionals guide you through a personalized transformation journey tailored to your unique aesthetic goals.",
-      primaryButton: "GET STARTED",
-      secondaryButton: "READ TESTIMONIALS",
+      image: "/images/index/pr-29.jpg",
+      title: <FormattedMessage id="HeroSlider.title3" />,
+      titleHighlight: <FormattedMessage id="HeroSlider.titleHighlight3" />,
+      description: <FormattedMessage id="HeroSlider.description3" />,
+      primaryButton: <FormattedMessage id="HeroSlider.primaryButton3" />,
+      secondaryButton: <FormattedMessage id="HeroSlider.secondaryButton3" />,
       phoneNumber: "+905395204530"
     }
   ];
@@ -117,7 +114,6 @@ export default function HeroSlider() {
     };
   }, [slides.length]);
 
-  // Handle manual slide change
   const handleSlideChange = (index) => {
     if (index !== currentSlide) {
       setCurrentSlide(index);

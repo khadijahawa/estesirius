@@ -7,9 +7,10 @@ import {
   FiShoppingBag
 } from "react-icons/fi";
 import { useRouter } from "next/router";
+import { FormattedMessage } from "react-intl";
 
 const PlanSelectionSection = () => {
-  const router = useRouter(); // To handle redirection
+  const router = useRouter();
 
   // Handle redirect to shop
   const handleViewPrices = () => {
@@ -39,23 +40,18 @@ const PlanSelectionSection = () => {
             className="md:w-1/2"
           >
             <div className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
-              ALL FACILITIES
+              {/* ALL FACILITIES */}
+              <FormattedMessage id="PlanSelectionSection.allFacilities" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark">
-              Choose the Best Plan
+              <FormattedMessage id="PlanSelectionSection.chooseTheBestPlan" />
             </h2>
             <div className="text-text-light mb-8">
               <p>
-                Whether you&lsquo;re looking for routine treatments or advanced
-                aesthetic procedures, we offer a variety of plans to suit your
-                needs. Each plan is designed to ensure that you receive the
-                highest quality service at the best value.
+                <FormattedMessage id="PlanSelectionSection.chooseTheBestPlanDescription" />
               </p>
               <p className="mt-4 md:mt-0">
-                Our expert professionals are here to guide you through your
-                beauty journey, offering personalized consultations and
-                treatment options to meet your goals. From consultations to
-                aftercare, we’ve got you covered.
+                <FormattedMessage id="PlanSelectionSection.ourExpertProfessionals" />
               </p>
             </div>
             <motion.button
@@ -64,7 +60,7 @@ const PlanSelectionSection = () => {
               onClick={handleViewPrices} // Redirect to shop page
               className="bg-primary text-white px-6 py-3 rounded flex items-center font-medium transition-colors hover:bg-primary-dark"
             >
-              VIEW PRICES
+              <FormattedMessage id="PlanSelectionSection.viewPrices" />
               <FiArrowRight className="ml-2" />
             </motion.button>
           </motion.div>
@@ -166,40 +162,45 @@ const ServiceItem = ({ service, index }) => {
 const stats = [
   {
     value: "11+",
-    label: "Years of Expertise"
+    label: <FormattedMessage id="PlanSelectionSection.yearsOfExpertise" />
   },
   {
     value: "55+",
-    label: "Different Services"
+    label: <FormattedMessage id="PlanSelectionSection.differentServices" />
   },
   {
     value: "5k+",
-    label: "Satisfied Clients"
+    label: <FormattedMessage id="PlanSelectionSection.satisfiedClients" />
   },
   {
     value: "26",
-    label: "Certified Doctors"
+    label: <FormattedMessage id="PlanSelectionSection.certifiedDoctors" />
   }
 ];
 
 // Service data
 const services = [
   {
-    title: "Personalized Consultations",
-    description:
-      "We offer one-on-one consultations to understand your goals and create a customized plan tailored for you.",
+    title: (
+      <FormattedMessage id="PlanSelectionSection.personalizedConsultations" />
+    ),
+    description: (
+      <FormattedMessage id="PlanSelectionSection.personalizedConsultationsDescription" />
+    ),
     icon: <FiPenTool className="w-6 h-6 text-primary" />
   },
   {
-    title: "Advanced Treatments",
-    description:
-      "Our clinic uses the latest technologies and procedures to ensure you get the best results with minimal downtime.",
+    title: <FormattedMessage id="PlanSelectionSection.advancedTreatments" />,
+    description: (
+      <FormattedMessage id="PlanSelectionSection.advancedTreatmentsDescription" />
+    ),
     icon: <FiPackage className="w-6 h-6 text-primary" />
   },
   {
-    title: "E-Commerce Convenience",
-    description:
-      "Shop our range of treatments and beauty products online for convenience and hassle-free shopping.",
+    title: <FormattedMessage id="PlanSelectionSection.eCommerceConvenience" />,
+    description: (
+      <FormattedMessage id="PlanSelectionSection.eCommerceConvenienceDescription" />
+    ),
     icon: <FiShoppingBag className="w-6 h-6 text-primary" />
   }
 ];

@@ -3,6 +3,7 @@ import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FormattedMessage } from "react-intl";
 
 const CustomerReviews = () => {
   const [ref, inView] = useInView({
@@ -14,25 +15,22 @@ const CustomerReviews = () => {
     {
       id: 1,
       name: "",
-      content:
-        "Their aesthetic procedures exceeded my expectations. Highly recommend for anyone looking to enhance their appearance safely and professionally!",
-      date: "March 2, 2023",
+      content: <FormattedMessage id="CustomerReviews.review1" />,
+      date: <FormattedMessage id="CustomerReviews.review1Date" />,
       rating: 5
     },
     {
       id: 2,
       name: "",
-      content:
-        "The customer service was excellent, and the results from my procedure were transformative. My confidence has never been higher.",
-      date: "February 15, 2021",
+      content: <FormattedMessage id="CustomerReviews.review2" />,
+      date: <FormattedMessage id="CustomerReviews.review2Date" />,
       rating: 5
     },
     {
       id: 3,
       name: "",
-      content:
-        "The staff was incredibly helpful throughout the entire consultation and procedure. I felt well taken care of and informed every step of the way.",
-      date: "January 27, 2020",
+      content: <FormattedMessage id="CustomerReviews.review3" />,
+      date: <FormattedMessage id="CustomerReviews.review3Date" />,
       rating: 5
     }
   ];
@@ -95,7 +93,7 @@ const CustomerReviews = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          Customer Reviews for Our Aesthetic Treatments
+          <FormattedMessage id="CustomerReviews.customerReviewsForOurAestheticTreatments" />
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reviews.map((review, index) => (

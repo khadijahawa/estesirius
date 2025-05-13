@@ -5,146 +5,138 @@ import AestheticEntry from "../../components/Aesthetic/AestheticEntry";
 import OperationsImages from "../../components/Operations/OperationsImages";
 import Head from "next/head";
 import Image from "next/image";
+import { FormattedMessage } from "react-intl";
 
 const serviceData = {
   HYDRAFACIAL: {
-    title: "HydraFacial",
+    title: <FormattedMessage id="HydraFacial.title" />,
     procedureSteps: [
-      "Cleansing: Removes dirt and impurities.",
-      "Exfoliation: Removes dead skin cells.",
-      "Extraction: Extracts blackheads and impurities.",
-      "Hydration: Infuses powerful serums for deep hydration.",
-      "Protection: Locks in moisture and nutrients."
+      <FormattedMessage id="HydraFacial.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="HydraFacial.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="HydraFacial.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="HydraFacial.procedureSteps.4" key="step4" />,
+      <FormattedMessage id="HydraFacial.procedureSteps.5" key="step5" />
     ],
     entryImage: "/images/machines/hydro.png",
-    description:
-      "HydraFacial is a non-invasive facial treatment that cleanses, exfoliates, extracts, and hydrates your skin with the use of powerful serums. It rejuvenates your skin and delivers immediate results with no downtime, leaving you with glowing and hydrated skin.",
+    description: <FormattedMessage id="HydraFacial.description" />,
     beforeAfterImages: ["/images/hifu_before.jpg", "/images/hifu_after.jpg"]
   },
   "GOLDEN-NEEDLE": {
-    title: "Golden Needle",
+    title: <FormattedMessage id="GoldenNeedle.title" />,
     entryImage: "/images/machines/goldenNeedle.png",
 
     procedureSteps: [
-      "Cleansing: Skin is cleaned to remove impurities.",
-      "Application of numbing cream to ensure comfort.",
-      "Micro-Needling: Gold-plated needles are used to stimulate collagen.",
-      "Post-Treatment Care: Hydrating serums are applied to promote healing."
+      <FormattedMessage id="GoldenNeedle.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="GoldenNeedle.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="GoldenNeedle.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="GoldenNeedle.procedureSteps.4" key="step4" />
     ],
-    description:
-      "Golden Needle is a high-performance micro-needling procedure using gold-plated needles that stimulate collagen production. This treatment targets fine lines, wrinkles, and scars, leading to firmer, smoother, and youthful-looking skin.",
+    description: <FormattedMessage id="GoldenNeedle.description" />,
     beforeAfterImages: [
       "/images/machines/hydro.png",
       "/images/goldenneedle_after.jpg"
     ]
   },
   "HIFU-(ULTHERA)": {
-    title: "HIFU (Ulthera)",
+    title: <FormattedMessage id="HIFU.title" />,
     entryImage: "/images/machines/hifu.png",
 
     procedureSteps: [
-      "Consultation: A customized treatment plan is created.",
-      "Ultrasound Gel: Gel is applied to the skin for better conduction.",
-      "HIFU Treatment: Ultrasound energy is delivered deep into the skin layers.",
-      "Post-Treatment Care: Skin is cleaned and soothing gel is applied."
+      <FormattedMessage id="HIFU.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="HIFU.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="HIFU.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="HIFU.procedureSteps.4" key="step4" />
     ],
-    description:
-      "HIFU (High-Intensity Focused Ultrasound) is a non-invasive skin lifting treatment that uses ultrasound energy to lift and tighten the skin. It stimulates collagen production and is commonly used for facial tightening and body contouring.",
+    description: <FormattedMessage id="HIFU.description" />,
     beforeAfterImages: ["/images/hifu_before.jpg", "/images/hifu_after.jpg"]
   },
   ENDOLIFT: {
-    title: "Endolift",
+    title: <FormattedMessage id="Endolift.title" />,
     entryImage: "/images/clinic/endolift.png",
 
     procedureSteps: [
-      "Consultation: Assessment of skin and targeted areas.",
-      "Laser Fiber Insertion: A small laser fiber is inserted under the skin.",
-      "Laser Treatment: The laser stimulates collagen production and tightens the skin.",
-      "Post-Treatment Care: Skin is treated with hydrating serums and cooling gels."
+      <FormattedMessage id="Endolift.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="Endolift.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="Endolift.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="Endolift.procedureSteps.4" key="step4" />
     ],
-    description:
-      "Endolift is a minimally invasive procedure that uses a laser fiber inserted under the skin to stimulate collagen production, tighten the skin, and reduce fat. It's commonly used for face and neck lifting and body contouring.",
+    description: <FormattedMessage id="Endolift.description" />,
     beforeAfterImages: [
       "/images/endolift_before.jpg",
       "/images/endolift_after.jpg"
     ]
   },
   OZON: {
-    title: "Ozon Therapy",
+    title: <FormattedMessage id="Ozon.title" />,
     entryImage: "/images/machines/ozon.png",
 
     procedureSteps: [
-      "Consultation: Evaluate overall health and treatment areas.",
-      "Ozone Gas Application: Ozone gas is introduced to the skin or injected into tissues.",
-      "Oxygenation: The ozone enhances oxygen delivery to the tissues.",
-      "Post-Treatment Care: Relaxation and hydration to support healing."
+      <FormattedMessage id="Ozon.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="Ozon.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="Ozon.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="Ozon.procedureSteps.4" key="step4" />
     ],
-    description:
-      "Ozon Therapy is a cutting-edge treatment using ozone gas to stimulate healing and oxygenate tissues. It can be used for detoxification, boosting the immune system, and enhancing skin quality.",
+    description: <FormattedMessage id="Ozon.description" />,
     beforeAfterImages: ["/images/ozon_before.jpg", "/images/ozon_after.jpg"]
   },
   HYDRAPEN: {
-    title: "Hydrapen",
+    title: <FormattedMessage id="Hydrapen.title" />,
     entryImage: "/images/machines/hydrapen.png",
 
     procedureSteps: [
-      "Cleansing: The skin is thoroughly cleaned.",
-      "Hydration Serum Application: Targeted hydrating serums are used.",
-      "Micro-Needling: A pen device creates micro-channels in the skin.",
-      "Aftercare: Post-treatment hydration and soothing serum are applied."
+      <FormattedMessage id="Hydrapen.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="Hydrapen.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="Hydrapen.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="Hydrapen.procedureSteps.4" key="step4" />
     ],
-    description:
-      "Hydrapen is a micro-needling treatment that uses a pen-shaped device to create micro-channels in the skin. This process helps deliver nourishing serums deep into the skin, improving skin texture and treating fine lines, acne scars, and pigmentation.",
+    description: <FormattedMessage id="Hydrapen.description" />,
     beforeAfterImages: [
       "/images/hydrapen_before.jpg",
       "/images/hydrapen_after.jpg"
     ]
   },
   DERMAPEN: {
-    title: "Dermapen",
+    title: <FormattedMessage id="Dermapen.title" />,
     entryImage: "/images/machines/dermapen.png",
 
     procedureSteps: [
-      "Skin Cleansing: The skin is thoroughly cleaned.",
-      "Numbing Cream: Applied for comfort during the procedure.",
-      "Micro-Needling: The Dermapen creates tiny punctures to stimulate collagen.",
-      "Hydration: Post-procedure hydrating serums are applied."
+      <FormattedMessage id="Dermapen.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="Dermapen.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="Dermapen.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="Dermapen.procedureSteps.4" key="step4" />
     ],
-    description:
-      "Dermapen is a state-of-the-art micro-needling device that stimulates collagen and elastin production in the skin. It's effective for treating scars, wrinkles, and overall skin texture improvement.",
+    description: <FormattedMessage id="Dermapen.description" />,
     beforeAfterImages: [
       "/images/dermapen_before.jpg",
       "/images/dermapen_after.jpg"
     ]
   },
   "PLAZMAPEN-(PLEXER)": {
-    title: "PlazmaPen (Plexer)",
+    title: <FormattedMessage id="Plazmapen.title" />,
     entryImage: "/images/machines/plexer.png",
 
     procedureSteps: [
-      "Skin Cleansing: The skin is cleaned and prepared for treatment.",
-      "Plasma Energy: Plasma energy is applied to targeted areas to stimulate skin tightening.",
-      "Healing: Collagen production is stimulated for improved skin appearance.",
-      "Aftercare: Moisturizing and soothing care is provided post-treatment."
+      <FormattedMessage id="Plazmapen.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="Plazmapen.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="Plazmapen.procedureSteps.3" key="step3" />,
+      <FormattedMessage id="Plazmapen.procedureSteps.4" key="step4" />
     ],
-    description:
-      "PlazmaPen is a non-surgical treatment using plasma energy to treat fine lines, wrinkles, and sagging skin. The plasma energy stimulates collagen production, leading to smoother, tighter skin.",
+    description: <FormattedMessage id="Plazmapen.description" />,
     beforeAfterImages: [
       "/images/plazmapen_before.jpg",
       "/images/plazmapen_after.jpg"
     ]
   },
   G8: {
-    title: "G8",
+    title: <FormattedMessage id="G8.title" />,
     entryImage: "/images/machines/g8.png",
 
     procedureSteps: [
-      "Preparation: Skin is prepped and treated with a hydrating serum.",
-      "G8 Treatment: Advanced technology is used to lift and tighten skin.",
-      "Post-Treatment: Skin is nourished and hydrated post-procedure."
+      <FormattedMessage id="G8.procedureSteps.1" key="step1" />,
+      <FormattedMessage id="G8.procedureSteps.2" key="step2" />,
+      <FormattedMessage id="G8.procedureSteps.3" key="step3" />
     ],
-    description:
-      "G8 is a powerful and efficient facial lifting treatment using advanced technology to tone, firm, and tighten the skin. It can also improve facial contours and reduce the appearance of fine lines.",
+    description: <FormattedMessage id="G8.description" />,
     beforeAfterImages: ["/images/g8_before.jpg", "/images/g8_after.jpg"],
     link: "/FacialPage"
   }
@@ -172,7 +164,7 @@ export default function ServicePage() {
   const serviceContent = serviceData[service];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-15">
       <Head>
         <title>{serviceContent?.title} </title>
         <meta

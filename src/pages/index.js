@@ -7,6 +7,7 @@ import AboutSection from "../components/index/AboutSection";
 import PromotionsSection from "../components/index/PromotionsSection";
 import PlanSelectionSection from "../components/index/PlanSelectionSection";
 import StatsSection from "../components/index/StatsSection";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function Home() {
   return (

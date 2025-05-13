@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
-
+import { FormattedMessage } from "react-intl";
 const ShopSection = () => {
   const handleWhatsAppRedirect = () => {
     const phoneNumber = "+905395204530";
@@ -29,21 +29,17 @@ const ShopSection = () => {
           {/* Left Side */}
           <div className="md:w-1/2">
             <div className="inline-block bg-secondary text-white text-xs font-bold px-4 py-2 mb-4 rounded-sm">
-              BEST INDUSTRY IN THE TOWN
+              <FormattedMessage id="ShopSection.bestIndustry" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-dark">
-              Take An Appointment
+              <FormattedMessage id="ShopSection.takeAnAppointment" />
             </h2>
             <div className="md:columns-2 gap-6 text-text-light mb-8">
               <p>
-                We are known for our advanced and professional services in
-                aesthetic transformations. Our team of experts is dedicated to
-                delivering the highest quality care to each of our clients.
+                <FormattedMessage id="ShopSection.weAreKnown" />
               </p>
               <p className="mt-4 md:mt-0">
-                With over 12 years of experience in the industry, we aim to
-                bring out your true beauty with the latest technologies and
-                procedures.
+                <FormattedMessage id="ShopSection.weAreKnown2" />
               </p>
             </div>
             <motion.button
@@ -52,7 +48,7 @@ const ShopSection = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-primary text-white px-6 py-3 rounded flex items-center font-medium transition-colors hover:bg-primary-dark"
             >
-              MORE INFO
+              <FormattedMessage id="ShopSection.moreInfo" />
               <FiArrowRight className="ml-2" />
             </motion.button>
           </div>
@@ -124,22 +120,22 @@ const ProductCard = ({ product, index }) => {
 // Product data
 const products = [
   {
-    name: "HAIR VITAMINS",
+    name: <FormattedMessage id="ShopSection.hairVitamins" />,
     price: "99",
     image: "/images/products/gida.png"
   },
   {
-    name: "SERUM",
+    name: <FormattedMessage id="ShopSection.serum" />,
     price: "19",
     image: "/images/products/60.jpg"
   },
   {
-    name: "SUN SCREEN",
+    name: <FormattedMessage id="ShopSection.sunScreen" />,
     price: "75",
     image: "/images/products/sunScreen.png"
   },
   {
-    name: "SHAMPOO",
+    name: <FormattedMessage id="ShopSection.shampoo" />,
     price: "150",
     image: "/images/products/shampoo.jpg"
   }
