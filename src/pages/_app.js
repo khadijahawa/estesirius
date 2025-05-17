@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 // src/pages/_app.js
+import { useEffect } from "react";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import Head from "next/head";
