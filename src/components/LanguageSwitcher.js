@@ -1,6 +1,7 @@
+import { useLanguage } from "../context/LanguageContext";
+import { FaGlobe } from "react-icons/fa";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { FaGlobe } from "react-icons/fa"; // Globe icon for language selection
 
 const languages = {
   en: { name: "English" },
@@ -8,16 +9,10 @@ const languages = {
 };
 
 const LanguageSwitcher = () => {
-  const router = useRouter();
-  const { locales, locale, push, pathname, query } = router;
+  const { locale, changeLocale } = useLanguage();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const handleChange = (newLocale) => {
-    push({ pathname, query }, { pathname, query }, { locale: newLocale });
-    setDropdownOpen(false);
-  };
-
-  const availableLocales = locales?.filter((loc) => loc !== locale);
+  const availableLocales = Object.keys(languages).filter((l) => l !== locale);
 
   return (
     <div className="relative">
@@ -30,15 +25,14 @@ const LanguageSwitcher = () => {
       </button>
 
       {dropdownOpen && (
-        <div
-          className={`absolute top-full mt-2 right-0 w-40 bg-white shadow-lg rounded-lg overflow-hidden z-10 ${
-            locale === "ar" ? "right-0" : "left-0"
-          }`}
-        >
-          {availableLocales?.map((loc) => (
+        <div className="absolute top-full mt-2 right-0 w-40 bg-white shadow-lg rounded-lg overflow-hidden z-10">
+          {availableLocales.map((loc) => (
             <div
               key={loc}
-              onClick={() => handleChange(loc)}
+              onClick={() => {
+                changeLocale(loc);
+                setDropdownOpen(false);
+              }}
               className="px-4 py-2 cursor-pointer text-gray-800 hover:bg-gray-200"
             >
               {languages[loc]?.name}

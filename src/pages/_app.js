@@ -47,54 +47,50 @@
 // }
 
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from "react";
+
+import { LanguageProvider, useLanguage } from "../context/LanguageContext";
+
+import { useEffect } from "react";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 import IconManager from "../components/IconManager";
-
-import faviconUrl from "../../public/ico/Estesirius_logo.ico";
-
 import en from "../lang/en.json";
 import ar from "../lang/ar.json";
+import faviconUrl from "../../public/ico/Estesirius_logo.ico";
 
-const messages = {
-  en,
-  ar
-};
+const messages = { en, ar };
 
 function getDirection(locale) {
   return locale === "ar" ? "rtl" : "ltr";
 }
 
-export default function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  const [currentLocale, setCurrentLocale] = useState("en");
-
-  useEffect(() => {
-    // Detect browser language on first load
-    const browserLang = navigator.language || navigator.userLanguage;
-    const preferredLang = browserLang.toLowerCase().startsWith("ar")
-      ? "ar"
-      : "en";
-    setCurrentLocale(preferredLang);
-  }, []);
+function InnerApp({ Component, pageProps }) {
+  const { locale } = useLanguage();
 
   return (
     <>
       <Head>
         <title>Estesirius</title>
-        <html lang={currentLocale} dir={getDirection(currentLocale)} />
+        <html lang={locale} dir={getDirection(locale)} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <IconManager iconUrl={faviconUrl} />
-      <IntlProvider locale={currentLocale} messages={messages[currentLocale]}>
+      <IntlProvider locale={locale} messages={messages[locale]}>
         <Layout hideNav={Component.hideNav}>
           <Component {...pageProps} />
         </Layout>
       </IntlProvider>
     </>
+  );
+}
+
+export default function MyApp(props) {
+  return (
+    <LanguageProvider>
+      <InnerApp {...props} />
+    </LanguageProvider>
   );
 }
