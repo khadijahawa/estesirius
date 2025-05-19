@@ -51,7 +51,6 @@ export default function endolift() {
                   href="https://wa.link/7gjnrj"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary text-white px-4 py-2 rounded"
                 >
                   <div className="bg-[#40E0D0] hover:bg-teal-700 text-white py-3 px-6 rounded-lg transition duration-300 text-center shadow-md font-bold text-lg">
                     <FormattedMessage id="Endolift.buttonText" />
