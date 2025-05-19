@@ -47,11 +47,16 @@ export default function endolift() {
                 <FormattedMessage id="Endolift.description" />
               </p>
               <div className="pt-4">
-                <Link href="https://wa.me/+905395204530">
+                <a
+                  href="https://wa.link/7gjnrj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-white px-4 py-2 rounded"
+                >
                   <div className="bg-[#40E0D0] hover:bg-teal-700 text-white py-3 px-6 rounded-lg transition duration-300 text-center shadow-md font-bold text-lg">
                     <FormattedMessage id="Endolift.buttonText" />
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -102,10 +107,7 @@ export default function endolift() {
               <div className="flex flex-col items-center space-y-4">
                 <div className="text-6xl font-bold">1</div>
                 <div className="bg-[#40E0D0] px-6 py-2 rounded-full text-lg font-semibold ">
-                  <FormattedMessage
-                    id="Endolift.benefits.session"
-                    defaultMessage="جلسة واحدة فقط"
-                  />
+                  <FormattedMessage id="Endolift.benefits.session" />
                 </div>
               </div>
 
@@ -126,10 +128,7 @@ export default function endolift() {
                   />
                 </svg>
                 <div className="bg-[#40E0D0] px-6 py-2 rounded-full text-lg font-semibold">
-                  <FormattedMessage
-                    id="Endolift.benefits.results"
-                    defaultMessage="نتائج فورية تدوم 5 سنوات"
-                  />
+                  <FormattedMessage id="Endolift.benefits.results" />
                 </div>
               </div>
 
