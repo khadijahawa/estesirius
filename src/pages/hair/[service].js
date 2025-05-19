@@ -190,10 +190,9 @@ const ServicePage = () => {
 
   return (
     <div className="min-h-screen pt-[3%] px-[3%]">
-      <Head>
-        <title>{serviceContent.title} | Your Brand</title>
+      {/* <Head>
         <meta name="description" content={serviceContent.subheader} />
-      </Head>
+      </Head> */}
 
       <HairHeader
         title={serviceContent?.title}

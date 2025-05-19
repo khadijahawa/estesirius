@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
-import { FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaYoutube, FaVimeo, FaMapMarkerAlt, FaClock, FaCheck } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaFacebook,
+  FaTwitter,
+  FaYoutube,
+  FaVimeo,
+  FaMapMarkerAlt,
+  FaClock,
+  FaCheck
+} from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,13 +20,13 @@ const Contact = () => {
     email: "",
     phone: "",
     subject: "",
-    message: "",
+    message: ""
   });
 
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     success: false,
-    message: "",
+    message: ""
   });
 
   const handleChange = (e) => {
@@ -27,21 +37,21 @@ const Contact = () => {
     e.preventDefault();
     // In a real implementation, you would send this data to your backend
     console.log("Form submitted:", formData);
-    
+
     // Simulate form submission success
     setFormStatus({
       submitted: true,
       success: true,
       message: "Thank you for your message. We'll contact you shortly!"
     });
-    
+
     // Reset form
     setFormData({
       name: "",
       email: "",
       phone: "",
       subject: "",
-      message: "",
+      message: ""
     });
   };
 
@@ -51,9 +61,9 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-      },
-    },
+        staggerChildren: 0.2
+      }
+    }
   };
 
   const itemVariants = {
@@ -62,46 +72,53 @@ const Contact = () => {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6 }
-    },
+    }
   };
 
   return (
     <>
       <Head>
         <title>Contact Us | Este Sirius</title>
-        <meta name="description" content="Get in touch with Este Sirius, the premium plastic surgery clinic. Schedule a consultation or ask any questions you may have." />
+        <meta
+          name="description"
+          content="Get in touch with Este Sirius, the premium plastic surgery clinic. Schedule a consultation or ask any questions you may have."
+        />
       </Head>
 
       <div className="bg-gray-light py-16 relative overflow-hidden">
         {/* Decorative element */}
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary opacity-10"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-primary opacity-10"></div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           {/* Hero Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-secondary-dark">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-secondary-dark">
+              Contact Us
+            </h1>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg text-gray-dark max-w-2xl mx-auto">
-              Have questions or ready to schedule a consultation? Our team is here to help you on your journey to enhanced confidence and beauty.
+              Have questions or ready to schedule a consultation? Our team is
+              here to help you on your journey to enhanced confidence and
+              beauty.
             </p>
           </motion.div>
 
           {/* Main Content - Form and Contact Info */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
               className="bg-white p-8 rounded-lg shadow-lg"
             >
-              <motion.h2 
+              <motion.h2
                 variants={itemVariants}
                 className="text-2xl font-bold mb-6 text-secondary-dark"
               >
@@ -109,14 +126,26 @@ const Contact = () => {
               </motion.h2>
 
               {formStatus.submitted && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  className={`p-4 mb-6 rounded-md ${formStatus.success ? 'bg-success bg-opacity-20' : 'bg-error bg-opacity-20'}`}
+                  animate={{ opacity: 1, height: "auto" }}
+                  className={`p-4 mb-6 rounded-md ${
+                    formStatus.success
+                      ? "bg-success bg-opacity-20"
+                      : "bg-error bg-opacity-20"
+                  }`}
                 >
                   <div className="flex items-center">
-                    <FaCheck className={`mr-2 ${formStatus.success ? 'text-success' : 'text-error'}`} />
-                    <p className={formStatus.success ? 'text-success' : 'text-error'}>
+                    <FaCheck
+                      className={`mr-2 ${
+                        formStatus.success ? "text-success" : "text-error"
+                      }`}
+                    />
+                    <p
+                      className={
+                        formStatus.success ? "text-success" : "text-error"
+                      }
+                    >
                       {formStatus.message}
                     </p>
                   </div>
@@ -126,7 +155,9 @@ const Contact = () => {
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="name" className="block text-gray-dark mb-2">Full Name</label>
+                    <label htmlFor="name" className="block text-gray-dark mb-2">
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -139,7 +170,12 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="email" className="block text-gray-dark mb-2">Email Address</label>
+                    <label
+                      htmlFor="email"
+                      className="block text-gray-dark mb-2"
+                    >
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -154,7 +190,12 @@ const Contact = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="phone" className="block text-gray-dark mb-2">Phone Number</label>
+                    <label
+                      htmlFor="phone"
+                      className="block text-gray-dark mb-2"
+                    >
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       id="phone"
@@ -166,7 +207,12 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="subject" className="block text-gray-dark mb-2">Subject</label>
+                    <label
+                      htmlFor="subject"
+                      className="block text-gray-dark mb-2"
+                    >
+                      Subject
+                    </label>
                     <select
                       id="subject"
                       name="subject"
@@ -176,16 +222,25 @@ const Contact = () => {
                       required
                     >
                       <option value="">Select a subject</option>
-                      <option value="Consultation Request">Consultation Request</option>
+                      <option value="Consultation Request">
+                        Consultation Request
+                      </option>
                       <option value="Price Inquiry">Price Inquiry</option>
-                      <option value="Procedure Information">Procedure Information</option>
+                      <option value="Procedure Information">
+                        Procedure Information
+                      </option>
                       <option value="Other">Other</option>
                     </select>
                   </motion.div>
                 </div>
 
                 <motion.div variants={itemVariants} className="mb-6">
-                  <label htmlFor="message" className="block text-gray-dark mb-2">Your Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-dark mb-2"
+                  >
+                    Your Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -211,13 +266,13 @@ const Contact = () => {
             </motion.div>
 
             {/* Contact Information */}
-            <motion.div 
+            <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {/* Map */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="mb-10 rounded-lg overflow-hidden shadow-lg h-64 relative"
               >
@@ -231,7 +286,7 @@ const Contact = () => {
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href="https://maps.google.com" 
+                    href="https://maps.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-white text-secondary-dark font-semibold py-2 px-4 rounded-md"
@@ -242,23 +297,29 @@ const Contact = () => {
               </motion.div>
 
               {/* Contact Details */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="bg-secondary-dark p-8 rounded-lg shadow-lg text-white mb-8"
               >
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-                
+
                 <ul className="space-y-6">
                   <li className="flex items-start">
                     <div className="bg-primary rounded-full p-3 mr-4">
                       <FaMapMarkerAlt className="text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary mb-1">Address</h3>
-                      <p className="text-gray-light">123 Medical Plaza, Suite 456,<br />Los Angeles, CA 90210</p>
+                      <h3 className="font-semibold text-primary mb-1">
+                        Address
+                      </h3>
+                      <p className="text-gray-light">
+                        123 Medical Plaza, Suite 456,
+                        <br />
+                        Los Angeles, CA 90210
+                      </p>
                     </div>
                   </li>
-                  
+
                   <li className="flex items-start">
                     <div className="bg-primary rounded-full p-3 mr-4">
                       <FaPhone className="text-white" />
@@ -269,7 +330,7 @@ const Contact = () => {
                       <p className="text-gray-light">+36 4365 3981</p>
                     </div>
                   </li>
-                  
+
                   <li className="flex items-start">
                     <div className="bg-primary rounded-full p-3 mr-4">
                       <FaEnvelope className="text-white" />
@@ -280,14 +341,18 @@ const Contact = () => {
                       <p className="text-gray-light">info@estesirius.com</p>
                     </div>
                   </li>
-                  
+
                   <li className="flex items-start">
                     <div className="bg-primary rounded-full p-3 mr-4">
                       <FaClock className="text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary mb-1">Working Hours</h3>
-                      <p className="text-gray-light">Monday - Friday: 9AM - 6PM</p>
+                      <h3 className="font-semibold text-primary mb-1">
+                        Working Hours
+                      </h3>
+                      <p className="text-gray-light">
+                        Monday - Friday: 9AM - 6PM
+                      </p>
                       <p className="text-gray-light">Saturday: 10AM - 4PM</p>
                       <p className="text-gray-light">Sunday: Closed</p>
                     </div>
@@ -296,45 +361,59 @@ const Contact = () => {
               </motion.div>
 
               {/* Follow Us */}
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="bg-white p-6 rounded-lg shadow-lg"
               >
-                <h3 className="text-xl font-bold mb-4 text-secondary-dark">Follow Us</h3>
+                <h3 className="text-xl font-bold mb-4 text-secondary-dark">
+                  Follow Us
+                </h3>
                 <div className="flex space-x-4">
-                  <motion.a 
-                    whileHover={{ scale: 1.1, backgroundColor: 'var(--color-primary)' }}
-                    href="https://facebook.com" 
+                  <motion.a
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "var(--color-primary)"
+                    }}
+                    href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary-light text-white p-3 rounded-full"
                   >
                     <FaFacebook size={20} />
                   </motion.a>
-                  
-                  <motion.a 
-                    whileHover={{ scale: 1.1, backgroundColor: 'var(--color-primary)' }}
-                    href="https://twitter.com" 
+
+                  <motion.a
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "var(--color-primary)"
+                    }}
+                    href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary-light text-white p-3 rounded-full"
                   >
                     <FaTwitter size={20} />
                   </motion.a>
-                  
-                  <motion.a 
-                    whileHover={{ scale: 1.1, backgroundColor: 'var(--color-primary)' }}
-                    href="https://youtube.com" 
+
+                  <motion.a
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "var(--color-primary)"
+                    }}
+                    href="https://youtube.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary-light text-white p-3 rounded-full"
                   >
                     <FaYoutube size={20} />
                   </motion.a>
-                  
-                  <motion.a 
-                    whileHover={{ scale: 1.1, backgroundColor: 'var(--color-primary)' }}
-                    href="https://vimeo.com" 
+
+                  <motion.a
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "var(--color-primary)"
+                    }}
+                    href="https://vimeo.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary-light text-white p-3 rounded-full"

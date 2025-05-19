@@ -217,10 +217,9 @@ const ServicePage = () => {
 
   return (
     <div className="min-h-screen pt-[3%] px-[3%]">
-      <Head>
-        <title>{serviceContent?.title} </title>
+      {/* <Head>
         <meta name="description" content={serviceContent?.subheader} />
-      </Head>
+      </Head> */}
 
       <OperationsHeader
         title={serviceContent?.title}

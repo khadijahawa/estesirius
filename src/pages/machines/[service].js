@@ -165,13 +165,12 @@ export default function ServicePage() {
 
   return (
     <div className="min-h-screen pt-15">
-      <Head>
-        <title>{serviceContent?.title} </title>
+      {/* <Head>
         <meta
           name="description"
           content="Learn about our esthetic procedures and plastic surgery options"
         />
-      </Head>
+      </Head> */}
       <AestheticHeader />
 
       <AestheticEntry

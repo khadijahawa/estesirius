@@ -355,7 +355,8 @@
 
   "Endolift.title": "Endolift",
   "Endolift.description": "Endolift is a minimally invasive procedure that uses a laser fiber inserted under the skin to stimulate collagen production, tighten the skin, and reduce fat. It's commonly used for face and neck lifting and body contouring.",
-  "Endolift.procedureSteps.1": "Consultation: Assessment of skin and targeted areas.",
+  "Endolift.reviews.title": "Consultation: Assessment of skin and targeted areas.",
+  "Endolift.procedureSteps.1": "Preparation: Skin is cleansed and numbing cream is applied.",
   "Endolift.procedureSteps.2": "Laser Fiber Insertion: A small laser fiber is inserted under the skin.",
   "Endolift.procedureSteps.3": "Laser Treatment: The laser stimulates collagen production and tightens the skin.",
   "Endolift.procedureSteps.4": "Post-Treatment Care: Skin is treated with hydrating serums and cooling gels.",
@@ -457,5 +458,22 @@
   "Footer.quickContacts": "Quick Contacts",
   "Footer.gallery": "Our Gallery",
   "Footer.award": "Premium Plastic Surgery Clinic",
-  "Footer.copyright": "© Copyright 2025 Este Sirius. All Rights Reserved."
+  "Footer.copyright": "© Copyright 2025 Este Sirius. All Rights Reserved.",
+
+  "Endolift.reviews.title1": "Customer Reviews",
+  "Endolift.reviews.1.name": "Ahmad Al-Mutairi",
+  "Endolift.reviews.1.text": "Dr. Delik is one of the best professionals we’ve dealt with in Turkey. Very kind personality and extremely professional.",
+  "Endolift.reviews.2.name": "Sami Al-Mahmoudi",
+  "Endolift.reviews.2.text": "Highly recommend this clinic – very clean, organized, and welcoming. The doctor is super kind.",
+  "Endolift.reviews.3.name": "Khaled Bayoumi",
+  "Endolift.reviews.3.text": "I visited the clinic twice, and each time confirmed I made the right choice. Greetings to Mr. Abdul Malik.",
+  "Endolift.reviews.4.name": "Haider Bishara",
+  "Endolift.reviews.4.text": "Mashallah, top professionalism and kind service. I’ll definitely come back again.",
+  "Endolift.imageOverlayText": "the newest technology in the field of aesthetic medicine",
+  "Endolift.imageOverlayText2": "Endolift is a minimally invasive procedure that uses a laser fiber inserted under the skin to stimulate collagen production, tighten the skin, and reduce fat. It's commonly used for face and neck lifting and body contouring.",
+  "Endolift.imageOverlayText3": "Endolift",
+  "Endolift.buttonText": " Get A Free Consultation",
+  "Endolift.benefits.session": "Only One Session",
+  "Endolift.benefits.results": "Instant Results Lasting 5 Years",
+  "Endolift.benefits.nosurgery": "Non-Surgical Procedure"
 }

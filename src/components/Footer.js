@@ -26,7 +26,7 @@ const Footer = () => {
     window.open(whatsappURL, "_blank");
   };
   return (
-    <footer className="bg-primary relative">
+    <footer className="bg-[#32b3a6] relative">
       {/* Background Image with Transparency - positioned to cover entire footer */}
       <div className="absolute inset-0 opacity-10 z-0 overflow-hidden">
         <Image
@@ -47,7 +47,6 @@ const Footer = () => {
         className="container mx-auto px-4 py-16 relative z-10"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
-          {/* Column 1 - Este Sirius */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +61,7 @@ const Footer = () => {
                 height={150}
               />
             </div>
-            <p className="text-gray-light mb-6">
+            <p className="text-white font-bold mb-6">
               <FormattedMessage id="Footer.description" />
             </p>
             <div className="flex space-x-4">
