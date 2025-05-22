@@ -1,17 +1,22 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Image from "next/image";
 import Head from "next/head";
-import { FaWhatsapp, FaCheck, FaClock, FaMoneyBillWave, FaPlayCircle } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaCheck,
+  FaClock,
+  FaMoneyBillWave,
+  FaPlayCircle
+} from "react-icons/fa";
 import { RiMedicineBottleLine } from "react-icons/ri";
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { FormattedMessage } from "react-intl";
 
 export default function Endolift() {
   // Client-side-only code için hydration hatasını önlemek amacıyla useState kullanımı
   const [isClient, setIsClient] = useState(false);
   const [showVideo1, setShowVideo1] = useState(false);
   const [showVideo2, setShowVideo2] = useState(false);
-  const t = useTranslations();
 
   useEffect(() => {
     setIsClient(true);
@@ -20,19 +25,26 @@ export default function Endolift() {
   return (
     <>
       <Head>
-        <title>{t('Endolift.title')}</title>
-        <meta name="description" content={t('Endolift.description')} />
+        <title>
+          <FormattedMessage id="Endolift.title" />
+        </title>
+        <meta
+          name="description"
+          content={<FormattedMessage id="Endolift.description" />}
+        />
       </Head>
 
       {/* Promo Banner - Top */}
-      <a 
-        href="https://wa.link/7gjnrj" 
-        target="_blank" 
+      <a
+        href="https://wa.link/7gjnrj"
+        target="_blank"
         rel="noopener noreferrer"
         className="bg-gradient-to-r from-red-600 to-purple-500 text-white py-3 px-4 text-center font-bold flex items-center justify-center hover:opacity-90 transition duration-300"
       >
         <FaWhatsapp className="mr-3 text-3xl md:text-4xl" />
-        <span className="text-lg md:text-xl">{t('Endolift.promoBanner')}</span>
+        <span className="text-lg md:text-xl">
+          <FormattedMessage id="Endolift.promoBanner" />
+        </span>
       </a>
 
       {/* Header Section */}
@@ -41,8 +53,8 @@ export default function Endolift() {
           {/* Logo */}
           <div className="mb-6">
             <div className="w-20 h-20 md:w-24 md:h-24 bg-secondary-dark rounded-full flex items-center justify-center mx-auto overflow-hidden">
-              <Image 
-                src="/images/clinic/estesirius-2.png" 
+              <Image
+                src="/images/clinic/estesirius-2.png"
                 alt="SIRIUS Logo"
                 width={100}
                 height={100}
@@ -65,7 +77,7 @@ export default function Endolift() {
           {/* Main Title */}
           <div className="bg-teal-500 py-4 px-12 rounded-lg shadow-md inline-block mb-8">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center">
-              {t('Endolift.mainTitle')}
+              <FormattedMessage id="Endolift.mainTitle" />
             </h1>
           </div>
 
@@ -76,38 +88,48 @@ export default function Endolift() {
                 <div className="bg-secondary-dark w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                   <FaCheck className="text-white text-lg md:text-xl" />
                 </div>
-                <span className="font-medium text-lg md:text-xl lg:text-2xl">{t('Endolift.keyBenefits.nonSurgical')}</span>
+                <span className="font-medium text-lg md:text-xl lg:text-2xl">
+                  <FormattedMessage id="Endolift.keyBenefits.nonSurgical" />
+                </span>
               </li>
               <li className="flex items-center">
                 <div className="bg-secondary-dark w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                   <FaCheck className="text-white text-lg md:text-xl" />
                 </div>
-                <span className="font-medium text-lg md:text-xl lg:text-2xl">{t('Endolift.keyBenefits.oneSession')}</span>
+                <span className="font-medium text-lg md:text-xl lg:text-2xl">
+                  <FormattedMessage id="Endolift.keyBenefits.oneSession" />
+                </span>
               </li>
               <li className="flex items-center">
                 <div className="bg-secondary-dark w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                   <FaCheck className="text-white text-lg md:text-xl" />
                 </div>
-                <span className="font-medium text-lg md:text-xl lg:text-2xl">{t('Endolift.keyBenefits.immediateResults')}</span>
+                <span className="font-medium text-lg md:text-xl lg:text-2xl">
+                  <FormattedMessage id="Endolift.keyBenefits.immediateResults" />
+                </span>
               </li>
               <li className="flex items-center">
                 <div className="bg-secondary-dark w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                   <FaCheck className="text-white text-lg md:text-xl" />
                 </div>
-                <span className="font-medium text-lg md:text-xl lg:text-2xl">{t('Endolift.keyBenefits.lastsFiveYears')}</span>
+                <span className="font-medium text-lg md:text-xl lg:text-2xl">
+                  <FormattedMessage id="Endolift.keyBenefits.lastsFiveYears" />
+                </span>
               </li>
             </ul>
           </div>
 
           {/* CTA 1 */}
-          <a 
-            href="https://wa.link/7gjnrj" 
-            target="_blank" 
+          <a
+            href="https://wa.link/7gjnrj"
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-secondary-dark text-white font-bold py-4 px-8 rounded-lg flex items-center justify-center mx-auto max-w-xs md:max-w-sm lg:max-w-md hover:bg-blue-800 transition duration-300 text-lg md:text-xl"
           >
             <FaWhatsapp className="mr-3 text-7xl md:text-4xl" />
-            <span>{t('Endolift.whatsappButton')}</span>
+            <span>
+              <FormattedMessage id="Endolift.whatsappButton" />
+            </span>
           </a>
         </div>
       </div>
@@ -118,13 +140,13 @@ export default function Endolift() {
           {/* Section Title */}
           <div className="text-center mb-8">
             <h2 className="inline-block bg-red-600 text-white font-bold text-xl md:text-2xl lg:text-3xl px-8 py-3 rounded-lg">
-              {t('Endolift.seeTheDifference')}
+              <FormattedMessage id="Endolift.seeTheDifference" />
             </h2>
           </div>
 
           <div className="text-center mb-6">
             <div className="inline-block bg-red-600 text-white font-bold text-lg md:text-xl px-6 py-2 rounded-lg">
-              {t('Endolift.resultsFromFirstSession')}
+              <FormattedMessage id="Endolift.resultsFromFirstSession" />
             </div>
           </div>
 
@@ -136,24 +158,32 @@ export default function Endolift() {
               <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-64 xl:h-64 overflow-hidden rounded-full border-2 border-teal-500">
                 <Image
                   src="/images/endolift/endolift_oncesi_onden.jpg"
-                  alt={t('Endolift.beforeImage.front')}
+                  alt={<FormattedMessage id="Endolift.beforeImage.front" />}
                   fill
                   className="object-cover"
                 />
               </div>
-              
+
               {/* Arrow between images */}
               <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="text-teal-500 font-black text-5xl md:text-6xl lg:text-7xl flex items-center" style={{ textShadow: '0 0 3px teal' }}>
-                  <span className="inline-block" style={{ transform: 'scaleX(1.5)' }}>➜</span>
+                <div
+                  className="text-teal-500 font-black text-5xl md:text-6xl lg:text-7xl flex items-center"
+                  style={{ textShadow: "0 0 3px teal" }}
+                >
+                  <span
+                    className="inline-block"
+                    style={{ transform: "scaleX(1.5)" }}
+                  >
+                    ➜
+                  </span>
                 </div>
               </div>
-              
+
               {/* After Image */}
               <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-64 xl:h-64 overflow-hidden rounded-full border-2 border-teal-500">
                 <Image
                   src="/images/endolift/endolift_sonrasi_onden.jpg"
-                  alt={t('Endolift.afterImage.front')}
+                  alt={<FormattedMessage id="Endolift.afterImage.front" />}
                   fill
                   className="object-cover"
                 />
@@ -166,24 +196,32 @@ export default function Endolift() {
               <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-64 xl:h-64 overflow-hidden rounded-full border-2 border-teal-500">
                 <Image
                   src="/images/endolift/endolift_oncesi_yandan.jpg"
-                  alt={t('Endolift.beforeImage.side')}
+                  alt={<FormattedMessage id="Endolift.beforeImage.side" />}
                   fill
                   className="object-cover"
                 />
               </div>
-              
+
               {/* Arrow between images */}
               <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="text-teal-500 font-black text-5xl md:text-6xl lg:text-7xl flex items-center" style={{ textShadow: '0 0 3px teal' }}>
-                  <span className="inline-block" style={{ transform: 'scaleX(1.5)' }}>➜</span>
+                <div
+                  className="text-teal-500 font-black text-5xl md:text-6xl lg:text-7xl flex items-center"
+                  style={{ textShadow: "0 0 3px teal" }}
+                >
+                  <span
+                    className="inline-block"
+                    style={{ transform: "scaleX(1.5)" }}
+                  >
+                    ➜
+                  </span>
                 </div>
               </div>
-              
+
               {/* After Image */}
               <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 xl:w-64 xl:h-64 overflow-hidden rounded-full border-2 border-teal-500">
                 <Image
                   src="/images/endolift/endolift_sonrasi_yandan.jpg"
-                  alt={t('Endolift.afterImage.side')}
+                  alt={<FormattedMessage id="Endolift.afterImage.side" />}
                   fill
                   className="object-cover"
                 />
@@ -195,27 +233,35 @@ export default function Endolift() {
           <div className="space-y-4 max-w-xs mx-auto mb-10 md:max-w-sm lg:max-w-md xl:max-w-lg">
             <div className="bg-teal-100 rounded-lg p-4 text-center flex items-center">
               <RiMedicineBottleLine className="text-2xl mr-4 text-teal-600" />
-              <p className="font-medium text-left text-lg md:text-xl">{t('Endolift.additionalBenefits.noPain')}</p>
+              <p className="font-medium text-left text-lg md:text-xl">
+                <FormattedMessage id="Endolift.additionalBenefits.noPain" />
+              </p>
             </div>
             <div className="bg-teal-100 rounded-lg p-4 text-center flex items-center">
               <FaClock className="text-2xl mr-4 text-teal-600" />
-              <p className="font-medium text-left text-lg md:text-xl">{t('Endolift.additionalBenefits.halfHour')}</p>
+              <p className="font-medium text-left text-lg md:text-xl">
+                <FormattedMessage id="Endolift.additionalBenefits.halfHour" />
+              </p>
             </div>
             <div className="bg-teal-100 rounded-lg p-4 text-center flex items-center">
               <FaMoneyBillWave className="text-2xl mr-4 text-teal-600" />
-              <p className="font-medium text-left text-lg md:text-xl">{t('Endolift.additionalBenefits.cheaperThanSurgery')}</p>
+              <p className="font-medium text-left text-lg md:text-xl">
+                <FormattedMessage id="Endolift.additionalBenefits.cheaperThanSurgery" />
+              </p>
             </div>
           </div>
 
           {/* CTA 2 */}
-          <a 
-            href="https://wa.link/7gjnrj" 
-            target="_blank" 
+          <a
+            href="https://wa.link/7gjnrj"
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-secondary-dark text-white font-bold py-4 px-8 rounded-lg flex items-center justify-center mx-auto max-w-xs md:max-w-sm lg:max-w-md hover:bg-blue-800 transition duration-300 text-lg md:text-xl"
           >
             <FaWhatsapp className="mr-3 text-7xl md:text-4xl" />
-            <span>{t('Endolift.whatsappButton')}</span>
+            <span>
+              <FormattedMessage id="Endolift.whatsappButton" />
+            </span>
           </a>
         </div>
       </div>
@@ -224,21 +270,27 @@ export default function Endolift() {
       <div className="py-10 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-4 text-secondary-dark">
-            {t('Endolift.hearFromClients')} <br />
-            <span className="bg-secondary-dark text-white px-3 py-1 rounded-lg inline-block mt-2">{t('Endolift.notFromUs')}</span>
+            <FormattedMessage id="Endolift.hearFromClients" /> <br />
+            <span className="bg-secondary-dark text-white px-3 py-1 rounded-lg inline-block mt-2">
+              <FormattedMessage id="Endolift.notFromUs" />
+            </span>
           </h2>
-          
+
           {/* Star Rating */}
           <div className="flex justify-center mb-8">
             {[...Array(5)].map((_, i) => (
-              <svg 
+              <svg
                 key={i}
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 24 24" 
-                fill="currentColor" 
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
                 className="w-6 h-6 text-yellow-400 md:w-8 md:h-8 lg:w-10 lg:h-10"
               >
-                <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                  clipRule="evenodd"
+                />
               </svg>
             ))}
           </div>
@@ -252,13 +304,15 @@ export default function Endolift() {
                 <div className="bg-white rounded-lg shadow-md overflow-hidden border-2 border-teal-500">
                   <div className="relative aspect-[4/3]">
                     {!showVideo1 ? (
-                      <div 
+                      <div
                         className="relative w-full h-full cursor-pointer"
                         onClick={() => setShowVideo1(true)}
                       >
-                        <Image 
+                        <Image
                           src="/images/endolift/ho_thumbnail.png"
-                          alt={t('Endolift.testimonialVideo1')}
+                          alt={
+                            <FormattedMessage id="Endolift.testimonialVideo1" />
+                          }
                           fill
                           className="object-cover"
                         />
@@ -267,7 +321,7 @@ export default function Endolift() {
                         </div>
                       </div>
                     ) : (
-                      <video 
+                      <video
                         src="/images/endolift/jo.mp4"
                         controls
                         autoPlay
@@ -276,18 +330,20 @@ export default function Endolift() {
                     )}
                   </div>
                 </div>
-                
+
                 {/* Second Video */}
                 <div className="bg-white rounded-lg shadow-md overflow-hidden border-2 border-teal-500">
                   <div className="relative aspect-[4/3]">
                     {!showVideo2 ? (
-                      <div 
+                      <div
                         className="relative w-full h-full cursor-pointer"
                         onClick={() => setShowVideo2(true)}
                       >
-                        <Image 
+                        <Image
                           src="/images/endolift/poli_thumbnail.png"
-                          alt={t('Endolift.testimonialVideo2')}
+                          alt={
+                            <FormattedMessage id="Endolift.testimonialVideo2" />
+                          }
                           fill
                           className="object-cover"
                         />
@@ -296,7 +352,7 @@ export default function Endolift() {
                         </div>
                       </div>
                     ) : (
-                      <video 
+                      <video
                         src="/images/endolift/poli.mp4"
                         controls
                         autoPlay
@@ -312,9 +368,11 @@ export default function Endolift() {
                 <div className="bg-white rounded-lg shadow-md overflow-hidden border-2 border-teal-500">
                   <div className="relative aspect-[4/3]">
                     <div className="relative w-full h-full">
-                      <Image 
+                      <Image
                         src="/images/endolift/ho_thumbnail.png"
-                        alt={t('Endolift.testimonialVideo1')}
+                        alt={
+                          <FormattedMessage id="Endolift.testimonialVideo1" />
+                        }
                         fill
                         className="object-cover"
                       />
@@ -327,9 +385,11 @@ export default function Endolift() {
                 <div className="bg-white rounded-lg shadow-md overflow-hidden border-2 border-teal-500">
                   <div className="relative aspect-[4/3]">
                     <div className="relative w-full h-full">
-                      <Image 
+                      <Image
                         src="/images/endolift/poli_thumbnail.png"
-                        alt={t('Endolift.testimonialVideo2')}
+                        alt={
+                          <FormattedMessage id="Endolift.testimonialVideo2" />
+                        }
                         fill
                         className="object-cover"
                       />
@@ -346,14 +406,16 @@ export default function Endolift() {
       </div>
 
       {/* Promo Banner - Bottom */}
-      <a 
-        href="https://wa.link/7gjnrj" 
-        target="_blank" 
+      <a
+        href="https://wa.link/7gjnrj"
+        target="_blank"
         rel="noopener noreferrer"
         className="bg-gradient-to-r from-red-600 to-purple-500 text-white py-3 px-4 text-center font-bold flex items-center justify-center hover:opacity-90 transition duration-300"
       >
         <FaWhatsapp className="mr-3 text-3xl md:text-4xl" />
-        <span className="text-lg md:text-xl">{t('Endolift.promoBanner')}</span>
+        <span className="text-lg md:text-xl">
+          <FormattedMessage id="Endolift.promoBanner" />
+        </span>
       </a>
     </>
   );
