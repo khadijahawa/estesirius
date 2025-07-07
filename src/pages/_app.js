@@ -79,7 +79,7 @@ function InnerApp({ Component, pageProps }) {
       </Head>
       <IconManager iconUrl={faviconUrl} />
       <IntlProvider locale={locale} messages={messages[locale]}>
-        <Layout hideNav={Component.hideNav}>
+        <Layout hideNav={Component.hideNav} hideFooter={Component.hideFooter}>
           <Component {...pageProps} />
         </Layout>
       </IntlProvider>
