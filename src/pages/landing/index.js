@@ -36,7 +36,6 @@ function LandingPage() {
               <span className="text-red-600 rotate-90 text-2xl">*</span>
             </p>
           </div>
-
           <div className="text-center">
             <button className="bg-gradient-to-r from-[#840000] to-[#9d0d76] text-white py-2 px-6 rounded-full font-semibold text-xl mb-12">
               تواصل معنا
@@ -45,7 +44,6 @@ function LandingPage() {
         </div>
       </div>
       <div className="min-h-screen bg-white text-white px-4 py-6 font-sans max-w-md mx-auto">
-        {/* Üst içerik burada... */}
         <div className="p-4 rounded-xl shadow-lg backdrop-blur text-right bg-gradient-to-br from-[#002e62] to-[#517094] relative bottom-20  ">
           <h2 className="font-bold text-lg mb-2">
             ما هو التجميل غير الجراحي ؟
@@ -60,9 +58,7 @@ function LandingPage() {
             <div>تكلفة أقل</div>
           </div>
         </div>
-        {/* Hizmetler Bölümü */}
         <div className="mt-10  text-[#02163b] rounded-xl py-6 px-4 space-y-8 relative bottom-20">
-          {/* 1 - تجميل الوجه */}
           <div className="flex flex-col items-center text-center">
             <img
               src="/images/landing/face.png"
@@ -72,8 +68,6 @@ function LandingPage() {
             <h3 className="text-3xl font-bold text-[#20528c] ">تجميل الوجه</h3>
             <p className=" text-[#40e0d0]">إزالة التجاعيد وحب الشباب بالليزر</p>
           </div>
-
-          {/* 2 - تجميل الثدي */}
           <div className="flex flex-col items-center text-center">
             <img
               src="/images/landing/breast.png"
@@ -83,8 +77,6 @@ function LandingPage() {
             <h3 className="text-3xl font-bold text-[#20528c]">تجميل الثدي</h3>
             <p className=" text-[#40e0d0]">تصغيره أو تكبيره وتجميله</p>
           </div>
-
-          {/* 3 - شفط الدهون */}
           <div className="flex flex-col items-center text-center">
             <img
               src="/images/landing/lipo.png"
@@ -96,8 +88,6 @@ function LandingPage() {
               نحت الجسم وتنسيق القوام للوصول إلى الجسم المثالي
             </p>
           </div>
-
-          {/* 4 - تجميل الأنف */}
           <div className="flex flex-col items-center text-center">
             <img
               src="/images/landing/nose.png"
@@ -110,7 +100,6 @@ function LandingPage() {
             </p>
           </div>
         </div>
-        {/* Şوف الفرق ! bölümü */}
         <div className=" text-[#02163b] rounded-xl py-6 px-4 text-center  relative bottom-10">
           <h2 className="text-2xl font-bold text-center text-[#20528c] mb-2">
             !شوف الفرق
@@ -118,9 +107,7 @@ function LandingPage() {
           <p className="text-center text-white bg-[#40e0d0] inline-block px-4 py-1 rounded-full font-bold text-sm ">
             نتائج من أول جلسة
           </p>
-
           <div className="flex flex-col items-center justify-center gap-6 mt-6">
-            {/* 1. karşılaştırma */}
             <div className="flex items-center justify-center gap-12">
               <div className="w-24 h-24 rounded-full border-[3px] border-[#40e0d0] overflow-hidden">
                 <img
@@ -138,7 +125,6 @@ function LandingPage() {
               </div>
             </div>
             <p className="text-8xl text-[#40e0d0] absolute top-28">⟵</p>
-            {/* 2. karşılaştırma */}
             <div className="flex items-center justify-center gap-12">
               <div className="w-24 h-24 rounded-full border-[3px] border-[#40e0d0] overflow-hidden">
                 <img
@@ -159,13 +145,10 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      {/* جهاز الأندوليفت الثوري bölümü */}
       <div className="bg-[#0a2e57]  py-8 px-4 text-center mt-6">
         <h2 className="text-2xl font-bold text-white mb-6">
           جهاز الأندوليفت الثوري
         </h2>
-
-        {/* Video görseli */}
         <div className="bg-[#0a2e57] py-8 px-4 text-center mt-6">
           <div className="flex justify-center mb-6">
             <img
@@ -174,11 +157,9 @@ function LandingPage() {
               className="w-64 max-w-full"
             />
           </div>
-
           <p className="text-white text-lg font-semibold mb-4">
             شاهد الفيديو للمزيد عن الجهاز
           </p>
-
           <div className="flex justify-center">
             <div className="relative w-72 h-72 max-w-full rounded-full overflow-hidden border-4 border-[#40e0d0]">
               <video
@@ -195,7 +176,6 @@ function LandingPage() {
                 />
                 متصفحك لا يدعم تشغيل الفيديو.
               </video>
-
               {!isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-[#40e0d0] w-12 h-12 rounded-full flex items-center justify-center opacity-80">
@@ -215,14 +195,11 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      {/* اسمع من زبائننا وليس منا bölümü */}
       <div className="bg-[#f5fffe] text-[#0a2e57] py-6 text-center mt-3">
         <h2 className="text-2xl font-bold mb-4">اسمع من زبائننا</h2>
         <p className="inline-block bg-[#0a2e57] text-white py-1 px-4 rounded-full font-bold text-lg mb-6">
           وليس منا
         </p>
-
-        {/* Google yorumları görseli */}
         <div className="mt-6">
           <img
             src="/images/reviews.jpeg"
@@ -231,17 +208,13 @@ function LandingPage() {
           />
         </div>
       </div>
-      {/* İletişim Formu ve Bilgi Kutuları */}
       <div className="mt-6 bg-[#f5fffe] py-6 rounded-xl text-right">
-        {/* Başlık */}
         <div className="bg-[#6c7685] px-12 py-6">
           <div className="bg-[#40e0d0] rounded-xl">
             <h2 className=" font-bold text-white mb-4 text-center ">
               سجل بياناتك وسنتواصل معك
             </h2>
           </div>
-
-          {/* Form Alanı */}
           <form className="space-y-3 mb-4 ">
             <input
               type="text"
@@ -266,10 +239,7 @@ function LandingPage() {
             </button>
           </form>
         </div>
-
-        {/* Bilgi Kartları */}
         <div className="space-y-4 mt-10 px-8">
-          {/* İletişim */}
           <div className="border-2 border-[#40e0d0] rounded-xl py-4 px-6 text-center bg-white">
             <div className="mb-2 bg-[#0a2e57] rounded-4xl inline-block p-2">
               <svg
@@ -287,8 +257,6 @@ function LandingPage() {
               +90 539 520 45 30
             </p>
           </div>
-
-          {/* Çalışma Saatleri */}
           <div className="border-2 border-[#40e0d0] rounded-xl py-4 px-6 text-center bg-white">
             <div className="mb-2 bg-[#0a2e57] rounded-4xl inline-block p-2">
               <svg
