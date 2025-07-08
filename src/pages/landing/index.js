@@ -5,6 +5,22 @@ function LandingPage() {
 
   const handlePlay = () => setIsPlaying(true);
   const handlePause = () => setIsPlaying(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
+
+  const handleSubmit = () => {
+    if (!name || !phone || !service) {
+      alert("Lütfen tüm alanları doldurun.");
+      return;
+    }
+
+    const message = `Merhaba, ben ${name}%0A📞 Telefon: ${phone}%0A💬 Hizmet: ${service}`;
+    const phoneNumber = "905395204530";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(whatsappURL, "_blank");
+  };
 
   return (
     <div>
@@ -166,6 +182,8 @@ function LandingPage() {
                 ref={videoRef}
                 poster="/images/landing/thumbnail.png"
                 controls
+                autoPlay
+                muted
                 onPlay={handlePlay}
                 onPause={handlePause}
                 className="w-full h-full object-cover rounded-full"
@@ -215,24 +233,31 @@ function LandingPage() {
               سجل بياناتك وسنتواصل معك
             </h2>
           </div>
-          <form className="space-y-3 mb-4 ">
+          <form className="space-y-3 mb-4" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               placeholder="ادخل اسمك"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-2 rounded-md bg-white text-[#02163b] placeholder:text-[#999] focus:outline-none placeholder:text-right"
             />
             <input
               type="tel"
               placeholder="رقم تلفونك"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="w-full px-4 py-2 rounded-md bg-white text-[#02163b] placeholder:text-[#999] focus:outline-none placeholder:text-right"
             />
             <input
               type="text"
               placeholder="الخدمة التي تستفسر عنها"
+              value={service}
+              onChange={(e) => setService(e.target.value)}
               className="w-full px-4 py-2 rounded-md bg-white text-[#02163b] placeholder:text-[#999] focus:outline-none placeholder:text-right"
             />
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               className="w-full bg-[#164372] text-white font-bold py-2 rounded-full mt-2 text-xs"
             >
               سجل واحصل على خصم %20
