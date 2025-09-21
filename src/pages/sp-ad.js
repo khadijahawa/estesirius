@@ -16,25 +16,10 @@ export default function Endolift() {
   const [isClient, setIsClient] = useState(false);
   const [showVideo1, setShowVideo1] = useState(false);
   const [showVideo2, setShowVideo2] = useState(false);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [service, setService] = useState("");
-  const message = `Merhaba, ben ${name}%0A📞 Telefon: ${phone}%0A💬 Hizmet: ${service}`;
+
+  const message = `مرحبا جيت من سناب تشات`;
   const phoneNumber = "905395204530";
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-
-  const handleSubmit = () => {
-    if (!name || !phone || !service) {
-      alert("Lütfen tüm alanları doldurun.");
-      return;
-    }
-
-    const message = `Merhaba, ben ${name}%0A📞 Telefon: ${phone}%0A💬 Hizmet: ${service}`;
-    const phoneNumber = "905395204530";
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-
-    window.open(whatsappURL, "_blank");
-  };
 
   useEffect(() => {
     setIsClient(true);
