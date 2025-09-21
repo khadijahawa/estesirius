@@ -2,6 +2,28 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cairo";
+  src: url("../../public/fonts/a/Cairo/Cairo-VariableFont_slnt\,wght.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("../../public/fonts/a/Jost/Jost-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Primary color palette */
   --color-primary: #40e0d0; /* Turquoise */
